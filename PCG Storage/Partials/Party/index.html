@@ -1,0 +1,10 @@
+﻿<div ng-controller="partyController">
+    <h1>Party</h1>
+    <fieldset>
+        <legend>Parties</legend>
+        <div ng-repeat="party in parties">
+            <a href="#/{{ user.Id }}/party/{{ party.Id }}">{{ party.Name }}</a>
+        </div>
+    </fieldset>
+    <div><a href="#/{{ user.Id }}/party/new">New party</a></div>
+</div>

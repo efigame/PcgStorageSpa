@@ -1,0 +1,39 @@
+﻿<div ng-controller="characterController">
+    <h1>{{ character.Name }}</h1>
+    <fieldset>
+        <legend>Skills</legend>
+        <div ng-repeat="skill in character.Skills">
+            {{ skill.Name }} d{{ skill.Dice }}{{ skill.SelectedAddons > 0 ? ' + ' + skill.SelectedAddons : '' }}
+            <div ng-repeat="subskill in skill.SubSkills">
+                - {{ subskill.Name }} d{{ skill.Dice }} + {{ skill.SelectedAddons + subskill.Adjustment }}
+            </div>
+            <hr />
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Powers</legend>
+        <div>Hand size {{ character.HandSize }}</div><hr />
+        <div ng-if="character.LightArmors > 1 || character.HeavyArmors > 1 || character.Weapons > 1">
+            Proficient with<br />
+            <div ng-if="character.LightArmors > 1">Light Armors</div>
+            <div ng-if="character.HeavyArmors > 1">Heavy Armors</div>
+            <div ng-if="character.Weapons > 1">Weapons</div>
+            <hr />
+        </div>
+        <div ng-repeat="power in character.Powers">
+            {{ power.Text }}
+            <hr />
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Cards (Favorit: {{ character.FavoredCardType }})</legend>
+        <div>Weapon {{ character.SelectedWeaponCards != null ? character.SelectedWeaponCards : character.WeaponCards }}</div>
+        <div>Spell {{ character.SelectedSpellCards != null ? character.SelectedSpellCards : character.SpellCards }}</div>
+        <div>Armor {{ character.SelectedArmorCards != null ? character.SelectedArmorCards : character.ArmorCards }}</div>
+        <div>Item {{ character.SelectedItemCards != null ? character.SelectedItemCards : character.ItemCards }}</div>
+        <div>Ally {{ character.SelectedAllyCards != null ? character.SelectedAllyCards : character.AllyCards }}</div>
+        <div>Blessing {{ character.SelectedBlessingCards != null ? character.SelectedBlessingCards : character.BlessingCards }}</div>
+    </fieldset>
+    <a href="#/{{ user.Id }}/party/{{ party.Id }}/character/{{ character.Id }}/edit">Edit</a> <a href="#/{{ user.Id }}/party/{{ party.Id }}">Show party</a>
+
+</div>

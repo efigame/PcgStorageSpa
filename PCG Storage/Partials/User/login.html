@@ -1,0 +1,11 @@
+﻿<h1>Pcg Storage</h1>
+<p>This is for storaging your party information and removed cards for the Pathfinder Card Game</p>
+<div ng-controller="loginController as app">
+    <div>
+        Email: <input type="text" ng-model="app.user.email" /><br />
+        Password: <input type="text" ng-model="app.user.password" />
+    </div>
+    <div>
+        <input type="button" ng-click="app.loginUser(app.user)" value="click" />
+    </div>
+</div>
