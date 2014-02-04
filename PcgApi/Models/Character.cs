@@ -60,6 +60,8 @@ namespace PcgApi.Models
         [DataMember]
         public int? SelectedBlessingCards { get; set; }
         [DataMember]
+        public List<KeyValuePair<int, bool>> HandSizes { get; set; }
+        [DataMember]
         public int HandSize { get; set; }
         [DataMember]
         public int PossibleHandSize { get; set; }
@@ -91,6 +93,7 @@ namespace PcgApi.Models
             SelectedItemCards = partyCharacter.ItemCards;
             SelectedAllyCards = partyCharacter.AllyCards;
             SelectedBlessingCards = partyCharacter.BlessingCards;
+            HandSizes = new List<KeyValuePair<int, bool>>();
 
             var lightArmor = partyCharacter.LightArmors;
             var heavyArmor = partyCharacter.HeavyArmors;
@@ -121,6 +124,14 @@ namespace PcgApi.Models
                 PossibleAllyCards = characterCard.PossibleAllyCards;
                 PossibleBlessingCards = characterCard.PossibleBlessingCards;
                 FavoredCardType = characterCard.FavoredCardType;
+
+                for (int i = HandSize + 1; i <= PossibleHandSize; i++)
+                {
+                    if (SelectedHandSize >= i)
+                        HandSizes.Add(new KeyValuePair<int, bool>(i, true));
+                    else
+                        HandSizes.Add(new KeyValuePair<int, bool>(i, false));
+                }
 
                 var powers = DataAccess.Dto.Power.All(CharacterCardId);
                 Powers.AddRange(powers.Select(p => new Power(p, partyCharacter.Id)));

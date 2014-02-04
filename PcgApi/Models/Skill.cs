@@ -16,6 +16,8 @@ namespace PcgApi.Models
         [DataMember]
         public int Dice { get; set; }
         [DataMember]
+        public List<KeyValuePair<int, bool>> Addons { get; set; }
+        [DataMember]
         public int PossibleAddons { get; set; }
         [DataMember]
         public int SelectedAddons { get; set; }
@@ -31,6 +33,8 @@ namespace PcgApi.Models
             Id = skill.Id;
             Name = skill.Name;
             Dice = skill.Dice;
+            Addons = new List<KeyValuePair<int, bool>>();
+
             PossibleAddons = skill.PossibleAddons;
             SubSkills = new List<SubSkill>();
 
@@ -44,6 +48,15 @@ namespace PcgApi.Models
                     SelectedAddons = characterSkill.SelectedAdjustment;
                 else
                     SelectedAddons = 0;
+
+                for (int i = 1; i <= skill.PossibleAddons; i++)
+                {
+                    if (SelectedAddons >= i)
+                        Addons.Add(new KeyValuePair<int, bool>(i, true));
+                    else
+                        Addons.Add(new KeyValuePair<int, bool>(i, false));
+                }
+
             }
         }
     }
