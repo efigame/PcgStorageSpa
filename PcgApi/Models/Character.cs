@@ -30,11 +30,15 @@ namespace PcgApi.Models
         [DataMember]
         public int? SelectedWeaponCards { get; set; }
         [DataMember]
+        public List<KeyValuePair<int, bool>> WeaponCardsList { get; set; }
+        [DataMember]
         public int SpellCards { get; set; }
         [DataMember]
         public int PossibleSpellCards { get; set; }
         [DataMember]
         public int? SelectedSpellCards { get; set; }
+        [DataMember]
+        public List<KeyValuePair<int, bool>> SpellCardsList { get; set; }
         [DataMember]
         public int ArmorCards { get; set; }
         [DataMember]
@@ -42,11 +46,15 @@ namespace PcgApi.Models
         [DataMember]
         public int? SelectedArmorCards { get; set; }
         [DataMember]
+        public List<KeyValuePair<int, bool>> ArmorCardsList { get; set; }
+        [DataMember]
         public int ItemCards { get; set; }
         [DataMember]
         public int PossibleItemCards { get; set; }
         [DataMember]
         public int? SelectedItemCards { get; set; }
+        [DataMember]
+        public List<KeyValuePair<int, bool>> ItemCardsList { get; set; }
         [DataMember]
         public int AllyCards { get; set; }
         [DataMember]
@@ -54,11 +62,15 @@ namespace PcgApi.Models
         [DataMember]
         public int? SelectedAllyCards { get; set; }
         [DataMember]
+        public List<KeyValuePair<int, bool>> AllyCardsList { get; set; }
+        [DataMember]
         public int BlessingCards { get; set; }
         [DataMember]
         public int PossibleBlessingCards { get; set; }
         [DataMember]
         public int? SelectedBlessingCards { get; set; }
+        [DataMember]
+        public List<KeyValuePair<int, bool>> BlessingCardsList { get; set; }
         [DataMember]
         public List<KeyValuePair<int, bool>> HandSizes { get; set; }
         [DataMember]
@@ -94,6 +106,12 @@ namespace PcgApi.Models
             SelectedAllyCards = partyCharacter.AllyCards;
             SelectedBlessingCards = partyCharacter.BlessingCards;
             HandSizes = new List<KeyValuePair<int, bool>>();
+            WeaponCardsList = new List<KeyValuePair<int, bool>>();
+            SpellCardsList = new List<KeyValuePair<int, bool>>();
+            ArmorCardsList = new List<KeyValuePair<int, bool>>();
+            ItemCardsList = new List<KeyValuePair<int, bool>>();
+            AllyCardsList = new List<KeyValuePair<int, bool>>();
+            BlessingCardsList = new List<KeyValuePair<int, bool>>();
 
             var lightArmor = partyCharacter.LightArmors;
             var heavyArmor = partyCharacter.HeavyArmors;
@@ -125,13 +143,13 @@ namespace PcgApi.Models
                 PossibleBlessingCards = characterCard.PossibleBlessingCards;
                 FavoredCardType = characterCard.FavoredCardType;
 
-                for (int i = HandSize + 1; i <= PossibleHandSize; i++)
-                {
-                    if (SelectedHandSize >= i)
-                        HandSizes.Add(new KeyValuePair<int, bool>(i, true));
-                    else
-                        HandSizes.Add(new KeyValuePair<int, bool>(i, false));
-                }
+                HandSizes = GenerateCheckedList(HandSize + 1, PossibleHandSize, SelectedHandSize);
+                WeaponCardsList = GenerateCheckedList(WeaponCards + 1, PossibleWeaponCards, SelectedWeaponCards);
+                SpellCardsList = GenerateCheckedList(SpellCards + 1, PossibleSpellCards, SelectedSpellCards);
+                ArmorCardsList = GenerateCheckedList(ArmorCards + 1, PossibleArmorCards, SelectedArmorCards);
+                ItemCardsList = GenerateCheckedList(ItemCards + 1, PossibleItemCards, SelectedItemCards);
+                AllyCardsList = GenerateCheckedList(AllyCards + 1, PossibleAllyCards, SelectedAllyCards);
+                BlessingCardsList = GenerateCheckedList(BlessingCards + 1, PossibleBlessingCards, SelectedBlessingCards);
 
                 var powers = DataAccess.Dto.Power.All(CharacterCardId);
                 Powers.AddRange(powers.Select(p => new Power(p, partyCharacter.Id)));
@@ -139,6 +157,21 @@ namespace PcgApi.Models
                 var skills = DataAccess.Dto.Skill.All(CharacterCardId);
                 Skills.AddRange(skills.Select(s => new Skill(s, Id)));
             }
+        }
+
+        private List<KeyValuePair<int, bool>> GenerateCheckedList(int startValue, int maxValue, int? selectedValue)
+        {
+            var returnList = new List<KeyValuePair<int, bool>>();
+
+            for (int i = startValue; i <= maxValue; i++)
+            {
+                if (selectedValue.HasValue && selectedValue.Value >= i)
+                    returnList.Add(new KeyValuePair<int, bool>(i, true));
+                else
+                    returnList.Add(new KeyValuePair<int, bool>(i, false));
+            }
+
+            return returnList;
         }
     }
 }

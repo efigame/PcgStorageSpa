@@ -12,6 +12,10 @@ namespace PcgApi.Models
         [DataMember]
         public int Id { get; set; }
         [DataMember]
+        public string PowersListText { get; set; }
+        [DataMember]
+        public List<KeyValuePair<string, bool>> PowersList { get; set; }
+        [DataMember]
         public string Text { get; set; }
         [DataMember]
         public int Number { get; set; }
@@ -35,6 +39,7 @@ namespace PcgApi.Models
             Adjustment = power.Adjustment;
             CharacterCardId = power.CharacterCardId;
             Dice = power.Dice;
+            PowersList = new List<KeyValuePair<string, bool>>();
 
             if (deepObjects)
             {
@@ -43,6 +48,20 @@ namespace PcgApi.Models
                     SelectedPowers = selectedPower.SelectedPowers;
                 else
                     SelectedPowers = 0;
+
+                string[] powerlist = power.Text.Split(new string[] { "{format:check}" }, StringSplitOptions.None);
+                if (powerlist.Count() > 0)
+                {
+                    PowersListText = powerlist[0];
+
+                    for (int i = 1; i < powerlist.Count(); i++)
+                    {
+                        if ((i & SelectedPowers) == i)
+                            PowersList.Add(new KeyValuePair<string, bool>(powerlist[i], true));
+                        else
+                            PowersList.Add(new KeyValuePair<string, bool>(powerlist[i], false));
+                    }
+                }
             }
         }
     }
