@@ -10,7 +10,7 @@ namespace DataAccess.Dto
     public class PartyCharacter
     {
         public int Id { get; set; }
-        public int  PartyId { get; set; }
+        public int PartyId { get; set; }
         public int CharacterCardId { get; set; }
         public int? LightArmors { get; set; }
         public int? HeavyArmors { get; set; }

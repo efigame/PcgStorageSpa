@@ -158,6 +158,30 @@ namespace PcgApi.Models
                 Skills.AddRange(skills.Select(s => new Skill(s, Id)));
             }
         }
+        internal void Update()
+        {
+            SelectedHandSize = HandSizes.Where(h => h.Value).OrderByDescending(h => h.Key).First().Key;
+            SelectedAllyCards = AllyCardsList.Where(c => c.Value).OrderByDescending(c => c.Key).First().Key;
+            SelectedArmorCards = ArmorCardsList.Where(c => c.Value).OrderByDescending(c => c.Key).First().Key;
+            SelectedBlessingCards = BlessingCardsList.Where(c => c.Value).OrderByDescending(c => c.Key).First().Key;
+            SelectedItemCards = ItemCardsList.Where(c => c.Value).OrderByDescending(c => c.Key).First().Key;
+            SelectedSpellCards = SpellCardsList.Where(c => c.Value).OrderByDescending(c => c.Key).First().Key;
+            SelectedWeaponCards = WeaponCardsList.Where(c => c.Value).OrderByDescending(c => c.Key).First().Key;
+
+            var partyCharacterData = DataAccess.Dto.PartyCharacter.Get(Id);
+            partyCharacterData.LightArmors = LightArmors;
+            partyCharacterData.HeavyArmors = HeavyArmors;
+            partyCharacterData.Weapons = Weapons;
+            partyCharacterData.HandSize = SelectedHandSize;
+            partyCharacterData.AllyCards = SelectedAllyCards;
+            partyCharacterData.ArmorCards = SelectedArmorCards;
+            partyCharacterData.BlessingCards = SelectedBlessingCards;
+            partyCharacterData.ItemCards = SelectedItemCards;
+            partyCharacterData.SpellCards = SelectedSpellCards;
+            partyCharacterData.WeaponCards = SelectedWeaponCards;
+
+            partyCharacterData.Update();
+        }
 
         private List<KeyValuePair<int, bool>> GenerateCheckedList(int startValue, int maxValue, int? selectedValue)
         {

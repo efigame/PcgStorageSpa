@@ -6,6 +6,11 @@ app.factory('characterFactory', function ($http, $routeParams) {
             var characterId = $routeParams.characterid;
 
             $http.get('http://localhost:4009/api/character/' + characterId).success(success).error(error);
+        },
+        updateCharacter: function (postData, success, error) {
+            var characterId = $routeParams.characterid;
+
+            $http.post('http://localhost:4009/api/character/' + characterId, postData).success(success).error(error);
         }
     };
 });

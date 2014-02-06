@@ -13,4 +13,16 @@ app.controller('characterController', function ($scope, $location, $routeParams,
     }, function () {
         $scope.success = 'Failed';
     });
+
+    $scope.updateAddon = function ($event, skillid, id) {
+        var checkbox = $event.target;
+        var action = (checkbox.checked ? 'add' : 'remove');
+
+        if (action == 'add' && $scope.selected.indexOf(id) == -1) {
+            var skill = $scope.character
+        }
+        if (action == 'remove' && $scope.selected.indexOf(id) != -1) {
+            $scope.selected.splice($scope.selected.indexOf(id), 1);
+        }
+    }
 });

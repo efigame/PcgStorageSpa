@@ -5,7 +5,7 @@
         <div ng-repeat="skill in character.Skills">
             {{ skill.Name }} d{{ skill.Dice }} 
             <span ng-repeat="addon in skill.Addons">
-                <input type="checkbox" ng-checked="addon.Value" /> +{{ addon.Key }}
+                <input type="checkbox" ng-checked="addon.Value" ng-click="updateAddon($event, skill.Id, addon.Key)" /> +{{ addon.Key }}
             </span>
             <div ng-repeat="subskill in skill.SubSkills">
                 - {{ subskill.Name }}: {{ skill.Name }} + {{ subskill.Adjustment }}

@@ -18,5 +18,15 @@ namespace PcgApi.Controllers
             return new Character(partyCharacterData);
         }
 
+        [Route("api/character/{characterid}")]
+        public IHttpActionResult Post([FromBody]Character character)
+        {
+            character.Update();
+
+            return Ok();
+            //if (pcgUser != null) return Ok(new User(pcgUser));
+            //return NotFound();
+        }
+
     }
 }
