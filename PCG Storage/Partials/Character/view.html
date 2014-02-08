@@ -21,18 +21,21 @@
             <hr />
         </div>
         <div ng-repeat="power in character.Powers">
-            {{ power.Text }}
+            {{ power.PowersListText }}
+            <span ng-repeat="p in power.PowersList">
+                <input type="checkbox" ng-checked="p.Value" disabled="disabled" /> {{ p.Key }}
+            </span>
             <hr />
         </div>
     </fieldset>
     <fieldset>
         <legend>Cards (Favorit: {{ character.FavoredCardType }})</legend>
-        <div>Weapon {{ character.SelectedWeaponCards != null ? character.SelectedWeaponCards : character.WeaponCards }}</div>
-        <div>Spell {{ character.SelectedSpellCards != null ? character.SelectedSpellCards : character.SpellCards }}</div>
-        <div>Armor {{ character.SelectedArmorCards != null ? character.SelectedArmorCards : character.ArmorCards }}</div>
-        <div>Item {{ character.SelectedItemCards != null ? character.SelectedItemCards : character.ItemCards }}</div>
-        <div>Ally {{ character.SelectedAllyCards != null ? character.SelectedAllyCards : character.AllyCards }}</div>
-        <div>Blessing {{ character.SelectedBlessingCards != null ? character.SelectedBlessingCards : character.BlessingCards }}</div>
+        <div>Weapon {{ character.SelectedWeaponCards > character.WeaponCards ? character.SelectedWeaponCards : character.WeaponCards }}</div>
+        <div>Spell {{ character.SelectedSpellCards > character.SpellCards ? character.SelectedSpellCards : character.SpellCards }}</div>
+        <div>Armor {{ character.SelectedArmorCards > character.ArmorCards ? character.SelectedArmorCards : character.ArmorCards }}</div>
+        <div>Item {{ character.SelectedItemCards > character.ItemCards ? character.SelectedItemCards : character.ItemCards }}</div>
+        <div>Ally {{ character.SelectedAllyCards > character.AllyCards ? character.SelectedAllyCards : character.AllyCards }}</div>
+        <div>Blessing {{ character.SelectedBlessingCards > character.BlessingCards ? character.SelectedBlessingCards : character.BlessingCards }}</div>
     </fieldset>
     <a href="#/{{ user.Id }}/party/{{ party.Id }}/character/{{ character.Id }}/edit">Edit</a> <a href="#/{{ user.Id }}/party/{{ party.Id }}">Show party</a>
 
