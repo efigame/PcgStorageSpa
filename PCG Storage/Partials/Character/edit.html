@@ -5,7 +5,7 @@
         <div ng-repeat="skill in character.Skills">
             {{ skill.Name }} d{{ skill.Dice }} 
             <span ng-repeat="addon in skill.Addons">
-                <input type="checkbox" ng-checked="addon.Value" ng-click="updateAddon($event, skill.Id, addon.Key)" /> +{{ addon.Key }}
+                <input type="checkbox" ng-checked="addon.Value" ng-click="updateAddon(skill.Id, addon.Key)" /> +{{ addon.Key }}
             </span>
             <div ng-repeat="subskill in skill.SubSkills">
                 - {{ subskill.Name }}: {{ skill.Name }} + {{ subskill.Adjustment }}
@@ -41,37 +41,37 @@
         <div>
             Weapon {{ character.WeaponCards }}
             <span ng-repeat="card in character.WeaponCardsList">
-                <input type="checkbox" ng-checked="card.Value" /> +{{ card.Key }}
+                <input type="checkbox" ng-checked="card.Value" ng-click="updateCardsList(character.WeaponCardsList, card.Key)" /> +{{ card.Key }}
             </span>
         </div>
         <div>
             Spell {{ character.SpellCards }}
             <span ng-repeat="card in character.SpellCardsList">
-                <input type="checkbox" ng-checked="card.Value" /> +{{ card.Key }}
+                <input type="checkbox" ng-checked="card.Value" ng-click="updateCardsList(character.SpellCardsList, card.Key)" /> +{{ card.Key }}
             </span>
         </div>
         <div>
             Armor {{ character.ArmorCards }}
             <span ng-repeat="card in character.ArmorCardsList">
-                <input type="checkbox" ng-checked="card.Value" /> +{{ card.Key }}
+                <input type="checkbox" ng-checked="card.Value" ng-click="updateCardsList(character.ArmorCardsList, card.Key)" /> +{{ card.Key }}
             </span>
         </div>
         <div>
             Item {{ character.ItemCards }}
             <span ng-repeat="card in character.ItemCardsList">
-                <input type="checkbox" ng-checked="card.Value" /> +{{ card.Key }}
+                <input type="checkbox" ng-checked="card.Value" ng-click="updateCardsList(character.ItemCardsList, card.Key)" /> +{{ card.Key }}
             </span>
         </div>
         <div>
             Ally {{ character.AllyCards }}
             <span ng-repeat="card in character.AllyCardsList">
-                <input type="checkbox" ng-checked="card.Value" /> +{{ card.Key }}
+                <input type="checkbox" ng-checked="card.Value" ng-click="updateCardsList(character.AllyCardsList, card.Key)" /> +{{ card.Key }}
             </span>
         </div>
         <div>
             Blessing {{ character.BlessingCards }}
             <span ng-repeat="card in character.BlessingCardsList">
-                <input type="checkbox" ng-checked="card.Value" /> +{{ card.Key }}
+                <input type="checkbox" ng-checked="card.Value" ng-click="updateCardsList(character.BlessingCardsList, card.Key)" /> +{{ card.Key }}
             </span>
         </div>
     </fieldset>

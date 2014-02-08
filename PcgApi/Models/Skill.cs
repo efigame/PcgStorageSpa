@@ -23,6 +23,12 @@ namespace PcgApi.Models
         public int SelectedAddons { get; set; }
         [DataMember]
         public List<SubSkill> SubSkills { get; set; }
+        [DataMember]
+        public int PartyCharacterId { get; set; }
+
+        public Skill()
+        {
+        }
 
         internal Skill(DataAccess.Dto.Skill skill, int partyCharacterId) : this(skill, partyCharacterId, true)
         {
@@ -34,6 +40,7 @@ namespace PcgApi.Models
             Name = skill.Name;
             Dice = skill.Dice;
             Addons = new List<KeyValuePair<int, bool>>();
+            PartyCharacterId = partyCharacterId;
 
             PossibleAddons = skill.PossibleAddons;
             SubSkills = new List<SubSkill>();
@@ -57,6 +64,30 @@ namespace PcgApi.Models
                         Addons.Add(new KeyValuePair<int, bool>(i, false));
                 }
 
+            }
+        }
+
+        internal void SetSelectedAdjustment()
+        {
+            KeyValuePair<int, bool>? addonFound = Addons.Where(h => h.Value).OrderByDescending(h => h.Key).FirstOrDefault();
+            if (addonFound.HasValue) SelectedAddons = addonFound.Value.Key;
+
+            var characterSkill = DataAccess.Dto.CharacterSkill.All(PartyCharacterId).SingleOrDefault(c => c.SkillId == Id);
+            if (characterSkill != null)
+            {
+                characterSkill.SelectedAdjustment = SelectedAddons;
+                characterSkill.Update();
+            }
+            else
+            {
+                characterSkill = new DataAccess.Dto.CharacterSkill
+                {
+                    PartyCharacterId = PartyCharacterId,
+                    SkillId = Id,
+                    SelectedAdjustment = SelectedAddons
+                };
+
+                characterSkill.Persist();
             }
         }
     }

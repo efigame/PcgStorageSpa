@@ -160,13 +160,26 @@ namespace PcgApi.Models
         }
         internal void Update()
         {
-            SelectedHandSize = HandSizes.Where(h => h.Value).OrderByDescending(h => h.Key).First().Key;
-            SelectedAllyCards = AllyCardsList.Where(c => c.Value).OrderByDescending(c => c.Key).First().Key;
-            SelectedArmorCards = ArmorCardsList.Where(c => c.Value).OrderByDescending(c => c.Key).First().Key;
-            SelectedBlessingCards = BlessingCardsList.Where(c => c.Value).OrderByDescending(c => c.Key).First().Key;
-            SelectedItemCards = ItemCardsList.Where(c => c.Value).OrderByDescending(c => c.Key).First().Key;
-            SelectedSpellCards = SpellCardsList.Where(c => c.Value).OrderByDescending(c => c.Key).First().Key;
-            SelectedWeaponCards = WeaponCardsList.Where(c => c.Value).OrderByDescending(c => c.Key).First().Key;
+            KeyValuePair<int, bool>? handSizeFound = HandSizes.Where(h => h.Value).OrderByDescending(h => h.Key).FirstOrDefault();
+            if (handSizeFound.HasValue) SelectedHandSize = handSizeFound.Value.Key;
+
+            KeyValuePair<int, bool>? allyCardFound = AllyCardsList.Where(h => h.Value).OrderByDescending(h => h.Key).FirstOrDefault();
+            if (allyCardFound.HasValue) SelectedAllyCards = allyCardFound.Value.Key;
+
+            KeyValuePair<int, bool>? armorCardFound = ArmorCardsList.Where(h => h.Value).OrderByDescending(h => h.Key).FirstOrDefault();
+            if (armorCardFound.HasValue) SelectedArmorCards = armorCardFound.Value.Key;
+
+            KeyValuePair<int, bool>? blessingCardFound = BlessingCardsList.Where(h => h.Value).OrderByDescending(h => h.Key).FirstOrDefault();
+            if (blessingCardFound.HasValue) SelectedBlessingCards = blessingCardFound.Value.Key;
+
+            KeyValuePair<int, bool>? itemCardFound = ItemCardsList.Where(h => h.Value).OrderByDescending(h => h.Key).FirstOrDefault();
+            if (itemCardFound.HasValue) SelectedItemCards = itemCardFound.Value.Key;
+
+            KeyValuePair<int, bool>? spellCardFound = SpellCardsList.Where(h => h.Value).OrderByDescending(h => h.Key).FirstOrDefault();
+            if (spellCardFound.HasValue) SelectedSpellCards = spellCardFound.Value.Key;
+
+            KeyValuePair<int, bool>? weaponCardFound = WeaponCardsList.Where(h => h.Value).OrderByDescending(h => h.Key).FirstOrDefault();
+            if (weaponCardFound.HasValue) SelectedWeaponCards = weaponCardFound.Value.Key;
 
             var partyCharacterData = DataAccess.Dto.PartyCharacter.Get(Id);
             partyCharacterData.LightArmors = LightArmors;
@@ -180,7 +193,7 @@ namespace PcgApi.Models
             partyCharacterData.SpellCards = SelectedSpellCards;
             partyCharacterData.WeaponCards = SelectedWeaponCards;
 
-            partyCharacterData.Update();
+             partyCharacterData.Update();
         }
 
         private List<KeyValuePair<int, bool>> GenerateCheckedList(int startValue, int maxValue, int? selectedValue)

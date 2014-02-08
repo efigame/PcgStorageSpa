@@ -11,6 +11,9 @@ app.factory('characterFactory', function ($http, $routeParams) {
             var characterId = $routeParams.characterid;
 
             $http.post('http://localhost:4009/api/character/' + characterId, postData).success(success).error(error);
+        },
+        updateSkill: function (skill, success, error) {
+            $http.post('http://localhost:4009/api/skill/' + skill.Id, skill).success(success).error(error);
         }
     };
 });
