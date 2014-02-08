@@ -36,7 +36,25 @@ app.controller('characterController', function ($scope, $location, $routeParams,
         }
     };
 
-    $scope.updateCardsList = function (cardlist, id) {
+    $scope.updatePower = function (powerid, id) {
+        for (var i = 0; i < $scope.character.Powers.length; i++) {
+            if ($scope.character.Powers[i].Id == powerid) {
+                for (var j = 0; j < $scope.character.Powers[i].PowersList.length; j++) {
+                    if ($scope.character.Powers[i].PowersList[j].Key == id) {
+                        $scope.character.Powers[i].PowersList[j].Value = !$scope.character.Powers[i].PowersList[j].Value;
+                    }
+                }
+
+                characterFactory.updatePower($scope.character.Powers[i], function (results) {
+                    $scope.success = true;
+                }, function () {
+                    $scope.success = false;
+                });
+            }
+        }
+    };
+
+    $scope.updateList = function (cardlist, id) {
         for (var i = 0; i < cardlist.length; i++) {
             if (cardlist[i].Key < id) {
                 cardlist[i].Value = true;
@@ -52,5 +70,53 @@ app.controller('characterController', function ($scope, $location, $routeParams,
         }, function () {
             $scope.success = false;
         });
-    }
+    };
+
+    $scope.updateLightArmor = function ($event) {
+        var checkbox = $event.target;
+
+        if (checkbox.checked) {
+            $scope.character.LightArmors = 2;
+        } else {
+            $scope.character.LightArmors = 1;
+        };
+
+        characterFactory.updateCharacter($scope.character, function (results) {
+            $scope.success = true;
+        }, function () {
+            $scope.success = false;
+        });
+    };
+
+    $scope.updateHeavyArmor = function ($event) {
+        var checkbox = $event.target;
+
+        if (checkbox.checked) {
+            $scope.character.HeavyArmors = 2;
+        } else {
+            $scope.character.HeavyArmors = 1;
+        };
+
+        characterFactory.updateCharacter($scope.character, function (results) {
+            $scope.success = true;
+        }, function () {
+            $scope.success = false;
+        });
+    };
+
+    $scope.updateWeapon = function ($event) {
+        var checkbox = $event.target;
+
+        if (checkbox.checked) {
+            $scope.character.Weapons = 2;
+        } else {
+            $scope.character.Weapons = 1;
+        };
+
+        characterFactory.updateCharacter($scope.character, function (results) {
+            $scope.success = true;
+        }, function () {
+            $scope.success = false;
+        });
+    };
 });

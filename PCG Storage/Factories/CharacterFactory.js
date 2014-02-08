@@ -14,6 +14,9 @@ app.factory('characterFactory', function ($http, $routeParams) {
         },
         updateSkill: function (skill, success, error) {
             $http.post('http://localhost:4009/api/skill/' + skill.Id, skill).success(success).error(error);
+        },
+        updatePower: function (power, success, error) {
+            $http.post('http://localhost:4009/api/power/' + power.Id, power).success(success).error(error);
         }
     };
 });

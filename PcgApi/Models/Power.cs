@@ -27,6 +27,12 @@ namespace PcgApi.Models
         public int? Dice { get; set; }
         [DataMember]
         public int? SelectedPowers { get; set; }
+        [DataMember]
+        public int PartyCharacterId { get; set; }
+
+        public Power()
+        {
+        }
 
         internal Power(DataAccess.Dto.Power power, int partyCharacterId) : this(power, partyCharacterId, true)
         {
@@ -39,6 +45,7 @@ namespace PcgApi.Models
             Adjustment = power.Adjustment;
             CharacterCardId = power.CharacterCardId;
             Dice = power.Dice;
+            PartyCharacterId = partyCharacterId;
             PowersList = new List<KeyValuePair<string, bool>>();
 
             if (deepObjects)
@@ -62,6 +69,38 @@ namespace PcgApi.Models
                             PowersList.Add(new KeyValuePair<string, bool>(powerlist[i], false));
                     }
                 }
+            }
+        }
+
+        internal void SetSelectedPower()
+        {
+            var selectedValue = 0;
+            var bitStep = 1;
+
+            for (var i = 0; i < PowersList.Count(); i++)
+            {
+                if (PowersList[i].Value)
+                    selectedValue += bitStep;
+
+                bitStep += bitStep;
+            }
+
+            var characterPower = DataAccess.Dto.CharacterPower.All(PartyCharacterId).SingleOrDefault(c => c.PowerId == Id);
+            if (characterPower != null)
+            {
+                characterPower.SelectedPowers = selectedValue;
+                characterPower.Update();
+            }
+            else
+            {
+                characterPower = new DataAccess.Dto.CharacterPower
+                {
+                    PartyCharacterId = PartyCharacterId,
+                    PowerId = Id,
+                    SelectedPowers = selectedValue
+                };
+
+                characterPower.Persist();
             }
         }
     }
