@@ -2,12 +2,12 @@
     <h1>Edit party</h1>
     <fieldset>
         <legend>Basic information</legend>
-        Party name: <input type="text" ng-model="party.Name" />
+        Party name: <input type="text" ng-model="party.Name" ng-change="updateParty()" />
     </fieldset>
     <fieldset>
         <legend>Characters</legend>
         <div ng-repeat="possibleCharacter in party.PossibleCharacters">
-            <input type="checkbox" ng-checked="possibleCharacter.Value" ng-click="updateParty($event, possibleCharacter.Key.Id)" /> {{ possibleCharacter.Key.Name }}
+            <input type="checkbox" ng-checked="possibleCharacter.Value" ng-click="updatePartyCharacters($event, possibleCharacter.Key.Id)" /> {{ possibleCharacter.Key.Name }}
         </div>
     </fieldset>
 </div>

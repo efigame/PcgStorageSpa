@@ -20,7 +20,7 @@ app.controller('partyController', function ($scope, $location, $routeParams, par
         $scope.success = 'Failed';
     });
 
-    $scope.updateParty = function ($event, id) {
+    $scope.updatePartyCharacters = function ($event, id) {
         var proceed = true;
         var checkbox = $event.target;
         
@@ -47,5 +47,13 @@ app.controller('partyController', function ($scope, $location, $routeParams, par
         {
             checkbox.checked = true;
         }
+    };
+
+    $scope.updateParty = function () {
+        partyFactory.updateParty($scope.party, function (results) {
+            $scope.success = true;
+        }, function () {
+            $scope.success = false;
+        });
     };
 });

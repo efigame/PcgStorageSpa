@@ -52,6 +52,10 @@ namespace PcgApi.Models
 
         internal void Update()
         {
+            var party = DataAccess.Dto.Party.Get(Id);
+            party.Name = Name;
+            party.Update();
+
             var charactersToCreate = new List<int>();
             foreach (var valuePair in PossibleCharacters.Where(p => p.Value))
             {
