@@ -103,6 +103,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Character.cs" />
+    <Compile Include="Models\CharacterCard.cs" />
     <Compile Include="Models\Party.cs" />
     <Compile Include="Models\Power.cs" />
     <Compile Include="Models\Skill.cs" />

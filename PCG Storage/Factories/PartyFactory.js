@@ -11,6 +11,9 @@ app.factory('partyFactory', function ($http, $routeParams) {
             var partyId = $routeParams.partyid;
 
             $http.get('http://localhost:4009/api/party/' + partyId).success(success).error(error);
-        }
+        },
+        updateParty: function (party, success, error) {
+            $http.post('http://localhost:4009/api/party/' + party.Id, party).success(success).error(error);
+        },
     };
 });

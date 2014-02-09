@@ -29,5 +29,13 @@ namespace PcgApi.Controllers
             var party = DataAccess.Dto.Party.Get(partyId);
             return new Party(party);
         }
+
+        [Route("api/party/{partyid}")]
+        public IHttpActionResult Post([FromBody]Party party)
+        {
+            party.Update();
+
+            return Ok();
+        }
     }
 }

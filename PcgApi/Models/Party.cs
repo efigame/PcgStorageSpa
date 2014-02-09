@@ -17,7 +17,12 @@ namespace PcgApi.Models
         public int UserId { get; set; }
         [DataMember]
         public List<Character> Characters { get; set; }
+        [DataMember]
+        public List<KeyValuePair<CharacterCard, bool>> PossibleCharacters { get; set; }
 
+        public Party()
+        {
+        }
         internal Party(DataAccess.Dto.Party party) : this(party, true)
         {
         }
@@ -27,11 +32,49 @@ namespace PcgApi.Models
             Name = party.Name;
             UserId = party.PcgUserId;
             Characters = new List<Character>();
+            PossibleCharacters = new List<KeyValuePair<CharacterCard, bool>>();
 
             if (deepObjects)
             {
                 var characters = DataAccess.Dto.PartyCharacter.All(Id).ToList();
                 Characters.AddRange(characters.Select(c => new Character(c)));
+
+                var possibleCharacters = DataAccess.Dto.CharacterCard.All();
+                foreach (var possibleCharacter in possibleCharacters)
+                {
+                    if (Characters.Select(c => c.CharacterCardId).Contains(possibleCharacter.Id))
+                        PossibleCharacters.Add(new KeyValuePair<CharacterCard, bool>(new CharacterCard(possibleCharacter), true));
+                    else
+                        PossibleCharacters.Add(new KeyValuePair<CharacterCard, bool>(new CharacterCard(possibleCharacter), false));
+                }
+            }
+        }
+
+        internal void Update()
+        {
+            var charactersToCreate = new List<int>();
+            foreach (var valuePair in PossibleCharacters.Where(p => p.Value))
+            {
+                if (!Characters.Select(c => c.CharacterCardId).Contains(valuePair.Key.Id))
+                    charactersToCreate.Add(valuePair.Key.Id);
+            }
+
+            var charactersToDelete = new List<int>();
+            foreach (var character in Characters)
+            {
+                if (!PossibleCharacters.Where(p => p.Value).Select(p => p.Key.Id).Contains(character.CharacterCardId))
+                    charactersToDelete.Add(character.Id);
+            }
+
+            foreach (var characterCardId in charactersToCreate)
+            {
+                var character = new DataAccess.Dto.PartyCharacter
+                    {
+                         PartyId = Id,
+                         CharacterCardId = characterCardId
+                    };
+
+                character.Persist();
             }
         }
     }

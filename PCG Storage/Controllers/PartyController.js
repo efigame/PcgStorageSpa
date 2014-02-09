@@ -19,4 +19,18 @@ app.controller('partyController', function ($scope, $location, $routeParams, par
     }, function () {
         $scope.success = 'Failed';
     });
+
+    $scope.updateParty = function (id) {
+        for (var i = 0; i < $scope.party.PossibleCharacters.length; i++) {
+            if ($scope.party.PossibleCharacters[i].Key.Id == id) {
+                $scope.party.PossibleCharacters[i].Value = !$scope.party.PossibleCharacters[i].Value;
+            }
+        }
+
+        partyFactory.updateParty($scope.party, function (results) {
+            $scope.success = true;
+        }, function () {
+            $scope.success = false;
+        });
+    };
 });
