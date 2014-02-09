@@ -10,6 +10,18 @@ namespace PcgApi.Controllers
 {
     public class PartyController : ApiController
     {
+        [Route("api/party")]
+        public IHttpActionResult Post([FromBody]Party party)
+        {
+            var newParty = new DataAccess.Dto.Party();
+            newParty.Name = party.Name;
+            newParty.PcgUserId = party.UserId;
+            newParty.Persist();
+
+            if (newParty != null) return Ok(new Party(newParty));
+            return NotFound();
+        }
+
         // GET api/{userid}/party
         [Route("api/{userid}/party")]
         public IEnumerable<Party> GetParties(int userId)
@@ -31,7 +43,7 @@ namespace PcgApi.Controllers
         }
 
         [Route("api/party/{partyid}")]
-        public IHttpActionResult Post([FromBody]Party party)
+        public IHttpActionResult Put([FromBody]Party party)
         {
             party.Update();
 

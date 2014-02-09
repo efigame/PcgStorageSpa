@@ -56,4 +56,14 @@ app.controller('partyController', function ($scope, $location, $routeParams, par
             $scope.success = false;
         });
     };
+
+    $scope.createParty = function () {
+        $scope.party.UserId = $routeParams.userid;
+        partyFactory.createParty($scope.party, function (results) {
+            $location.path($routeParams.userid + '/party/' + results.Id + '/edit');
+            $scope.success = true;
+        }, function () {
+            $scope.success = false;
+        });
+    };
 });

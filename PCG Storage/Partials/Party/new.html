@@ -1,4 +1,7 @@
 ﻿<div ng-controller="partyController">
-    <h1>{{ party.Name }}</h1>
-    NEW NEW NEW
+    <h1>Create party</h1>
+    <fieldset>
+        <legend>Basic information</legend>
+        Party name: <input type="text" ng-model="party.Name" /> <button type="button" ng-click="createParty()">Create</button>
+    </fieldset>
 </div>
