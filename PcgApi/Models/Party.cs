@@ -76,6 +76,12 @@ namespace PcgApi.Models
 
                 character.Persist();
             }
+
+            foreach (var characterId in charactersToDelete)
+            {
+                var character = DataAccess.Dto.PartyCharacter.Get(characterId);
+                character.Delete();
+            }
         }
     }
 }

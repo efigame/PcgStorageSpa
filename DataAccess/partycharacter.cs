@@ -34,6 +34,7 @@ namespace DataAccess
         public Nullable<int> AllyCards { get; set; }
         public Nullable<int> BlessingCards { get; set; }
         public Nullable<int> HandSize { get; set; }
+        public Nullable<System.DateTime> DeletedDate { get; set; }
     
         public virtual ICollection<characterskill> characterskills { get; set; }
         public virtual party party { get; set; }

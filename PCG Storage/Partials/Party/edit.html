@@ -7,7 +7,7 @@
     <fieldset>
         <legend>Characters</legend>
         <div ng-repeat="possibleCharacter in party.PossibleCharacters">
-            <input type="checkbox" ng-checked="possibleCharacter.Value" ng-click="updateParty(possibleCharacter.Key.Id)" /> {{ possibleCharacter.Key.Name }}
+            <input type="checkbox" ng-checked="possibleCharacter.Value" ng-click="updateParty($event, possibleCharacter.Key.Id)" /> {{ possibleCharacter.Key.Name }}
         </div>
     </fieldset>
 </div>

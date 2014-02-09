@@ -22,6 +22,7 @@ namespace DataAccess.Dto
         public int? AllyCards { get; set; }
         public int? BlessingCards { get; set; }
         public int? HandSize { get; set; }
+        public DateTime? DeletedDate { get; set; }
 
         public static PartyCharacter Get(int id)
         {
@@ -41,7 +42,7 @@ namespace DataAccess.Dto
 
             using (var data = new PcgStorageEntities())
             {
-                var all = data.partycharacters.Where(p => p.PartyId == partyId).ToList();
+                var all = data.partycharacters.Where(p => p.PartyId == partyId && !p.DeletedDate.HasValue).ToList();
                 partyCharacters.AddRange(all.Select(a => new PartyCharacter(a)));
             }
 
@@ -82,14 +83,14 @@ namespace DataAccess.Dto
                 }
             }
         }
-        public void Delete() // TODO: Remember foreign relations
+        public void Delete()
         {
             using (var data = new PcgStorageEntities())
             {
-                var party = data.partycharacters.SingleOrDefault(p => p.Id == Id);
-                if (party != null)
+                var partyCharacter = data.partycharacters.SingleOrDefault(p => p.Id == Id);
+                if (partyCharacter != null)
                 {
-                    data.partycharacters.Remove(party);
+                    partyCharacter.DeletedDate = System.DateTime.Now;
                     data.SaveChanges();
                 }
             }
@@ -114,6 +115,7 @@ namespace DataAccess.Dto
             AllyCards = character.AllyCards;
             BlessingCards = character.BlessingCards;
             HandSize = character.HandSize;
+            DeletedDate = character.DeletedDate;
         }
         internal partycharacter ToEntity()
         {
@@ -130,7 +132,8 @@ namespace DataAccess.Dto
                 ItemCards = this.ItemCards,
                 AllyCards = this.AllyCards,
                 BlessingCards = this.BlessingCards,
-                HandSize = this.HandSize
+                HandSize = this.HandSize,
+                DeletedDate = this.DeletedDate
             };
 
             return partyCharacter;

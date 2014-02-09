@@ -5,11 +5,11 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="5ddb206ea522452c9afbf29c19e79c5d" Name="Diagram1" ZoomLevel="74">
-        <EntityTypeShape EntityType="PcgStorageModel.characterskill" Width="1.5" PointX="7.25" PointY="4.5" />
+        <EntityTypeShape EntityType="PcgStorageModel.characterskill" Width="1.5" PointX="7.25" PointY="5.25" />
         <EntityTypeShape EntityType="PcgStorageModel.party" Width="1.5" PointX="7.375" PointY="1.125" />
         <EntityTypeShape EntityType="PcgStorageModel.pcguser" Width="1.5" PointX="9.875" PointY="1.125" />
-        <EntityTypeShape EntityType="PcgStorageModel.skill" Width="1.5" PointX="5" PointY="6.25" />
-        <EntityTypeShape EntityType="PcgStorageModel.subskill" Width="1.5" PointX="7.25" PointY="7.25" />
+        <EntityTypeShape EntityType="PcgStorageModel.skill" Width="1.5" PointX="5" PointY="6.5" />
+        <EntityTypeShape EntityType="PcgStorageModel.subskill" Width="1.5" PointX="7.25" PointY="7.875" />
         <AssociationConnector Association="PcgStorageModel.fk_characterskill_skill" />
         <AssociationConnector Association="PcgStorageModel.fk_party_pcguser" />
         <AssociationConnector Association="PcgStorageModel.fk_subskill_skill" />

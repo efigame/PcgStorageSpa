@@ -113,6 +113,7 @@
           <Property Name="AllyCards" Type="int" />
           <Property Name="BlessingCards" Type="int" />
           <Property Name="HandSize" Type="int" />
+          <Property Name="DeletedDate" Type="datetime" Precision="0" />
         </EntityType>
         <EntityType Name="pcguser">
           <Key>
@@ -612,6 +613,7 @@
           <Property Name="HandSize" Type="Int32" />
           <NavigationProperty Name="characterpowers" Relationship="PcgStorageModel.fk_characterpower_partycharacter_id" FromRole="partycharacter" ToRole="characterpower" />
           <NavigationProperty Name="characterdecks" Relationship="PcgStorageModel.fk_characterdeck_partycharacter_id" FromRole="partycharacter" ToRole="characterdeck" />
+          <Property Name="DeletedDate" Type="DateTime" />
         </EntityType>
         <Association Name="fk_characterskill_partycharacter">
           <End Type="PcgStorageModel.partycharacter" Role="partycharacter" Multiplicity="1" />
@@ -915,6 +917,7 @@
           <EntitySetMapping Name="partycharacters">
             <EntityTypeMapping TypeName="PcgStorageModel.partycharacter">
               <MappingFragment StoreEntitySet="partycharacter">
+                <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
                 <ScalarProperty Name="HandSize" ColumnName="HandSize" />
                 <ScalarProperty Name="BlessingCards" ColumnName="BlessingCards" />
                 <ScalarProperty Name="AllyCards" ColumnName="AllyCards" />

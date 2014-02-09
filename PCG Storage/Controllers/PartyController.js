@@ -20,17 +20,32 @@ app.controller('partyController', function ($scope, $location, $routeParams, par
         $scope.success = 'Failed';
     });
 
-    $scope.updateParty = function (id) {
-        for (var i = 0; i < $scope.party.PossibleCharacters.length; i++) {
-            if ($scope.party.PossibleCharacters[i].Key.Id == id) {
-                $scope.party.PossibleCharacters[i].Value = !$scope.party.PossibleCharacters[i].Value;
-            }
+    $scope.updateParty = function ($event, id) {
+        var proceed = true;
+        var checkbox = $event.target;
+        
+        if (!checkbox.checked)
+        {
+            proceed = confirm('Are you sure you want to delete your character? This cannot be reverted.');
         }
 
-        partyFactory.updateParty($scope.party, function (results) {
-            $scope.success = true;
-        }, function () {
-            $scope.success = false;
-        });
+        if (proceed)
+        {
+            for (var i = 0; i < $scope.party.PossibleCharacters.length; i++) {
+                if ($scope.party.PossibleCharacters[i].Key.Id == id) {
+                    $scope.party.PossibleCharacters[i].Value = !$scope.party.PossibleCharacters[i].Value;
+                }
+            }
+
+            partyFactory.updateParty($scope.party, function (results) {
+                $scope.success = true;
+            }, function () {
+                $scope.success = false;
+            });
+        }
+        else
+        {
+            checkbox.checked = true;
+        }
     };
 });
