@@ -102,10 +102,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AvailableCards.cs" />
+    <Compile Include="Models\CardType.cs" />
     <Compile Include="Models\Character.cs" />
     <Compile Include="Models\CharacterCard.cs" />
     <Compile Include="Models\Party.cs" />
     <Compile Include="Models\Power.cs" />
+    <Compile Include="Models\Card.cs" />
+    <Compile Include="Models\SelectedCard.cs" />
     <Compile Include="Models\Skill.cs" />
     <Compile Include="Models\SubSkill.cs" />
     <Compile Include="Models\User.cs" />

@@ -75,5 +75,29 @@
             </span>
         </div>
     </fieldset>
+    <fieldset>
+        <legend>Available Weapon Cards</legend>
+        <div ng-repeat="card in character.AvailableCards.WeaponCards" style="padding-right: 30px;">{{ card.Name }} {{ card.CardType.Name }}</div>
+    </fieldset>
+    <fieldset>
+        <legend>Available Spell Cards</legend>
+        <div ng-repeat="card in character.AvailableCards.SpellCards" style="padding-right: 30px;">{{ card.Name }}</div>
+    </fieldset>
+    <fieldset>
+        <legend>Available Armor Cards</legend>
+        <div ng-repeat="card in character.AvailableCards.ArmorCards" style="padding-right: 30px;">{{ card.Name }}</div>
+    </fieldset>
+    <fieldset>
+        <legend>Available Item Cards</legend>
+        <div ng-repeat="card in character.AvailableCards.ItemCards" style="padding-right: 30px;">{{ card.Name }}</div>
+    </fieldset>
+    <fieldset>
+        <legend>Available Ally Cards</legend>
+        <div ng-repeat="card in character.AvailableCards.AllyCards" style="padding-right: 30px;">{{ card.Name }}</div>
+    </fieldset>
+    <fieldset>
+        <legend>Available Blessing Cards</legend>
+        <div ng-repeat="card in character.AvailableCards.BlessingCards" style="padding-right: 30px;">{{ card.Name }}</div>
+    </fieldset>
     <a href="#/{{ user.Id }}/party/{{ party.Id }}/character/{{ character.Id }}">View</a> <a href="#/{{ user.Id }}/party/{{ party.Id }}">Show party</a>
 </div>

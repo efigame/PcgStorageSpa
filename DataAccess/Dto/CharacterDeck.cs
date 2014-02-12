@@ -26,13 +26,13 @@ namespace DataAccess.Dto
 
             return characterDeck;
         }
-        public static List<CharacterDeck> All()
+        public static List<CharacterDeck> All(int characterCardId)
         {
             var characterDecks = new List<CharacterDeck>();
 
             using (var data = new PcgStorageEntities())
             {
-                var all = data.characterdecks.ToList();
+                var all = data.characterdecks.Where(c => c.PartyCharacterId == characterCardId).ToList();
                 characterDecks.AddRange(all.Select(a => new CharacterDeck(a)));
             }
 

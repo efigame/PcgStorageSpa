@@ -86,6 +86,10 @@ namespace PcgApi.Models
         public List<Skill> Skills { get; set; }
         [DataMember]
         public List<Power> Powers { get; set; }
+        [DataMember]
+        public List<SelectedCard> Deck { get; set; }
+        [DataMember]
+        public AvailableCards AvailableCards { get; set; }
 
         public Character()
         {
@@ -119,6 +123,8 @@ namespace PcgApi.Models
 
             Skills = new List<Skill>();
             Powers = new List<Power>();
+            Deck = new List<SelectedCard>();
+            AvailableCards = new AvailableCards();
 
             if (deepObjects)
             {
@@ -152,10 +158,13 @@ namespace PcgApi.Models
                 BlessingCardsList = GenerateCheckedList(BlessingCards + 1, PossibleBlessingCards, SelectedBlessingCards);
 
                 var powers = DataAccess.Dto.Power.All(CharacterCardId);
-                Powers.AddRange(powers.Select(p => new Power(p, partyCharacter.Id)));
+                Powers.AddRange(powers.Select(p => new Power(p, Id)));
 
                 var skills = DataAccess.Dto.Skill.All(CharacterCardId);
                 Skills.AddRange(skills.Select(s => new Skill(s, Id)));
+
+                var selectedCards = DataAccess.Dto.CharacterDeck.All(CharacterCardId);
+                Deck.AddRange(selectedCards.Select(c => new SelectedCard(c, Id)));
             }
         }
         internal void Update()
