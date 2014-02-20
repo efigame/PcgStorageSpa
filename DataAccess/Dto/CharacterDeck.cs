@@ -13,6 +13,7 @@ namespace DataAccess.Dto
         public int CardId { get; set; }
         public int PartyCharacterId { get; set; }
         public int Count { get; set; }
+        public Card Card { get; set; }
 
         public static CharacterDeck Get(int id)
         {
@@ -88,6 +89,7 @@ namespace DataAccess.Dto
             PartyCharacterId = characterDeck.PartyCharacterId;
             CardId = characterDeck.CardId;
             Count = characterDeck.Count;
+            Card = new Card(characterDeck.card);
         }
         internal characterdeck ToEntity()
         {

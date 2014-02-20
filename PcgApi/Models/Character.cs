@@ -90,6 +90,8 @@ namespace PcgApi.Models
         public List<SelectedCard> Deck { get; set; }
         [DataMember]
         public AvailableCards AvailableCards { get; set; }
+        [DataMember]
+        public SelectedCards SelectedCards { get; set; }
 
         public Character()
         {
@@ -125,6 +127,7 @@ namespace PcgApi.Models
             Powers = new List<Power>();
             Deck = new List<SelectedCard>();
             AvailableCards = new AvailableCards();
+            SelectedCards = new SelectedCards(partyCharacter.Id);
 
             if (deepObjects)
             {
@@ -202,7 +205,9 @@ namespace PcgApi.Models
             partyCharacterData.SpellCards = SelectedSpellCards;
             partyCharacterData.WeaponCards = SelectedWeaponCards;
 
-             partyCharacterData.Update();
+            partyCharacterData.Update();
+
+            SelectedCards.Update(Id);
         }
 
         private List<KeyValuePair<int, bool>> GenerateCheckedList(int startValue, int maxValue, int? selectedValue)

@@ -17,6 +17,8 @@ namespace PcgApi.Models
         public int DeckId { get; set; }
         [DataMember]
         public CardType CardType { get; set; }
+        [DataMember]
+        public Deck Deck { get; set; }
 
         public Card()
         {
@@ -32,6 +34,7 @@ namespace PcgApi.Models
             Name = card.Name;
             DeckId = card.DeckId;
             CardType = new CardType(card.CardType);
+            Deck = new Deck(card.Deck);
 
             if (deepObjects)
             {

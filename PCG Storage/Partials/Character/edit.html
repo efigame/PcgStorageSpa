@@ -77,27 +77,45 @@
     </fieldset>
     <fieldset>
         <legend>Available Weapon Cards</legend>
-        <div ng-repeat="card in character.AvailableCards.WeaponCards" style="padding-right: 30px;">{{ card.Name }} {{ card.CardType.Name }}</div>
+        <select ng-model="SelectedWeaponCard" ng-options="card as card.Name group by card.Deck.Name for card in character.AvailableCards.WeaponCards"></select><input type="button" ng-click="addWeaponCard()" value="Add" />
+        <div ng-repeat="card in character.SelectedCards.WeaponCards track by $index">
+            {{ card.Name }} <input type="button" ng-click="removeWeaponCard($index)" value="Remove" />
+        </div>
     </fieldset>
     <fieldset>
         <legend>Available Spell Cards</legend>
-        <div ng-repeat="card in character.AvailableCards.SpellCards" style="padding-right: 30px;">{{ card.Name }}</div>
+        <select ng-model="SelectedSpellCard" ng-options="card as card.Name group by card.Deck.Name for card in character.AvailableCards.SpellCards"></select><input type="button" ng-click="addSpellCard()" value="Add" />
+        <div ng-repeat="card in character.SelectedCards.SpellCards track by $index">
+            {{ card.Name }} <input type="button" ng-click="removeSpellCard($index)" value="Remove" />
+        </div>
     </fieldset>
     <fieldset>
         <legend>Available Armor Cards</legend>
-        <div ng-repeat="card in character.AvailableCards.ArmorCards" style="padding-right: 30px;">{{ card.Name }}</div>
+        <select ng-model="SelectedArmorCard" ng-options="card as card.Name group by card.Deck.Name for card in character.AvailableCards.ArmorCards"></select><input type="button" ng-click="addArmorCard()" value="Add" />
+        <div ng-repeat="card in character.SelectedCards.ArmorCards track by $index">
+            {{ card.Name }} <input type="button" ng-click="removeArmorCard($index)" value="Remove" />
+        </div>
     </fieldset>
     <fieldset>
         <legend>Available Item Cards</legend>
-        <div ng-repeat="card in character.AvailableCards.ItemCards" style="padding-right: 30px;">{{ card.Name }}</div>
+        <select ng-model="SelectedItemCard" ng-options="card as card.Name group by card.Deck.Name for card in character.AvailableCards.ItemCards"></select><input type="button" ng-click="addItemCard()" value="Add" />
+        <div ng-repeat="card in character.SelectedCards.ItemCards track by $index">
+            {{ card.Name }} <input type="button" ng-click="removeItemCard($index)" value="Remove" />
+        </div>
     </fieldset>
     <fieldset>
         <legend>Available Ally Cards</legend>
-        <div ng-repeat="card in character.AvailableCards.AllyCards" style="padding-right: 30px;">{{ card.Name }}</div>
+        <select ng-model="SelectedAllyCard" ng-options="card as card.Name group by card.Deck.Name for card in character.AvailableCards.AllyCards"></select><input type="button" ng-click="addAllyCard()" value="Add" />
+        <div ng-repeat="card in character.SelectedCards.AllyCards track by $index">
+            {{ card.Name }} <input type="button" ng-click="removeAllyCard($index)" value="Remove" />
+        </div>
     </fieldset>
     <fieldset>
         <legend>Available Blessing Cards</legend>
-        <div ng-repeat="card in character.AvailableCards.BlessingCards" style="padding-right: 30px;">{{ card.Name }}</div>
+        <select ng-model="SelectedBlessingCard" ng-options="card as card.Name group by card.Deck.Name for card in character.AvailableCards.BlessingCards"></select><input type="button" ng-click="addBlessingCard()" value="Add" />
+        <div ng-repeat="card in character.SelectedCards.BlessingCards track by $index">
+            {{ card.Name }} <input type="button" ng-click="removeBlessingCard($index)" value="Remove" />
+        </div>
     </fieldset>
     <a href="#/{{ user.Id }}/party/{{ party.Id }}/character/{{ character.Id }}">View</a> <a href="#/{{ user.Id }}/party/{{ party.Id }}">Show party</a>
 </div>
