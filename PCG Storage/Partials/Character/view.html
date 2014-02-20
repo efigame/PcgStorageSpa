@@ -5,7 +5,7 @@
         <div ng-repeat="skill in character.Skills">
             {{ skill.Name }} d{{ skill.Dice }}{{ skill.SelectedAddons > 0 ? ' + ' + skill.SelectedAddons : '' }}
             <div ng-repeat="subskill in skill.SubSkills">
-                - {{ subskill.Name }} d{{ skill.Dice }} + {{ skill.SelectedAddons + subskill.Adjustment }}
+                <span style="padding-left: 30px;">{{ subskill.Name }} d{{ skill.Dice }} + {{ skill.SelectedAddons + subskill.Adjustment }}</</span>
             </div>
             <hr />
         </div>
@@ -29,13 +29,43 @@
         </div>
     </fieldset>
     <fieldset>
-        <legend>Cards (Favorit: {{ character.FavoredCardType }})</legend>
-        <div>Weapon {{ character.SelectedWeaponCards > character.WeaponCards ? character.SelectedWeaponCards : character.WeaponCards }}</div>
-        <div>Spell {{ character.SelectedSpellCards > character.SpellCards ? character.SelectedSpellCards : character.SpellCards }}</div>
-        <div>Armor {{ character.SelectedArmorCards > character.ArmorCards ? character.SelectedArmorCards : character.ArmorCards }}</div>
-        <div>Item {{ character.SelectedItemCards > character.ItemCards ? character.SelectedItemCards : character.ItemCards }}</div>
-        <div>Ally {{ character.SelectedAllyCards > character.AllyCards ? character.SelectedAllyCards : character.AllyCards }}</div>
-        <div>Blessing {{ character.SelectedBlessingCards > character.BlessingCards ? character.SelectedBlessingCards : character.BlessingCards }}</div>
+        <legend>Deck (Favorit: {{ character.FavoredCardType }})</legend>
+        <div ng-if="character.SelectedCards.DeckWeapons.length > 0">
+            Weapon ({{ character.SelectedWeaponCards > character.WeaponCards ? character.SelectedWeaponCards : character.WeaponCards }})
+            <div ng-repeat="card in character.SelectedCards.DeckWeapons">
+                <span style="padding-left: 30px;">{{ card.Count }}x {{ card.Card.Name }}</span>
+            </div>
+        </div>
+        <div ng-if="character.SelectedCards.DeckSpells.length > 0">
+            Spell ({{ character.SelectedSpellCards > character.SpellCards ? character.SelectedSpellCards : character.SpellCards }})
+            <div ng-repeat="card in character.SelectedCards.DeckSpells">
+                <span style="padding-left: 30px;">{{ card.Count }}x {{ card.Card.Name }}</span>
+            </div>
+        </div>
+        <div ng-if="character.SelectedCards.DeckArmors.length > 0">
+            Armor ({{ character.SelectedArmorCards > character.ArmorCards ? character.SelectedArmorCards : character.ArmorCards }})
+            <div ng-repeat="card in character.SelectedCards.DeckArmors">
+                <span style="padding-left: 30px;">{{ card.Count }}x {{ card.Card.Name }}</span>
+            </div>
+        </div>
+        <div ng-if="character.SelectedCards.DeckItems.length > 0">
+            Item ({{ character.SelectedItemCards > character.ItemCards ? character.SelectedItemCards : character.ItemCards }})
+            <div ng-repeat="card in character.SelectedCards.DeckItems">
+                <span style="padding-left: 30px;">{{ card.Count }}x {{ card.Card.Name }}</span>
+            </div>
+        </div>
+        <div ng-if="character.SelectedCards.DeckAllies.length > 0">
+            Ally ({{ character.SelectedAllyCards > character.AllyCards ? character.SelectedAllyCards : character.AllyCards }})
+            <div ng-repeat="card in character.SelectedCards.DeckAllies">
+                <span style="padding-left: 30px;">{{ card.Count }}x {{ card.Card.Name }}</span>
+            </div>
+        </div>
+        <div ng-if="character.SelectedCards.DeckBlessings.length > 0">
+            Blessing ({{ character.SelectedBlessingCards > character.BlessingCards ? character.SelectedBlessingCards : character.BlessingCards }})
+            <div ng-repeat="card in character.SelectedCards.DeckBlessings">
+                <span style="padding-left: 30px;">{{ card.Count }}x {{ card.Card.Name }}</span>
+            </div>
+        </div>
     </fieldset>
     <a href="#/{{ user.Id }}/party/{{ party.Id }}/character/{{ character.Id }}/edit">Edit</a> <a href="#/{{ user.Id }}/party/{{ party.Id }}">Show party</a>
 

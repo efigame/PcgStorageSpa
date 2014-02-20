@@ -21,6 +21,18 @@ namespace PcgApi.Models
         public List<Card> AllyCards { get; set; }
         [DataMember]
         public List<Card> BlessingCards { get; set; }
+        [DataMember]
+        public List<CharacterDeck> DeckWeapons { get; set; }
+        [DataMember]
+        public List<CharacterDeck> DeckSpells { get; set; }
+        [DataMember]
+        public List<CharacterDeck> DeckArmors { get; set; }
+        [DataMember]
+        public List<CharacterDeck> DeckItems { get; set; }
+        [DataMember]
+        public List<CharacterDeck> DeckAllies { get; set; }
+        [DataMember]
+        public List<CharacterDeck> DeckBlessings { get; set; }
 
         public SelectedCards(int partyCharacterId)
         {
@@ -32,6 +44,14 @@ namespace PcgApi.Models
             BlessingCards = new List<Card>();
 
             var allCards = DataAccess.Dto.CharacterDeck.All(partyCharacterId);
+
+            DeckWeapons = allCards.Where(c => c.Card.CardTypeId == 10).Select(c => new CharacterDeck(c)).ToList();
+            DeckSpells = allCards.Where(c => c.Card.CardTypeId == 11).Select(c => new CharacterDeck(c)).ToList();
+            DeckArmors = allCards.Where(c => c.Card.CardTypeId == 13).Select(c => new CharacterDeck(c)).ToList();
+            DeckItems = allCards.Where(c => c.Card.CardTypeId == 14).Select(c => new CharacterDeck(c)).ToList();
+            DeckAllies = allCards.Where(c => c.Card.CardTypeId == 15).Select(c => new CharacterDeck(c)).ToList();
+            DeckBlessings = allCards.Where(c => c.Card.CardTypeId == 16).Select(c => new CharacterDeck(c)).ToList();
+
             WeaponCards = SetCardList(allCards.Where(c => c.Card.CardTypeId == 10));
             SpellCards = SetCardList(allCards.Where(c => c.Card.CardTypeId == 11));
             ArmorCards = SetCardList(allCards.Where(c => c.Card.CardTypeId == 13));
