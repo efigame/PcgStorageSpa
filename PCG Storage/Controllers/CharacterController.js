@@ -27,7 +27,7 @@ app.controller('characterController', function ($scope, $location, $routeParams,
                     }
                 }
 
-                characterFactory.updateSkill($scope.character.Skills[i], function (results) { $scope.success = true; }, function () { $scope.success = false; });
+                characterFactory.updateSkill($scope.character.Skills[i], function () { $scope.success = true; }, function () { $scope.success = false; });
             }
         }
     };
@@ -41,7 +41,7 @@ app.controller('characterController', function ($scope, $location, $routeParams,
                     }
                 }
 
-                characterFactory.updatePower($scope.character.Powers[i], function (results) { $scope.success = true; }, function () { $scope.success = false; });
+                characterFactory.updatePower($scope.character.Powers[i], function () { $scope.success = true; }, function () { $scope.success = false; });
             }
         }
     };
@@ -57,7 +57,7 @@ app.controller('characterController', function ($scope, $location, $routeParams,
             }
         }
 
-        characterFactory.updateCharacter($scope.character, function (results) { $scope.success = true; }, function () { $scope.success = false; });
+        characterFactory.updateCharacter($scope.character, function () { $scope.success = true; }, function () { $scope.success = false; });
     };
 
     $scope.updateLightArmor = function ($event) {
@@ -69,7 +69,7 @@ app.controller('characterController', function ($scope, $location, $routeParams,
             $scope.character.LightArmors = 1;
         };
 
-        characterFactory.updateCharacter($scope.character, function (results) { $scope.success = true; }, function () { $scope.success = false; });
+        characterFactory.updateCharacter($scope.character, function () { $scope.success = true; }, function () { $scope.success = false; });
     };
 
     $scope.updateHeavyArmor = function ($event) {
@@ -81,7 +81,7 @@ app.controller('characterController', function ($scope, $location, $routeParams,
             $scope.character.HeavyArmors = 1;
         };
 
-        characterFactory.updateCharacter($scope.character, function (results) { $scope.success = true; }, function () { $scope.success = false; });
+        characterFactory.updateCharacter($scope.character, function () { $scope.success = true; }, function () { $scope.success = false; });
     };
 
     $scope.updateWeapon = function ($event) {
@@ -93,78 +93,78 @@ app.controller('characterController', function ($scope, $location, $routeParams,
             $scope.character.Weapons = 1;
         };
 
-        characterFactory.updateCharacter($scope.character, function (results) { $scope.success = true; }, function () { $scope.success = false; });
+        characterFactory.updateCharacter($scope.character, function () { $scope.success = true; }, function () { $scope.success = false; });
     };
 
     $scope.addWeaponCard = function () {
         if ($scope.SelectedWeaponCard) {
             $scope.character.SelectedCards.WeaponCards.push($scope.SelectedWeaponCard);
-            characterFactory.updateCharacter($scope.character, function (results) { $scope.success = true; }, function () { $scope.success = false; });
+            characterFactory.updateCharacter($scope.character, function () { $scope.success = true; }, function () { $scope.success = false; });
         }
     };
 
     $scope.addSpellCard = function () {
         if ($scope.SelectedSpellCard) {
             $scope.character.SelectedCards.SpellCards.push($scope.SelectedSpellCard);
-            characterFactory.updateCharacter($scope.character, function (results) { $scope.success = true; }, function () { $scope.success = false; });
+            characterFactory.updateCharacter($scope.character, function () { $scope.success = true; }, function () { $scope.success = false; });
         }
     };
 
     $scope.addArmorCard = function () {
         if ($scope.SelectedArmorCard) {
             $scope.character.SelectedCards.ArmorCards.push($scope.SelectedArmorCard);
-            characterFactory.updateCharacter($scope.character, function (results) { $scope.success = true; }, function () { $scope.success = false; });
+            characterFactory.updateCharacter($scope.character, function () { $scope.success = true; }, function () { $scope.success = false; });
         }
     };
 
     $scope.addItemCard = function () {
         if ($scope.SelectedItemCard) {
             $scope.character.SelectedCards.ItemCards.push($scope.SelectedItemCard);
-            characterFactory.updateCharacter($scope.character, function (results) { $scope.success = true; }, function () { $scope.success = false; });
+            characterFactory.updateCharacter($scope.character, function () { $scope.success = true; }, function () { $scope.success = false; });
         }
     };
 
     $scope.addAllyCard = function () {
         if ($scope.SelectedAllyCard) {
             $scope.character.SelectedCards.AllyCards.push($scope.SelectedAllyCard);
-            characterFactory.updateCharacter($scope.character, function (results) { $scope.success = true; }, function () { $scope.success = false; });
+            characterFactory.updateCharacter($scope.character, function () { $scope.success = true; }, function () { $scope.success = false; });
         }
     };
 
     $scope.addBlessingCard = function () {
         if ($scope.SelectedBlessingCard) {
             $scope.character.SelectedCards.BlessingCards.push($scope.SelectedBlessingCard);
-            characterFactory.updateCharacter($scope.character, function (results) { $scope.success = true; }, function () { $scope.success = false; });
+            characterFactory.updateCharacter($scope.character, function () { $scope.success = true; }, function () { $scope.success = false; });
         }
     };
 
     $scope.removeWeaponCard = function (index) {
         $scope.character.SelectedCards.WeaponCards.splice(index, 1);
-        characterFactory.updateCharacter($scope.character, function (results) { $scope.success = true; }, function () { $scope.success = false; });
+        characterFactory.updateCharacter($scope.character, function () { $scope.success = true; }, function () { $scope.success = false; });
     };
 
     $scope.removeSpellCard = function (index) {
         $scope.character.SelectedCards.SpellCards.splice(index, 1);
-        characterFactory.updateCharacter($scope.character, function (results) { $scope.success = true; }, function () { $scope.success = false; });
+        characterFactory.updateCharacter($scope.character, function () { $scope.success = true; }, function () { $scope.success = false; });
     };
 
     $scope.removeArmorCard = function (index) {
         $scope.character.SelectedCards.ArmorCards.splice(index, 1);
-        characterFactory.updateCharacter($scope.character, function (results) { $scope.success = true; }, function () { $scope.success = false; });
+        characterFactory.updateCharacter($scope.character, function () { $scope.success = true; }, function () { $scope.success = false; });
     };
 
     $scope.removeItemCard = function (index) {
         $scope.character.SelectedCards.ItemCards.splice(index, 1);
-        characterFactory.updateCharacter($scope.character, function (results) { $scope.success = true; }, function () { $scope.success = false; });
+        characterFactory.updateCharacter($scope.character, function () { $scope.success = true; }, function () { $scope.success = false; });
     };
 
     $scope.removeAllyCard = function (index) {
         $scope.character.SelectedCards.AllyCards.splice(index, 1);
-        characterFactory.updateCharacter($scope.character, function (results) { $scope.success = true; }, function () { $scope.success = false; });
+        characterFactory.updateCharacter($scope.character, function () { $scope.success = true; }, function () { $scope.success = false; });
     };
 
     $scope.removeBlessingCard = function (index) {
         $scope.character.SelectedCards.BlessingCards.splice(index, 1);
-        characterFactory.updateCharacter($scope.character, function (results) { $scope.success = true; }, function () { $scope.success = false; });
+        characterFactory.updateCharacter($scope.character, function () { $scope.success = true; }, function () { $scope.success = false; });
     };
 });

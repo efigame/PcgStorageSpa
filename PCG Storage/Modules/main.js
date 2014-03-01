@@ -14,5 +14,5 @@ app.config(function ($routeProvider) {
         .when('/:userid/party/:partyid/edit', { templateUrl: "partials/party/edit.html", controller: "partyController" })
         .when('/:userid/party/:partyid/character/:characterid', { templateUrl: "partials/character/view.html", controller: "characterController" })
         .when('/:userid/party/:partyid/character/:characterid/edit', { templateUrl: "partials/character/edit.html", controller: "characterController" })
-        .otherwise({ template: "This doesn't exist!" })
+        .otherwise({ template: "This doesn't exist!" });
 });

@@ -37,7 +37,7 @@ app.controller('partyController', function ($scope, $location, $routeParams, par
                 }
             }
 
-            partyFactory.updateParty($scope.party, function (results) {
+            partyFactory.updateParty($scope.party, function () {
                 $scope.success = true;
             }, function () {
                 $scope.success = false;
@@ -50,7 +50,7 @@ app.controller('partyController', function ($scope, $location, $routeParams, par
     };
 
     $scope.updateParty = function () {
-        partyFactory.updateParty($scope.party, function (results) {
+        partyFactory.updateParty($scope.party, function () {
             $scope.success = true;
         }, function () {
             $scope.success = false;

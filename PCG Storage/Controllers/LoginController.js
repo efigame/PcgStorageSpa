@@ -9,9 +9,9 @@ app.controller('loginController', function ($scope, $location, loginFactory) {
         var postData = { "Id": null, "Email": user.email, "Password": user.password };
 
         loginFactory.loginUser(postData, function (results) {
-            $location.path('/' + results.Id + '/party')
+            $location.path('/' + results.Id + '/party');
         }, function () {
             $scope.success = 'Failed';
         });
-    }
+    };
 });
