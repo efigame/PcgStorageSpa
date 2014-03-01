@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccess.Dto
 {
@@ -44,7 +41,7 @@ namespace DataAccess.Dto
         {
             using (var data = new PcgStorageEntities())
             {
-                var entity = this.ToEntity();
+                var entity = ToEntity();
                 data.powers.Add(entity);
                 data.SaveChanges();
 
@@ -68,7 +65,7 @@ namespace DataAccess.Dto
                 }
             }
         }
-        public void Delete() // TODO: Remember foreign relations
+        public void Delete()
         {
             using (var data = new PcgStorageEntities())
             {
@@ -98,11 +95,11 @@ namespace DataAccess.Dto
         {
             var power = new power
             {
-                Text = this.Text,
-                Number = this.Number,
-                Dice = this.Dice,
-                Adjustment = this.Adjustment,
-                CharacterCardId = this.CharacterCardId
+                Text = Text,
+                Number = Number,
+                Dice = Dice,
+                Adjustment = Adjustment,
+                CharacterCardId = CharacterCardId
             };
 
             return power;

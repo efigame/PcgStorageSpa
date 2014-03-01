@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccess.Dto
 {
@@ -53,7 +50,7 @@ namespace DataAccess.Dto
         {
             using (var data = new PcgStorageEntities())
             {
-                var entity = this.ToEntity();
+                var entity = ToEntity();
                 data.partycharacters.Add(entity);
                 data.SaveChanges();
 
@@ -90,7 +87,7 @@ namespace DataAccess.Dto
                 var partyCharacter = data.partycharacters.SingleOrDefault(p => p.Id == Id);
                 if (partyCharacter != null)
                 {
-                    partyCharacter.DeletedDate = System.DateTime.Now;
+                    partyCharacter.DeletedDate = DateTime.Now;
                     data.SaveChanges();
                 }
             }
@@ -121,19 +118,19 @@ namespace DataAccess.Dto
         {
             var partyCharacter = new partycharacter
             {
-                PartyId = this.PartyId,
-                CharacterCardId = this.CharacterCardId,
-                LightArmors = this.LightArmors,
-                HeavyArmors = this.HeavyArmors,
-                Weapons = this.Weapons,
-                WeaponCards = this.WeaponCards,
-                SpellCards = this.SpellCards,
-                ArmorCards = this.ArmorCards,
-                ItemCards = this.ItemCards,
-                AllyCards = this.AllyCards,
-                BlessingCards = this.BlessingCards,
-                HandSize = this.HandSize,
-                DeletedDate = this.DeletedDate
+                PartyId = PartyId,
+                CharacterCardId = CharacterCardId,
+                LightArmors = LightArmors,
+                HeavyArmors = HeavyArmors,
+                Weapons = Weapons,
+                WeaponCards = WeaponCards,
+                SpellCards = SpellCards,
+                ArmorCards = ArmorCards,
+                ItemCards = ItemCards,
+                AllyCards = AllyCards,
+                BlessingCards = BlessingCards,
+                HandSize = HandSize,
+                DeletedDate = DeletedDate
             };
 
             return partyCharacter;

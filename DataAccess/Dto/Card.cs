@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccess.Dto
 {
@@ -45,7 +41,7 @@ namespace DataAccess.Dto
         {
             using (var data = new PcgStorageEntities())
             {
-                var entity = this.ToEntity();
+                var entity = ToEntity();
                 data.cards.Add(entity);
                 data.SaveChanges();
 
@@ -67,7 +63,7 @@ namespace DataAccess.Dto
                 }
             }
         }
-        public void Delete() // TODO: Remember foreign relations
+        public void Delete()
         {
             using (var data = new PcgStorageEntities())
             {
@@ -97,9 +93,9 @@ namespace DataAccess.Dto
         {
             var card = new card
             {
-                Name = this.Name,
-                DeckId = this.DeckId,
-                CardTypeId = this.CardTypeId
+                Name = Name,
+                DeckId = DeckId,
+                CardTypeId = CardTypeId
             };
 
             return card;

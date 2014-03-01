@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccess.Dto
 {
@@ -54,7 +50,7 @@ namespace DataAccess.Dto
         {
             using (var data = new PcgStorageEntities())
             {
-                var pcgUser = this.ToEntity();
+                var pcgUser = ToEntity();
 
                 data.pcgusers.Add(pcgUser);
                 data.SaveChanges();
@@ -92,7 +88,7 @@ namespace DataAccess.Dto
         {
         }
 
-        internal PcgUser(DataAccess.pcguser pcgUser)
+        internal PcgUser(pcguser pcgUser)
         {
             Id = pcgUser.Id;
             Email = pcgUser.Email;
@@ -100,10 +96,10 @@ namespace DataAccess.Dto
         }
         internal pcguser ToEntity()
         {
-            var pcgUser = new DataAccess.pcguser
+            var pcgUser = new pcguser
             {
-                Email = this.Email,
-                Password = this.Password
+                Email = Email,
+                Password = Password
             };
 
             return pcgUser;

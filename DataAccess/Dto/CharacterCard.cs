@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccess.Dto
 {
@@ -59,7 +55,7 @@ namespace DataAccess.Dto
         {
             using (var data = new PcgStorageEntities())
             {
-                var card = this.ToEntity();
+                var card = ToEntity();
 
                 data.charactercards.Add(card);
                 data.SaveChanges();
@@ -97,7 +93,7 @@ namespace DataAccess.Dto
                 }
             }
         }
-        public void Delete() // TODO: Remember foreign relations
+        public void Delete()
         {
             using (var data = new PcgStorageEntities())
             {
@@ -141,25 +137,25 @@ namespace DataAccess.Dto
         {
             var card = new charactercard
             {
-                Name = this.Name,
-                BaseHandSize = this.BaseHandSize,
-                BaseLightArmors = this.BaseLightArmors,
-                BaseHeavyArmors = this.BaseHeavyArmors,
-                BaseWeapons = this.BaseWeapons,
-                BaseWeaponCards = this.BaseWeaponCards,
-                BaseSpellCards = this.BaseSpellCards,
-                BaseArmorCards = this.BaseArmorCards,
-                BaseItemCards = this.BaseItemCards,
-                BaseAllyCards = this.BaseAllyCards,
-                BaseBlessingCards = this.BaseBlessingCards,
-                PossibleWeaponCards = this.PossibleWeaponCards,
-                PossibleHandSize = this.PossibleHandSize,
-                PossibleSpellCards = this.PossibleSpellCards,
-                PossibleArmorCards = this.PossibleArmorCards,
-                PossibleItemCards = this.PossibleItemCards,
-                PossibleAllyCards = this.PossibleAllyCards,
-                PossibleBlessingCards = this.PossibleBlessingCards,
-                FavoredCardType = this.FavoredCardType
+                Name = Name,
+                BaseHandSize = BaseHandSize,
+                BaseLightArmors = BaseLightArmors,
+                BaseHeavyArmors = BaseHeavyArmors,
+                BaseWeapons = BaseWeapons,
+                BaseWeaponCards = BaseWeaponCards,
+                BaseSpellCards = BaseSpellCards,
+                BaseArmorCards = BaseArmorCards,
+                BaseItemCards = BaseItemCards,
+                BaseAllyCards = BaseAllyCards,
+                BaseBlessingCards = BaseBlessingCards,
+                PossibleWeaponCards = PossibleWeaponCards,
+                PossibleHandSize = PossibleHandSize,
+                PossibleSpellCards = PossibleSpellCards,
+                PossibleArmorCards = PossibleArmorCards,
+                PossibleItemCards = PossibleItemCards,
+                PossibleAllyCards = PossibleAllyCards,
+                PossibleBlessingCards = PossibleBlessingCards,
+                FavoredCardType = FavoredCardType
             };
 
             return card;
