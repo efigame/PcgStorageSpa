@@ -1,9 +1,6 @@
 ﻿using PcgApi.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace PcgApi.Controllers
@@ -13,13 +10,10 @@ namespace PcgApi.Controllers
         [Route("api/party")]
         public IHttpActionResult Post([FromBody]Party party)
         {
-            var newParty = new DataAccess.Dto.Party();
-            newParty.Name = party.Name;
-            newParty.PcgUserId = party.UserId;
+            var newParty = new DataAccess.Dto.Party {Name = party.Name, PcgUserId = party.UserId};
             newParty.Persist();
 
-            if (newParty != null) return Ok(new Party(newParty));
-            return NotFound();
+            return Ok(new Party(newParty));
         }
 
         // GET api/{userid}/party

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
-using System.Web;
 
 namespace PcgApi.Models
 {
@@ -63,12 +61,12 @@ namespace PcgApi.Models
         internal void Update(int partyCharacterId)
         {
             var previouslySelectedCards = DataAccess.Dto.CharacterDeck.All(partyCharacterId);
-            var previouslySelectedWeaponCards = previouslySelectedCards.Where(c => c.Card.CardTypeId == 10);
-            var previouslySelectedSpellCards = previouslySelectedCards.Where(c => c.Card.CardTypeId == 11);
-            var previouslySelectedArmorCards = previouslySelectedCards.Where(c => c.Card.CardTypeId == 13);
-            var previouslySelectedItemCards = previouslySelectedCards.Where(c => c.Card.CardTypeId == 14);
-            var previouslySelectedAllyCards = previouslySelectedCards.Where(c => c.Card.CardTypeId == 15);
-            var previouslySelectedBlessingCards = previouslySelectedCards.Where(c => c.Card.CardTypeId == 16);
+            var previouslySelectedWeaponCards = previouslySelectedCards.Where(c => c.Card.CardTypeId == 10).ToList();
+            var previouslySelectedSpellCards = previouslySelectedCards.Where(c => c.Card.CardTypeId == 11).ToList();
+            var previouslySelectedArmorCards = previouslySelectedCards.Where(c => c.Card.CardTypeId == 13).ToList();
+            var previouslySelectedItemCards = previouslySelectedCards.Where(c => c.Card.CardTypeId == 14).ToList();
+            var previouslySelectedAllyCards = previouslySelectedCards.Where(c => c.Card.CardTypeId == 15).ToList();
+            var previouslySelectedBlessingCards = previouslySelectedCards.Where(c => c.Card.CardTypeId == 16).ToList();
 
             UpdateCardList(previouslySelectedWeaponCards, WeaponCards, partyCharacterId);
             UpdateCardList(previouslySelectedSpellCards, SpellCards, partyCharacterId);
@@ -78,14 +76,9 @@ namespace PcgApi.Models
             UpdateCardList(previouslySelectedBlessingCards, BlessingCards, partyCharacterId);
         }
 
-        private void UpdateCardList(IEnumerable<DataAccess.Dto.CharacterDeck> previouslySelectedCards, List<Card> selectedCards, int partyCharacterId)
+        private void UpdateCardList(IList<DataAccess.Dto.CharacterDeck> previouslySelectedCards, IEnumerable<Card> selectedCards, int partyCharacterId)
         {
-            var newSelectedCards = new List<DataAccess.Dto.CharacterDeck>();
-
-            foreach (var card in previouslySelectedCards)
-            {
-                newSelectedCards.Add(new DataAccess.Dto.CharacterDeck { CardId = card.CardId, Id = card.Id, PartyCharacterId = card.PartyCharacterId, Count = 0 });
-            }
+            var newSelectedCards = previouslySelectedCards.Select(card => new DataAccess.Dto.CharacterDeck {CardId = card.CardId, Id = card.Id, PartyCharacterId = card.PartyCharacterId, Count = 0}).ToList();
 
             foreach (var card in selectedCards)
             {

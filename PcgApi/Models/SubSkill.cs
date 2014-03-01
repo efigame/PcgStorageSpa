@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Web;
+﻿using System.Runtime.Serialization;
 
 namespace PcgApi.Models
 {
@@ -28,6 +24,11 @@ namespace PcgApi.Models
             Name = skill.Name;
             Adjustment = skill.Adjustment;
             BaseSkillId = skill.BaseSkillId;
+
+            if (deepObjects)
+            {
+                
+            }
         }
     }
 }

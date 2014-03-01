@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
-using System.Web;
 
 namespace PcgApi.Models
 {
@@ -134,9 +132,9 @@ namespace PcgApi.Models
                 var characterCard = DataAccess.Dto.CharacterCard.Get(partyCharacter.CharacterCardId);
                 Name = characterCard.Name;
                 HandSize = characterCard.BaseHandSize;
-                LightArmors = (!lightArmor.HasValue || !(lightArmor.Value == 2)) ? characterCard.BaseLightArmors : lightArmor.Value;
-                HeavyArmors = (!heavyArmor.HasValue || !(heavyArmor.Value == 2)) ? characterCard.BaseHeavyArmors : heavyArmor.Value;
-                Weapons = (!weapons.HasValue || !(weapons.Value == 2)) ? characterCard.BaseWeapons : weapons.Value;
+                LightArmors = (!lightArmor.HasValue || lightArmor.Value != 2) ? characterCard.BaseLightArmors : lightArmor.Value;
+                HeavyArmors = (!heavyArmor.HasValue || heavyArmor.Value != 2) ? characterCard.BaseHeavyArmors : heavyArmor.Value;
+                Weapons = (!weapons.HasValue || weapons.Value != 2) ? characterCard.BaseWeapons : weapons.Value;
                 WeaponCards = characterCard.BaseWeaponCards;
                 SpellCards = characterCard.BaseSpellCards;
                 ArmorCards = characterCard.BaseArmorCards;
@@ -172,26 +170,26 @@ namespace PcgApi.Models
         }
         internal void Update()
         {
-            KeyValuePair<int, bool>? handSizeFound = HandSizes.Where(h => h.Value).OrderByDescending(h => h.Key).FirstOrDefault();
-            if (handSizeFound.HasValue) SelectedHandSize = handSizeFound.Value.Key;
+            KeyValuePair<int, bool> handSizeFound = HandSizes.Where(h => h.Value).OrderByDescending(h => h.Key).FirstOrDefault();
+            SelectedHandSize = handSizeFound.Key;
 
-            KeyValuePair<int, bool>? allyCardFound = AllyCardsList.Where(h => h.Value).OrderByDescending(h => h.Key).FirstOrDefault();
-            if (allyCardFound.HasValue) SelectedAllyCards = allyCardFound.Value.Key;
+            KeyValuePair<int, bool> allyCardFound = AllyCardsList.Where(h => h.Value).OrderByDescending(h => h.Key).FirstOrDefault();
+            SelectedAllyCards = allyCardFound.Key;
 
-            KeyValuePair<int, bool>? armorCardFound = ArmorCardsList.Where(h => h.Value).OrderByDescending(h => h.Key).FirstOrDefault();
-            if (armorCardFound.HasValue) SelectedArmorCards = armorCardFound.Value.Key;
+            KeyValuePair<int, bool> armorCardFound = ArmorCardsList.Where(h => h.Value).OrderByDescending(h => h.Key).FirstOrDefault();
+            SelectedArmorCards = armorCardFound.Key;
 
-            KeyValuePair<int, bool>? blessingCardFound = BlessingCardsList.Where(h => h.Value).OrderByDescending(h => h.Key).FirstOrDefault();
-            if (blessingCardFound.HasValue) SelectedBlessingCards = blessingCardFound.Value.Key;
+            KeyValuePair<int, bool> blessingCardFound = BlessingCardsList.Where(h => h.Value).OrderByDescending(h => h.Key).FirstOrDefault();
+            SelectedBlessingCards = blessingCardFound.Key;
 
-            KeyValuePair<int, bool>? itemCardFound = ItemCardsList.Where(h => h.Value).OrderByDescending(h => h.Key).FirstOrDefault();
-            if (itemCardFound.HasValue) SelectedItemCards = itemCardFound.Value.Key;
+            KeyValuePair<int, bool> itemCardFound = ItemCardsList.Where(h => h.Value).OrderByDescending(h => h.Key).FirstOrDefault();
+            SelectedItemCards = itemCardFound.Key;
 
-            KeyValuePair<int, bool>? spellCardFound = SpellCardsList.Where(h => h.Value).OrderByDescending(h => h.Key).FirstOrDefault();
-            if (spellCardFound.HasValue) SelectedSpellCards = spellCardFound.Value.Key;
+            KeyValuePair<int, bool> spellCardFound = SpellCardsList.Where(h => h.Value).OrderByDescending(h => h.Key).FirstOrDefault();
+            SelectedSpellCards = spellCardFound.Key;
 
-            KeyValuePair<int, bool>? weaponCardFound = WeaponCardsList.Where(h => h.Value).OrderByDescending(h => h.Key).FirstOrDefault();
-            if (weaponCardFound.HasValue) SelectedWeaponCards = weaponCardFound.Value.Key;
+            KeyValuePair<int, bool> weaponCardFound = WeaponCardsList.Where(h => h.Value).OrderByDescending(h => h.Key).FirstOrDefault();
+            SelectedWeaponCards = weaponCardFound.Key;
 
             var partyCharacterData = DataAccess.Dto.PartyCharacter.Get(Id);
             partyCharacterData.LightArmors = LightArmors;

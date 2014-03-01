@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
-using System.Web;
 
 namespace PcgApi.Models
 {
@@ -51,22 +50,18 @@ namespace PcgApi.Models
             if (deepObjects)
             {
                 var selectedPower = DataAccess.Dto.CharacterPower.All(partyCharacterId).SingleOrDefault(c => c.PowerId == Id);
-                if (selectedPower != null)
-                    SelectedPowers = selectedPower.SelectedPowers;
-                else
-                    SelectedPowers = 0;
+                SelectedPowers = selectedPower != null ? selectedPower.SelectedPowers : 0;
 
-                string[] powerlist = power.Text.Split(new string[] { "{format:check}" }, StringSplitOptions.None);
-                if (powerlist.Count() > 0)
+                var powerlist = power.Text.Split(new[] { "{format:check}" }, StringSplitOptions.None);
+                if (powerlist.Any())
                 {
                     PowersListText = powerlist[0];
 
-                    for (int i = 1; i < powerlist.Count(); i++)
+                    for (var i = 1; i < powerlist.Count(); i++)
                     {
-                        if ((i & SelectedPowers) == i)
-                            PowersList.Add(new KeyValuePair<string, bool>(powerlist[i], true));
-                        else
-                            PowersList.Add(new KeyValuePair<string, bool>(powerlist[i], false));
+                        PowersList.Add((i & SelectedPowers) == i
+                            ? new KeyValuePair<string, bool>(powerlist[i], true)
+                            : new KeyValuePair<string, bool>(powerlist[i], false));
                     }
                 }
             }

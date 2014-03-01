@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
-using System.Web;
 
 namespace PcgApi.Models
 {
@@ -51,17 +49,13 @@ namespace PcgApi.Models
                 SubSkills.AddRange(subSkills.Select(s => new SubSkill(s)));
 
                 var characterSkill = DataAccess.Dto.CharacterSkill.All(partyCharacterId).SingleOrDefault(c => c.SkillId == Id);
-                if (characterSkill != null)
-                    SelectedAddons = characterSkill.SelectedAdjustment;
-                else
-                    SelectedAddons = 0;
+                SelectedAddons = characterSkill != null ? characterSkill.SelectedAdjustment : 0;
 
-                for (int i = 1; i <= skill.PossibleAddons; i++)
+                for (var i = 1; i <= skill.PossibleAddons; i++)
                 {
-                    if (SelectedAddons >= i)
-                        Addons.Add(new KeyValuePair<int, bool>(i, true));
-                    else
-                        Addons.Add(new KeyValuePair<int, bool>(i, false));
+                    Addons.Add(SelectedAddons >= i
+                        ? new KeyValuePair<int, bool>(i, true)
+                        : new KeyValuePair<int, bool>(i, false));
                 }
 
             }
@@ -69,8 +63,8 @@ namespace PcgApi.Models
 
         internal void SetSelectedAdjustment()
         {
-            KeyValuePair<int, bool>? addonFound = Addons.Where(h => h.Value).OrderByDescending(h => h.Key).FirstOrDefault();
-            if (addonFound.HasValue) SelectedAddons = addonFound.Value.Key;
+            KeyValuePair<int, bool> addonFound = Addons.Where(h => h.Value).OrderByDescending(h => h.Key).FirstOrDefault();
+            SelectedAddons = addonFound.Key;
 
             var characterSkill = DataAccess.Dto.CharacterSkill.All(PartyCharacterId).SingleOrDefault(c => c.SkillId == Id);
             if (characterSkill != null)
