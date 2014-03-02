@@ -31,9 +31,9 @@ app.controller('partyController', function ($scope, $location, $routeParams, par
 
         if (proceed)
         {
-            for (var i = 0; i < $scope.party.PossibleCharacters.length; i++) {
-                if ($scope.party.PossibleCharacters[i].Key.Id == id) {
-                    $scope.party.PossibleCharacters[i].Value = !$scope.party.PossibleCharacters[i].Value;
+            for (var i = 0; i < $scope.party.Characters.Possible.length; i++) {
+                if ($scope.party.Characters.Possible[i].Key.Id == id) {
+                    $scope.party.Characters.Possible[i].Value = !$scope.party.Characters.Possible[i].Value;
                 }
             }
 

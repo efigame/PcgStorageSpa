@@ -103,6 +103,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CharacterDeck.cs" />
+    <Compile Include="Models\Characters.cs" />
     <Compile Include="Models\Deck.cs" />
     <Compile Include="Models\SelectedCards.cs" />
     <Compile Include="Models\AvailableCards.cs" />

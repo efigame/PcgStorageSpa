@@ -2,7 +2,7 @@
     <h1>{{ party.Name }}</h1>
     <fieldset>
         <legend>Characters</legend>
-        <div ng-repeat="character in party.Characters">
+        <div ng-repeat="character in party.Characters.Selected">
             <a href="#/{{ user.Id }}/party/{{ party.Id }}/character/{{ character.Id }}">{{ character.Name }}</a>
         </div>
     </fieldset>
