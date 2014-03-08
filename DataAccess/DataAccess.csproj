@@ -122,7 +122,6 @@
     <Compile Include="Dto\CharacterScenario.cs" />
     <Compile Include="Dto\Scenario.cs" />
     <Compile Include="Dto\CharacterDeck.cs" />
-    <Compile Include="Dto\CardType.cs" />
     <Compile Include="Dto\AdventureDeck.cs" />
     <Compile Include="Dto\CharacterPower.cs" />
     <Compile Include="Dto\CharacterSkill.cs" />

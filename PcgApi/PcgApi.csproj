@@ -111,7 +111,6 @@
     <Compile Include="Models\AdventurePaths.cs" />
     <Compile Include="Models\SelectedCards.cs" />
     <Compile Include="Models\AvailableCards.cs" />
-    <Compile Include="Models\CardType.cs" />
     <Compile Include="Models\Character.cs" />
     <Compile Include="Models\CharacterCard.cs" />
     <Compile Include="Models\Party.cs" />
