@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 
 namespace PcgApi.Models
 {
@@ -12,12 +10,15 @@ namespace PcgApi.Models
         [DataMember]
         public string Name { get; set; }
         [DataMember]
+        public int Index { get; set; }
+        [DataMember]
         public bool Completed { get; set; }
 
-        internal Scenario(DataAccess.Dto.Card card)
+        internal Scenario(DataAccess.Dto.Scenario scenario)
         {
-            Id = card.Id;
-            Name = card.Name;
+            Id = scenario.Id;
+            Name = scenario.Name;
+            Index = scenario.Index;
         }
     }
 }

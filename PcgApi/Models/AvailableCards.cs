@@ -29,14 +29,12 @@ namespace PcgApi.Models
             AllyCards = new List<Card>();
             BlessingCards = new List<Card>();
 
-            var availableCards = DataAccess.Dto.Card.All();
-
-            WeaponCards.AddRange(availableCards.Where(c => c.CardTypeId == 10).Select(c => new Card(c)));
-            SpellCards.AddRange(availableCards.Where(c => c.CardTypeId == 11).Select(c => new Card(c)));
-            ArmorCards.AddRange(availableCards.Where(c => c.CardTypeId == 13).Select(c => new Card(c)));
-            ItemCards.AddRange(availableCards.Where(c => c.CardTypeId == 14).Select(c => new Card(c)));
-            AllyCards.AddRange(availableCards.Where(c => c.CardTypeId == 15).Select(c => new Card(c)));
-            BlessingCards.AddRange(availableCards.Where(c => c.CardTypeId == 16).Select(c => new Card(c)));
+            WeaponCards.AddRange(DataAccess.Dto.WeaponCard.All().Select(c => new Card(c, false)));
+            SpellCards.AddRange(DataAccess.Dto.SpellCard.All().Select(c => new Card(c, false)));
+            ArmorCards.AddRange(DataAccess.Dto.ArmorCard.All().Select(c => new Card(c, false)));
+            ItemCards.AddRange(DataAccess.Dto.ItemCard.All().Select(c => new Card(c, false)));
+            AllyCards.AddRange(DataAccess.Dto.AllyCard.All().Select(c => new Card(c, false)));
+            BlessingCards.AddRange(DataAccess.Dto.BlessingCard.All().Select(c => new Card(c, false)));
         }
     }
 }

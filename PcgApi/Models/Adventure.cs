@@ -16,13 +16,13 @@ namespace PcgApi.Models
         [DataMember]
         public List<Scenario> Scenarios { get; set; }
 
-        internal Adventure(DataAccess.Dto.Card card, IEnumerable<DataAccess.Dto.Card> availableCards)
+        internal Adventure(DataAccess.Dto.AdventureDeck adventureDeck)
         {
-            Id = card.Id;
-            Name = card.Name;
+            Id = adventureDeck.Id;
+            Name = adventureDeck.Name;
 
             Scenarios = new List<Scenario>();
-            Scenarios.AddRange(availableCards.Where(c => c.CardTypeId == 4).Select(c => new Scenario(c)));
+            Scenarios.AddRange(DataAccess.Dto.Scenario.All().Where(s => s.AdventureDeckId == Id).Select(c => new Scenario(c)));
         }
     }
 }

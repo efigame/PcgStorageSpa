@@ -11,24 +11,66 @@ namespace PcgApi.Models
         public string Name { get; set; }
         [DataMember]
         public int DeckId { get; set; }
-        [DataMember]
-        public CardType CardType { get; set; }
-        [DataMember]
-        public Deck Deck { get; set; }
 
         public Card()
         {
         }
 
-        internal Card(DataAccess.Dto.Card card) : this(card, false)
-        {
-        }
-
-        internal Card(DataAccess.Dto.Card card, bool deepObjects)
+        internal Card(DataAccess.Dto.WeaponCard card, bool deepObjects)
         {
             Id = card.Id;
             Name = card.Name;
-            DeckId = card.DeckId;
+            DeckId = card.AdventureDeckId;
+
+            if (deepObjects)
+            {
+            }
+        }
+        internal Card(DataAccess.Dto.SpellCard card, bool deepObjects)
+        {
+            Id = card.Id;
+            Name = card.Name;
+            DeckId = card.AdventureDeckId;
+
+            if (deepObjects)
+            {
+            }
+        }
+        internal Card(DataAccess.Dto.ArmorCard card, bool deepObjects)
+        {
+            Id = card.Id;
+            Name = card.Name;
+            DeckId = card.AdventureDeckId;
+
+            if (deepObjects)
+            {
+            }
+        }
+        internal Card(DataAccess.Dto.ItemCard card, bool deepObjects)
+        {
+            Id = card.Id;
+            Name = card.Name;
+            DeckId = card.AdventureDeckId;
+
+            if (deepObjects)
+            {
+            }
+        }
+        internal Card(DataAccess.Dto.AllyCard card, bool deepObjects)
+        {
+            Id = card.Id;
+            Name = card.Name;
+            DeckId = card.AdventureDeckId;
+
+            if (deepObjects)
+            {
+            }
+        }
+        internal Card(DataAccess.Dto.BlessingCard card, bool deepObjects)
+        {
+            Id = card.Id;
+            Name = card.Name;
+            DeckId = card.AdventureDeckId;
 
             if (deepObjects)
             {

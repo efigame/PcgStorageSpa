@@ -16,13 +16,13 @@ namespace PcgApi.Models
         [DataMember]
         public bool Completed { get; set; }
 
-        internal AdventurePath(DataAccess.Dto.Card card, List<DataAccess.Dto.Card> availableCards)
+        internal AdventurePath(DataAccess.Dto.AdventurePath adventurePath)
         {
-            Id = card.Id;
-            Name = card.Name;
+            Id = adventurePath.Id;
+            Name = adventurePath.Name;
 
             Adventures = new List<Adventure>();
-            Adventures.AddRange(availableCards.Where(c => c.CardTypeId == 3).Select(c => new Adventure(c, availableCards)));
+            Adventures.AddRange(DataAccess.Dto.AdventureDeck.All().Where(s => s.AdventurePathId == Id).Select(c => new Adventure(c)));
         }
     }
 }

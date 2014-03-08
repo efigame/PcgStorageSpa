@@ -14,8 +14,7 @@ namespace PcgApi.Models
         {
             AvailableAdventurePaths = new List<AdventurePath>();
 
-            var availableCards = DataAccess.Dto.Card.All();
-            AvailableAdventurePaths.AddRange(availableCards.Where(c => c.CardTypeId == 2).Select(c => new AdventurePath(c, availableCards)));
+            AvailableAdventurePaths.AddRange(DataAccess.Dto.AdventurePath.All().Select(c => new AdventurePath(c)));
         }
     }
 }
