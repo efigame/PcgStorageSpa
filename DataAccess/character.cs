@@ -12,13 +12,13 @@ namespace DataAccess
     using System;
     using System.Collections.Generic;
     
-    public partial class partycharacter
+    public partial class character
     {
-        public partycharacter()
+        public character()
         {
-            this.characterskills = new HashSet<characterskill>();
-            this.characterpowers = new HashSet<characterpower>();
             this.characterdecks = new HashSet<characterdeck>();
+            this.characterpowers = new HashSet<characterpower>();
+            this.characterskills = new HashSet<characterskill>();
         }
     
         public int Id { get; set; }
@@ -36,10 +36,11 @@ namespace DataAccess
         public Nullable<int> HandSize { get; set; }
         public Nullable<System.DateTime> DeletedDate { get; set; }
     
-        public virtual ICollection<characterskill> characterskills { get; set; }
-        public virtual party party { get; set; }
         public virtual charactercard charactercard { get; set; }
-        public virtual ICollection<characterpower> characterpowers { get; set; }
+        public virtual party party { get; set; }
+        public virtual characterscenario characterscenario { get; set; }
         public virtual ICollection<characterdeck> characterdecks { get; set; }
+        public virtual ICollection<characterpower> characterpowers { get; set; }
+        public virtual ICollection<characterskill> characterskills { get; set; }
     }
 }

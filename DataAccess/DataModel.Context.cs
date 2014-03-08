@@ -25,19 +25,21 @@ namespace DataAccess
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<characterskill> characterskills { get; set; }
         public virtual DbSet<party> parties { get; set; }
         public virtual DbSet<pcguser> pcgusers { get; set; }
         public virtual DbSet<skill> skills { get; set; }
         public virtual DbSet<subskill> subskills { get; set; }
         public virtual DbSet<power> powers { get; set; }
-        public virtual DbSet<partycharacter> partycharacters { get; set; }
         public virtual DbSet<charactercard> charactercards { get; set; }
-        public virtual DbSet<characterpower> characterpowers { get; set; }
-        public virtual DbSet<adventure> adventures { get; set; }
         public virtual DbSet<card> cards { get; set; }
         public virtual DbSet<cardtype> cardtypes { get; set; }
+        public virtual DbSet<adventurepath> adventurepaths { get; set; }
+        public virtual DbSet<adventuredeck> adventuredecks { get; set; }
+        public virtual DbSet<character> characters { get; set; }
+        public virtual DbSet<scenario> scenarios { get; set; }
+        public virtual DbSet<characterscenario> characterscenarios { get; set; }
         public virtual DbSet<characterdeck> characterdecks { get; set; }
-        public virtual DbSet<deck> decks { get; set; }
+        public virtual DbSet<characterpower> characterpowers { get; set; }
+        public virtual DbSet<characterskill> characterskills { get; set; }
     }
 }

@@ -7,7 +7,7 @@ namespace DataAccess.Dto
     {
         public int Id { get; set; }
         public int CardId { get; set; }
-        public int PartyCharacterId { get; set; }
+        public int CharacterId { get; set; }
         public int Count { get; set; }
         public Card Card { get; set; }
 
@@ -29,7 +29,7 @@ namespace DataAccess.Dto
 
             using (var data = new PcgStorageEntities())
             {
-                var all = data.characterdecks.Where(c => c.PartyCharacterId == characterCardId).ToList();
+                var all = data.characterdecks.Where(c => c.CharacterId == characterCardId).ToList();
                 characterDecks.AddRange(all.Select(a => new CharacterDeck(a)));
             }
 
@@ -54,7 +54,7 @@ namespace DataAccess.Dto
                 var characterDeck = data.characterdecks.SingleOrDefault(s => s.Id == Id);
                 if (characterDeck != null)
                 {
-                    characterDeck.PartyCharacterId = PartyCharacterId;
+                    characterDeck.CharacterId = CharacterId;
                     characterDeck.CardId = CardId;
                     characterDeck.Count = Count;
 
@@ -82,7 +82,7 @@ namespace DataAccess.Dto
         internal CharacterDeck(characterdeck characterDeck)
         {
             Id = characterDeck.Id;
-            PartyCharacterId = characterDeck.PartyCharacterId;
+            CharacterId = characterDeck.CharacterId;
             CardId = characterDeck.CardId;
             Count = characterDeck.Count;
             Card = new Card(characterDeck.card);
@@ -91,7 +91,7 @@ namespace DataAccess.Dto
         {
             var characterDeck = new characterdeck
             {
-                PartyCharacterId = PartyCharacterId,
+                CharacterId = CharacterId,
                 CardId = CardId,
                 Count = Count
             };

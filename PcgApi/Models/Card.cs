@@ -30,7 +30,7 @@ namespace PcgApi.Models
             Name = card.Name;
             DeckId = card.DeckId;
             CardType = new CardType(card.CardType);
-            Deck = new Deck(card.Deck);
+            Deck = new Deck(card.AdventureDeck);
 
             if (deepObjects)
             {

@@ -59,13 +59,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="adventure.cs">
+    <Compile Include="adventuredeck.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="adventurepath.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="card.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="cardtype.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="character.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="charactercard.cs">
@@ -75,6 +81,9 @@
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="characterpower.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="characterscenario.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="characterskill.cs">
@@ -95,27 +104,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="deck.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Dto\CharacterDeck.cs" />
     <Compile Include="Dto\CardType.cs" />
     <Compile Include="Dto\Card.cs" />
-    <Compile Include="Dto\Deck.cs" />
+    <Compile Include="Dto\AdventureDeck.cs" />
     <Compile Include="Dto\CharacterPower.cs" />
     <Compile Include="Dto\CharacterSkill.cs" />
     <Compile Include="Dto\Power.cs" />
-    <Compile Include="Dto\Adventure.cs" />
+    <Compile Include="Dto\AdventurePath.cs" />
     <Compile Include="Dto\SubSkill.cs" />
     <Compile Include="Dto\Skill.cs" />
     <Compile Include="Dto\CharacterCard.cs" />
-    <Compile Include="Dto\PartyCharacter.cs" />
+    <Compile Include="Dto\Character.cs" />
     <Compile Include="Dto\Party.cs" />
     <Compile Include="Dto\PcgUser.cs" />
     <Compile Include="party.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="partycharacter.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="pcguser.cs">
@@ -125,6 +128,9 @@
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="scenario.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="skill.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
@@ -135,6 +141,7 @@
   <ItemGroup>
     <Content Include="SqlScripts\Dump20140202.sql" />
     <Content Include="SqlScripts\Dump20140209.sql" />
+    <Content Include="SqlScripts\Dump20140308.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

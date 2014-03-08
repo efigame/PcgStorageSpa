@@ -6,7 +6,7 @@ namespace DataAccess.Dto
     public class CharacterPower
     {
         public int Id { get; set; }
-        public int PartyCharacterId { get; set; }
+        public int CharacterId { get; set; }
         public int PowerId { get; set; }
         public int SelectedPowers { get; set; }
 
@@ -28,7 +28,7 @@ namespace DataAccess.Dto
 
             using (var data = new PcgStorageEntities())
             {
-                var character = data.characterpowers.FirstOrDefault(p => p.PartyCharacterId == partyCharacterId && p.PowerId == powerId);
+                var character = data.characterpowers.FirstOrDefault(p => p.CharacterId == partyCharacterId && p.PowerId == powerId);
                 if (character != null) characterPower = new CharacterPower(character);
             }
 
@@ -40,7 +40,7 @@ namespace DataAccess.Dto
 
             using (var data = new PcgStorageEntities())
             {
-                var all = data.characterpowers.Where(p => p.PartyCharacterId == partyCharacterId).ToList();
+                var all = data.characterpowers.Where(p => p.CharacterId == partyCharacterId).ToList();
                 characterPowers.AddRange(all.Select(a => new CharacterPower(a)));
             }
 
@@ -65,7 +65,7 @@ namespace DataAccess.Dto
                 var characterPowers = data.characterpowers.SingleOrDefault(p => p.Id == Id);
                 if (characterPowers != null)
                 {
-                    characterPowers.PartyCharacterId = PartyCharacterId;
+                    characterPowers.CharacterId = CharacterId;
                     characterPowers.SelectedPowers = SelectedPowers;
                     characterPowers.PowerId = PowerId;
                     
@@ -93,7 +93,7 @@ namespace DataAccess.Dto
         internal CharacterPower(characterpower characterPower)
         {
             Id = characterPower.Id;
-            PartyCharacterId = characterPower.PartyCharacterId;
+            CharacterId = characterPower.CharacterId;
             SelectedPowers = characterPower.SelectedPowers;
             PowerId = characterPower.PowerId;
         }
@@ -101,7 +101,7 @@ namespace DataAccess.Dto
         {
             var characterPower = new characterpower
             {
-                PartyCharacterId = PartyCharacterId,
+                CharacterId = CharacterId,
                 SelectedPowers = SelectedPowers,
                 PowerId = PowerId
             };

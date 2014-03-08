@@ -90,7 +90,7 @@ namespace PcgApi.Models
             {
                 characterPower = new DataAccess.Dto.CharacterPower
                 {
-                    PartyCharacterId = PartyCharacterId,
+                    CharacterId = PartyCharacterId,
                     PowerId = Id,
                     SelectedPowers = selectedValue
                 };

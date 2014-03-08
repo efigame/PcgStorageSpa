@@ -10,21 +10,21 @@ namespace PcgApi.Models
         [DataMember]
         public string Name { get; set; }
         [DataMember]
-        public int AdventureId { get; set; }
+        public int AdventurePathId { get; set; }
 
         public Deck()
         {
         }
 
-        internal Deck(DataAccess.Dto.Deck deck) : this(deck, true)
+        internal Deck(DataAccess.Dto.AdventureDeck deck) : this(deck, true)
         {
         }
 
-        internal Deck(DataAccess.Dto.Deck deck, bool deepObjects)
+        internal Deck(DataAccess.Dto.AdventureDeck deck, bool deepObjects)
         {
             Id = deck.Id;
             Name = deck.Name;
-            AdventureId = deck.AdventureId;
+            AdventurePathId = deck.AdventurePathId;
 
             if (deepObjects)
             {

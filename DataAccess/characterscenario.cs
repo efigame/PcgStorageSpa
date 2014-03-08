@@ -12,18 +12,14 @@ namespace DataAccess
     using System;
     using System.Collections.Generic;
     
-    public partial class deck
+    public partial class characterscenario
     {
-        public deck()
-        {
-            this.cards = new HashSet<card>();
-        }
-    
         public int Id { get; set; }
-        public string Name { get; set; }
-        public int AdventureId { get; set; }
+        public sbyte Completed { get; set; }
+        public int ScenarioId { get; set; }
+        public int CharacterId { get; set; }
     
-        public virtual adventure adventure { get; set; }
-        public virtual ICollection<card> cards { get; set; }
+        public virtual character character { get; set; }
+        public virtual scenario scenario { get; set; }
     }
 }

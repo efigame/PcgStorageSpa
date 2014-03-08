@@ -15,11 +15,11 @@ namespace DataAccess
     public partial class characterskill
     {
         public int Id { get; set; }
-        public int PartyCharacterId { get; set; }
+        public int CharacterId { get; set; }
         public int SkillId { get; set; }
         public int SelectedAdjustment { get; set; }
     
+        public virtual character character { get; set; }
         public virtual skill skill { get; set; }
-        public virtual partycharacter partycharacter { get; set; }
     }
 }

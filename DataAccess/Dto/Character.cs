@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace DataAccess.Dto
 {
-    public class PartyCharacter
+    public class Character
     {
         public int Id { get; set; }
         public int PartyId { get; set; }
@@ -21,29 +21,29 @@ namespace DataAccess.Dto
         public int? HandSize { get; set; }
         public DateTime? DeletedDate { get; set; }
 
-        public static PartyCharacter Get(int id)
+        public static Character Get(int id)
         {
-            PartyCharacter partyCharacter = null;
+            Character character = null;
 
             using (var data = new PcgStorageEntities())
             {
-                var character = data.partycharacters.SingleOrDefault(p => p.Id == id);
-                if (character != null) partyCharacter = new PartyCharacter(character);
+                var characterData = data.characters.SingleOrDefault(p => p.Id == id);
+                if (characterData != null) character = new Character(characterData);
             }
 
-            return partyCharacter;
+            return character;
         }
-        public static List<PartyCharacter> All(int partyId)
+        public static List<Character> All(int partyId)
         {
-            var partyCharacters = new List<PartyCharacter>();
+            var characters = new List<Character>();
 
             using (var data = new PcgStorageEntities())
             {
-                var all = data.partycharacters.Where(p => p.PartyId == partyId && !p.DeletedDate.HasValue).ToList();
-                partyCharacters.AddRange(all.Select(a => new PartyCharacter(a)));
+                var all = data.characters.Where(p => p.PartyId == partyId && !p.DeletedDate.HasValue).ToList();
+                characters.AddRange(all.Select(a => new Character(a)));
             }
 
-            return partyCharacters;
+            return characters;
         }
 
         public void Persist()
@@ -51,7 +51,7 @@ namespace DataAccess.Dto
             using (var data = new PcgStorageEntities())
             {
                 var entity = ToEntity();
-                data.partycharacters.Add(entity);
+                data.characters.Add(entity);
                 data.SaveChanges();
 
                 Id = entity.Id;
@@ -61,21 +61,21 @@ namespace DataAccess.Dto
         {
             using (var data = new PcgStorageEntities())
             {
-                var partyCharacter = data.partycharacters.SingleOrDefault(p => p.Id == Id);
-                if (partyCharacter != null)
+                var character = data.characters.SingleOrDefault(p => p.Id == Id);
+                if (character != null)
                 {
-                    partyCharacter.CharacterCardId = CharacterCardId;
-                    partyCharacter.PartyId = PartyId;
-                    partyCharacter.LightArmors = LightArmors;
-                    partyCharacter.HeavyArmors = HeavyArmors;
-                    partyCharacter.Weapons = Weapons;
-                    partyCharacter.WeaponCards = WeaponCards;
-                    partyCharacter.SpellCards = SpellCards;
-                    partyCharacter.ArmorCards = ArmorCards;
-                    partyCharacter.ItemCards = ItemCards;
-                    partyCharacter.AllyCards = AllyCards;
-                    partyCharacter.BlessingCards = BlessingCards;
-                    partyCharacter.HandSize = HandSize;
+                    character.CharacterCardId = CharacterCardId;
+                    character.PartyId = PartyId;
+                    character.LightArmors = LightArmors;
+                    character.HeavyArmors = HeavyArmors;
+                    character.Weapons = Weapons;
+                    character.WeaponCards = WeaponCards;
+                    character.SpellCards = SpellCards;
+                    character.ArmorCards = ArmorCards;
+                    character.ItemCards = ItemCards;
+                    character.AllyCards = AllyCards;
+                    character.BlessingCards = BlessingCards;
+                    character.HandSize = HandSize;
                     data.SaveChanges();
                 }
             }
@@ -84,20 +84,20 @@ namespace DataAccess.Dto
         {
             using (var data = new PcgStorageEntities())
             {
-                var partyCharacter = data.partycharacters.SingleOrDefault(p => p.Id == Id);
-                if (partyCharacter != null)
+                var character = data.characters.SingleOrDefault(p => p.Id == Id);
+                if (character != null)
                 {
-                    partyCharacter.DeletedDate = DateTime.Now;
+                    character.DeletedDate = DateTime.Now;
                     data.SaveChanges();
                 }
             }
         }
 
-        public PartyCharacter()
+        public Character()
         {
         }
 
-        internal PartyCharacter(partycharacter character)
+        internal Character(character character)
         {
             Id = character.Id;
             PartyId = character.PartyId;
@@ -114,9 +114,9 @@ namespace DataAccess.Dto
             HandSize = character.HandSize;
             DeletedDate = character.DeletedDate;
         }
-        internal partycharacter ToEntity()
+        internal character ToEntity()
         {
-            var partyCharacter = new partycharacter
+            var character = new character
             {
                 PartyId = PartyId,
                 CharacterCardId = CharacterCardId,
@@ -133,7 +133,7 @@ namespace DataAccess.Dto
                 DeletedDate = DeletedDate
             };
 
-            return partyCharacter;
+            return character;
         }
     }
 }

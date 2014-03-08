@@ -16,7 +16,7 @@ namespace DataAccess
     {
         public party()
         {
-            this.partycharacters = new HashSet<partycharacter>();
+            this.characters = new HashSet<character>();
         }
     
         public int Id { get; set; }
@@ -24,6 +24,6 @@ namespace DataAccess
         public int PcgUserId { get; set; }
     
         public virtual pcguser pcguser { get; set; }
-        public virtual ICollection<partycharacter> partycharacters { get; set; }
+        public virtual ICollection<character> characters { get; set; }
     }
 }

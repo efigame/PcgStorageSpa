@@ -90,14 +90,16 @@ namespace PcgApi.Models
         public AvailableCards AvailableCards { get; set; }
         [DataMember]
         public SelectedCards SelectedCards { get; set; }
+        [DataMember]
+        public AdventurePaths AdventurePaths { get; set; }
 
         public Character()
         {
         }
-        internal Character(DataAccess.Dto.PartyCharacter partyCharacter) : this(partyCharacter, true)
+        internal Character(DataAccess.Dto.Character partyCharacter) : this(partyCharacter, true)
         {
         }
-        internal Character(DataAccess.Dto.PartyCharacter partyCharacter, bool deepObjects)
+        internal Character(DataAccess.Dto.Character partyCharacter, bool deepObjects)
         {
             Id = partyCharacter.Id;
             PartyId = partyCharacter.PartyId;
@@ -126,6 +128,7 @@ namespace PcgApi.Models
             Deck = new List<SelectedCard>();
             AvailableCards = new AvailableCards();
             SelectedCards = new SelectedCards(partyCharacter.Id);
+            AdventurePaths = new AdventurePaths();
 
             if (deepObjects)
             {
@@ -191,7 +194,7 @@ namespace PcgApi.Models
             KeyValuePair<int, bool> weaponCardFound = WeaponCardsList.Where(h => h.Value).OrderByDescending(h => h.Key).FirstOrDefault();
             SelectedWeaponCards = weaponCardFound.Key;
 
-            var partyCharacterData = DataAccess.Dto.PartyCharacter.Get(Id);
+            var partyCharacterData = DataAccess.Dto.Character.Get(Id);
             partyCharacterData.LightArmors = LightArmors;
             partyCharacterData.HeavyArmors = HeavyArmors;
             partyCharacterData.Weapons = Weapons;

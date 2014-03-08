@@ -23,7 +23,7 @@ namespace PcgApi.Models
             Selected = new List<Character>();
             Possible = new List<KeyValuePair<CharacterCard, bool>>();
 
-            var characters = DataAccess.Dto.PartyCharacter.All(partyId).ToList();
+            var characters = DataAccess.Dto.Character.All(partyId).ToList();
             Selected.AddRange(characters.Select(c => new Character(c)));
 
             var possibleCharacters = DataAccess.Dto.CharacterCard.All();
@@ -53,7 +53,7 @@ namespace PcgApi.Models
 
             foreach (var characterCardId in charactersToCreate)
             {
-                var character = new DataAccess.Dto.PartyCharacter
+                var character = new DataAccess.Dto.Character
                 {
                     PartyId = partyId,
                     CharacterCardId = characterCardId
@@ -64,7 +64,7 @@ namespace PcgApi.Models
 
             foreach (var characterId in charactersToDelete)
             {
-                var character = DataAccess.Dto.PartyCharacter.Get(characterId);
+                var character = DataAccess.Dto.Character.Get(characterId);
                 character.Delete();
             }
         }

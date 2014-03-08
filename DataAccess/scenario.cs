@@ -12,22 +12,19 @@ namespace DataAccess
     using System;
     using System.Collections.Generic;
     
-    public partial class skill
+    public partial class scenario
     {
-        public skill()
+        public scenario()
         {
-            this.subskills = new HashSet<subskill>();
-            this.characterskills = new HashSet<characterskill>();
+            this.characterscenarios = new HashSet<characterscenario>();
         }
     
         public int Id { get; set; }
         public string Name { get; set; }
-        public int Dice { get; set; }
-        public int CharacterCardId { get; set; }
-        public int PossibleAddons { get; set; }
+        public int Index { get; set; }
+        public int AdventureDeckId { get; set; }
     
-        public virtual ICollection<subskill> subskills { get; set; }
-        public virtual charactercard charactercard { get; set; }
-        public virtual ICollection<characterskill> characterskills { get; set; }
+        public virtual adventuredeck adventuredeck { get; set; }
+        public virtual ICollection<characterscenario> characterscenarios { get; set; }
     }
 }

@@ -6,7 +6,7 @@ namespace DataAccess.Dto
     public class CharacterSkill
     {
         public int Id { get; set; }
-        public int PartyCharacterId { get; set; }
+        public int CharacterId { get; set; }
         public int SkillId { get; set; }
         public int SelectedAdjustment { get; set; }
 
@@ -28,7 +28,7 @@ namespace DataAccess.Dto
 
             using (var data = new PcgStorageEntities())
             {
-                var all = data.characterskills.Where(p => p.PartyCharacterId == partyCharacterId).ToList();
+                var all = data.characterskills.Where(p => p.CharacterId == partyCharacterId).ToList();
                 characterSkills.AddRange(all.Select(a => new CharacterSkill(a)));
             }
 
@@ -53,7 +53,7 @@ namespace DataAccess.Dto
                 var characterSkill = data.characterskills.SingleOrDefault(p => p.Id == Id);
                 if (characterSkill != null)
                 {
-                    characterSkill.PartyCharacterId = PartyCharacterId;
+                    characterSkill.CharacterId = CharacterId;
                     characterSkill.SelectedAdjustment = SelectedAdjustment;
                     characterSkill.SkillId = SkillId;
                     
@@ -81,7 +81,7 @@ namespace DataAccess.Dto
         internal CharacterSkill(characterskill characterSkill)
         {
             Id = characterSkill.Id;
-            PartyCharacterId = characterSkill.PartyCharacterId;
+            CharacterId = characterSkill.CharacterId;
             SelectedAdjustment = characterSkill.SelectedAdjustment;
             SkillId = characterSkill.SkillId;
         }
@@ -89,7 +89,7 @@ namespace DataAccess.Dto
         {
             var characterSkill = new characterskill
             {
-                PartyCharacterId = PartyCharacterId,
+                CharacterId = CharacterId,
                 SelectedAdjustment = SelectedAdjustment,
                 SkillId = SkillId
             };

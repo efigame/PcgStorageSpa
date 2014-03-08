@@ -9,7 +9,7 @@ namespace PcgApi.Controllers
         [Route("api/character/{characterid}")]
         public Character Get(int characterId)
         {
-            var partyCharacterData = DataAccess.Dto.PartyCharacter.Get(characterId);
+            var partyCharacterData = DataAccess.Dto.Character.Get(characterId);
             return new Character(partyCharacterData);
         }
 

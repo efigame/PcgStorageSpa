@@ -102,9 +102,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Adventure.cs" />
+    <Compile Include="Models\AdventurePath.cs" />
     <Compile Include="Models\CharacterDeck.cs" />
     <Compile Include="Models\Characters.cs" />
     <Compile Include="Models\Deck.cs" />
+    <Compile Include="Models\Scenario.cs" />
+    <Compile Include="Models\AdventurePaths.cs" />
     <Compile Include="Models\SelectedCards.cs" />
     <Compile Include="Models\AvailableCards.cs" />
     <Compile Include="Models\CardType.cs" />

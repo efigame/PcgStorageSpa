@@ -15,11 +15,11 @@ namespace DataAccess
     public partial class characterpower
     {
         public int Id { get; set; }
-        public int PartyCharacterId { get; set; }
+        public int CharacterId { get; set; }
         public int PowerId { get; set; }
         public int SelectedPowers { get; set; }
     
-        public virtual partycharacter partycharacter { get; set; }
+        public virtual character character { get; set; }
         public virtual power power { get; set; }
     }
 }

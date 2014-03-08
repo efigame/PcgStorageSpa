@@ -15,11 +15,11 @@ namespace DataAccess
     public partial class characterdeck
     {
         public int Id { get; set; }
-        public int PartyCharacterId { get; set; }
+        public int CharacterId { get; set; }
         public int CardId { get; set; }
         public int Count { get; set; }
     
         public virtual card card { get; set; }
-        public virtual partycharacter partycharacter { get; set; }
+        public virtual character character { get; set; }
     }
 }

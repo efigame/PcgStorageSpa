@@ -78,13 +78,13 @@ namespace PcgApi.Models
 
         private void UpdateCardList(IList<DataAccess.Dto.CharacterDeck> previouslySelectedCards, IEnumerable<Card> selectedCards, int partyCharacterId)
         {
-            var newSelectedCards = previouslySelectedCards.Select(card => new DataAccess.Dto.CharacterDeck {CardId = card.CardId, Id = card.Id, PartyCharacterId = card.PartyCharacterId, Count = 0}).ToList();
+            var newSelectedCards = previouslySelectedCards.Select(card => new DataAccess.Dto.CharacterDeck {CardId = card.CardId, Id = card.Id, CharacterId = card.CharacterId, Count = 0}).ToList();
 
             foreach (var card in selectedCards)
             {
                 if (!newSelectedCards.Select(c => c.CardId).Contains(card.Id))
                 {
-                    newSelectedCards.Add(new DataAccess.Dto.CharacterDeck { CardId = card.Id, Count = 1, PartyCharacterId = partyCharacterId });
+                    newSelectedCards.Add(new DataAccess.Dto.CharacterDeck { CardId = card.Id, Count = 1, CharacterId = partyCharacterId });
                 }
                 else
                 {

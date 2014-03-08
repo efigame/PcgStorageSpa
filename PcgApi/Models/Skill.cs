@@ -76,7 +76,7 @@ namespace PcgApi.Models
             {
                 characterSkill = new DataAccess.Dto.CharacterSkill
                 {
-                    PartyCharacterId = PartyCharacterId,
+                    CharacterId = PartyCharacterId,
                     SkillId = Id,
                     SelectedAdjustment = SelectedAddons
                 };

@@ -16,9 +16,9 @@ namespace DataAccess
     {
         public charactercard()
         {
-            this.partycharacters = new HashSet<partycharacter>();
             this.powers = new HashSet<power>();
             this.skills = new HashSet<skill>();
+            this.characters = new HashSet<character>();
         }
     
         public int Id { get; set; }
@@ -42,8 +42,8 @@ namespace DataAccess
         public int PossibleBlessingCards { get; set; }
         public string FavoredCardType { get; set; }
     
-        public virtual ICollection<partycharacter> partycharacters { get; set; }
         public virtual ICollection<power> powers { get; set; }
         public virtual ICollection<skill> skills { get; set; }
+        public virtual ICollection<character> characters { get; set; }
     }
 }

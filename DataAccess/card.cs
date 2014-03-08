@@ -25,7 +25,7 @@ namespace DataAccess
         public int CardTypeId { get; set; }
     
         public virtual cardtype cardtype { get; set; }
-        public virtual deck deck { get; set; }
+        public virtual adventuredeck adventuredeck { get; set; }
         public virtual ICollection<characterdeck> characterdecks { get; set; }
     }
 }
