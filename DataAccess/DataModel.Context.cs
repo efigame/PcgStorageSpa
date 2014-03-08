@@ -37,9 +37,9 @@ namespace DataAccess
         public virtual DbSet<adventuredeck> adventuredecks { get; set; }
         public virtual DbSet<character> characters { get; set; }
         public virtual DbSet<scenario> scenarios { get; set; }
-        public virtual DbSet<characterscenario> characterscenarios { get; set; }
         public virtual DbSet<characterdeck> characterdecks { get; set; }
         public virtual DbSet<characterpower> characterpowers { get; set; }
         public virtual DbSet<characterskill> characterskills { get; set; }
+        public virtual DbSet<characterscenario> characterscenarios { get; set; }
     }
 }

@@ -27,9 +27,6 @@
         <AssociationConnector Association="PcgStorageModel.fk_scenario_adventuredeck" />
         <AssociationConnector Association="PcgStorageModel.fk_character_charactercard" />
         <AssociationConnector Association="PcgStorageModel.fk_character_party" />
-        <EntityTypeShape EntityType="PcgStorageModel.characterscenario" Width="1.5" PointX="9.5" PointY="4.25" />
-        <AssociationConnector Association="PcgStorageModel.fk_characterscenario_character" />
-        <AssociationConnector Association="PcgStorageModel.fk_characterscenario_scenario" />
         <EntityTypeShape EntityType="PcgStorageModel.characterdeck" Width="1.5" PointX="9.375" PointY="1.375" />
         <AssociationConnector Association="PcgStorageModel.fk_characterdeck_card" />
         <AssociationConnector Association="PcgStorageModel.fk_characterdeck_character" />
@@ -39,6 +36,9 @@
         <EntityTypeShape EntityType="PcgStorageModel.characterskill" Width="1.5" PointX="7.25" PointY="5" />
         <AssociationConnector Association="PcgStorageModel.fk_characterskill_character" />
         <AssociationConnector Association="PcgStorageModel.fk_characterskill_skill" />
+        <EntityTypeShape EntityType="PcgStorageModel.characterscenario" Width="1.5" PointX="9.5" PointY="4.25" />
+        <AssociationConnector Association="PcgStorageModel.fk_characterscenario_character" />
+        <AssociationConnector Association="PcgStorageModel.fk_characterscenario_scenario" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

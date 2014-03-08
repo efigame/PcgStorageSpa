@@ -38,9 +38,9 @@ namespace DataAccess
     
         public virtual charactercard charactercard { get; set; }
         public virtual party party { get; set; }
-        public virtual characterscenario characterscenario { get; set; }
         public virtual ICollection<characterdeck> characterdecks { get; set; }
         public virtual ICollection<characterpower> characterpowers { get; set; }
         public virtual ICollection<characterskill> characterskills { get; set; }
+        public virtual characterscenario characterscenario { get; set; }
     }
 }

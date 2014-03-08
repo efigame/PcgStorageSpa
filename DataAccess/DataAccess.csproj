@@ -104,6 +104,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Dto\CharacterScenario.cs" />
     <Compile Include="Dto\Scenario.cs" />
     <Compile Include="Dto\CharacterDeck.cs" />
     <Compile Include="Dto\CardType.cs" />
@@ -142,6 +143,7 @@
   <ItemGroup>
     <Content Include="SqlScripts\Dump20140202.sql" />
     <Content Include="SqlScripts\Dump20140209.sql" />
+    <Content Include="SqlScripts\Dump20140308-1.sql" />
     <Content Include="SqlScripts\Dump20140308.sql" />
   </ItemGroup>
   <ItemGroup>

@@ -15,7 +15,7 @@ namespace DataAccess
     public partial class characterscenario
     {
         public int Id { get; set; }
-        public sbyte Completed { get; set; }
+        public bool Completed { get; set; }
         public int ScenarioId { get; set; }
         public int CharacterId { get; set; }
     
