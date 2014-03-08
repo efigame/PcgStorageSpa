@@ -24,7 +24,6 @@ namespace PcgApi.Models
         {
             Id = characterDeck.Id;
             Count = characterDeck.Count;
-            Card = new Card(characterDeck.Card);
 
             if (deepObjects)
             {

@@ -9,8 +9,6 @@ namespace DataAccess.Dto
         public string Name { get; set; }
         public int DeckId { get; set; }
         public int CardTypeId { get; set; }
-        public AdventureDeck AdventureDeck { get; set; }
-        public CardType CardType { get; set; }
 
         public static Card Get(int id)
         {
@@ -86,8 +84,6 @@ namespace DataAccess.Dto
             Name = card.Name;
             DeckId = card.DeckId;
             CardTypeId = card.CardTypeId;
-            AdventureDeck = new AdventureDeck(card.adventuredeck);
-            CardType = new CardType(card.cardtype);
         }
         internal card ToEntity()
         {

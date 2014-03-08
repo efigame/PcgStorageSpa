@@ -29,8 +29,6 @@ namespace PcgApi.Models
             Id = card.Id;
             Name = card.Name;
             DeckId = card.DeckId;
-            CardType = new CardType(card.CardType);
-            Deck = new Deck(card.AdventureDeck);
 
             if (deepObjects)
             {

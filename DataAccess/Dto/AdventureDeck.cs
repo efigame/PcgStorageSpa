@@ -8,7 +8,6 @@ namespace DataAccess.Dto
         public int Id { get; set; }
         public string Name { get; set; }
         public int AdventurePathId { get; set; }
-        public AdventurePath Adventure { get; set; }
 
         public static AdventureDeck Get(int id)
         {
@@ -81,7 +80,6 @@ namespace DataAccess.Dto
             Id = adventureDeck.Id;
             Name = adventureDeck.Name;
             AdventurePathId = adventureDeck.AdventurePathId;
-            Adventure = new AdventurePath(adventureDeck.adventurepath);
         }
         internal adventuredeck ToEntity()
         {

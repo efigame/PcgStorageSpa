@@ -43,37 +43,37 @@ namespace PcgApi.Models
 
             var allCards = DataAccess.Dto.CharacterDeck.All(partyCharacterId);
 
-            DeckWeapons = allCards.Where(c => c.Card.CardTypeId == 10).Select(c => new CharacterDeck(c)).ToList();
-            DeckSpells = allCards.Where(c => c.Card.CardTypeId == 11).Select(c => new CharacterDeck(c)).ToList();
-            DeckArmors = allCards.Where(c => c.Card.CardTypeId == 13).Select(c => new CharacterDeck(c)).ToList();
-            DeckItems = allCards.Where(c => c.Card.CardTypeId == 14).Select(c => new CharacterDeck(c)).ToList();
-            DeckAllies = allCards.Where(c => c.Card.CardTypeId == 15).Select(c => new CharacterDeck(c)).ToList();
-            DeckBlessings = allCards.Where(c => c.Card.CardTypeId == 16).Select(c => new CharacterDeck(c)).ToList();
+            //DeckWeapons = allCards.Where(c => c.Card.CardTypeId == 10).Select(c => new CharacterDeck(c)).ToList();
+            //DeckSpells = allCards.Where(c => c.Card.CardTypeId == 11).Select(c => new CharacterDeck(c)).ToList();
+            //DeckArmors = allCards.Where(c => c.Card.CardTypeId == 13).Select(c => new CharacterDeck(c)).ToList();
+            //DeckItems = allCards.Where(c => c.Card.CardTypeId == 14).Select(c => new CharacterDeck(c)).ToList();
+            //DeckAllies = allCards.Where(c => c.Card.CardTypeId == 15).Select(c => new CharacterDeck(c)).ToList();
+            //DeckBlessings = allCards.Where(c => c.Card.CardTypeId == 16).Select(c => new CharacterDeck(c)).ToList();
 
-            WeaponCards = SetCardList(allCards.Where(c => c.Card.CardTypeId == 10));
-            SpellCards = SetCardList(allCards.Where(c => c.Card.CardTypeId == 11));
-            ArmorCards = SetCardList(allCards.Where(c => c.Card.CardTypeId == 13));
-            ItemCards = SetCardList(allCards.Where(c => c.Card.CardTypeId == 14));
-            AllyCards = SetCardList(allCards.Where(c => c.Card.CardTypeId == 15));
-            BlessingCards = SetCardList(allCards.Where(c => c.Card.CardTypeId == 16));
+            //WeaponCards = SetCardList(allCards.Where(c => c.Card.CardTypeId == 10));
+            //SpellCards = SetCardList(allCards.Where(c => c.Card.CardTypeId == 11));
+            //ArmorCards = SetCardList(allCards.Where(c => c.Card.CardTypeId == 13));
+            //ItemCards = SetCardList(allCards.Where(c => c.Card.CardTypeId == 14));
+            //AllyCards = SetCardList(allCards.Where(c => c.Card.CardTypeId == 15));
+            //BlessingCards = SetCardList(allCards.Where(c => c.Card.CardTypeId == 16));
         }
         
         internal void Update(int partyCharacterId)
         {
             var previouslySelectedCards = DataAccess.Dto.CharacterDeck.All(partyCharacterId);
-            var previouslySelectedWeaponCards = previouslySelectedCards.Where(c => c.Card.CardTypeId == 10).ToList();
-            var previouslySelectedSpellCards = previouslySelectedCards.Where(c => c.Card.CardTypeId == 11).ToList();
-            var previouslySelectedArmorCards = previouslySelectedCards.Where(c => c.Card.CardTypeId == 13).ToList();
-            var previouslySelectedItemCards = previouslySelectedCards.Where(c => c.Card.CardTypeId == 14).ToList();
-            var previouslySelectedAllyCards = previouslySelectedCards.Where(c => c.Card.CardTypeId == 15).ToList();
-            var previouslySelectedBlessingCards = previouslySelectedCards.Where(c => c.Card.CardTypeId == 16).ToList();
+            //var previouslySelectedWeaponCards = previouslySelectedCards.Where(c => c.Card.CardTypeId == 10).ToList();
+            //var previouslySelectedSpellCards = previouslySelectedCards.Where(c => c.Card.CardTypeId == 11).ToList();
+            //var previouslySelectedArmorCards = previouslySelectedCards.Where(c => c.Card.CardTypeId == 13).ToList();
+            //var previouslySelectedItemCards = previouslySelectedCards.Where(c => c.Card.CardTypeId == 14).ToList();
+            //var previouslySelectedAllyCards = previouslySelectedCards.Where(c => c.Card.CardTypeId == 15).ToList();
+            //var previouslySelectedBlessingCards = previouslySelectedCards.Where(c => c.Card.CardTypeId == 16).ToList();
 
-            UpdateCardList(previouslySelectedWeaponCards, WeaponCards, partyCharacterId);
-            UpdateCardList(previouslySelectedSpellCards, SpellCards, partyCharacterId);
-            UpdateCardList(previouslySelectedArmorCards, ArmorCards, partyCharacterId);
-            UpdateCardList(previouslySelectedItemCards, ItemCards, partyCharacterId);
-            UpdateCardList(previouslySelectedAllyCards, AllyCards, partyCharacterId);
-            UpdateCardList(previouslySelectedBlessingCards, BlessingCards, partyCharacterId);
+            //UpdateCardList(previouslySelectedWeaponCards, WeaponCards, partyCharacterId);
+            //UpdateCardList(previouslySelectedSpellCards, SpellCards, partyCharacterId);
+            //UpdateCardList(previouslySelectedArmorCards, ArmorCards, partyCharacterId);
+            //UpdateCardList(previouslySelectedItemCards, ItemCards, partyCharacterId);
+            //UpdateCardList(previouslySelectedAllyCards, AllyCards, partyCharacterId);
+            //UpdateCardList(previouslySelectedBlessingCards, BlessingCards, partyCharacterId);
         }
 
         private void UpdateCardList(IList<DataAccess.Dto.CharacterDeck> previouslySelectedCards, IEnumerable<Card> selectedCards, int partyCharacterId)
@@ -118,7 +118,7 @@ namespace PcgApi.Models
             {
                 for (int i = 1; i <= card.Count; i++)
                 {
-                    cardList.Add(new Card(card.Card));
+                    //cardList.Add(new Card(card.Card));
                 }
             }
 
