@@ -90,8 +90,8 @@ namespace PcgApi.Models
         public AvailableCards AvailableCards { get; set; }
         [DataMember]
         public SelectedCards SelectedCards { get; set; }
-        [DataMember]
-        public AdventurePaths AdventurePaths { get; set; }
+        //[DataMember]
+        //public AdventurePaths AdventurePaths { get; set; }
 
         public Character()
         {
@@ -128,7 +128,7 @@ namespace PcgApi.Models
             Deck = new List<SelectedCard>();
             AvailableCards = new AvailableCards();
             SelectedCards = new SelectedCards(partyCharacter.Id);
-            AdventurePaths = new AdventurePaths();
+            //AdventurePaths = new AdventurePaths();
 
             if (deepObjects)
             {
