@@ -7,50 +7,68 @@
       <Diagram DiagramId="5ddb206ea522452c9afbf29c19e79c5d" Name="Diagram1" ZoomLevel="74">
         <EntityTypeShape EntityType="PcgStorageModel.party" Width="1.5" PointX="2.75" PointY="0.625" />
         <EntityTypeShape EntityType="PcgStorageModel.pcguser" Width="1.5" PointX="0.5" PointY="0.625" />
-        <EntityTypeShape EntityType="PcgStorageModel.skill" Width="1.5" PointX="5" PointY="6.5" />
-        <EntityTypeShape EntityType="PcgStorageModel.subskill" Width="1.5" PointX="7.25" PointY="7.875" />
+        <EntityTypeShape EntityType="PcgStorageModel.skill" Width="1.5" PointX="2.875" PointY="10.125" />
+        <EntityTypeShape EntityType="PcgStorageModel.subskill" Width="1.5" PointX="0.5" PointY="11.625" />
         <AssociationConnector Association="PcgStorageModel.fk_party_pcguser" />
         <AssociationConnector Association="PcgStorageModel.fk_subskill_skill" />
-        <EntityTypeShape EntityType="PcgStorageModel.power" Width="1.5" PointX="0.5" PointY="4.375" />
-        <EntityTypeShape EntityType="PcgStorageModel.charactercard" Width="1.5" PointX="2.75" PointY="5.5" />
+        <EntityTypeShape EntityType="PcgStorageModel.power" Width="1.5" PointX="0.5" PointY="2.75" />
+        <EntityTypeShape EntityType="PcgStorageModel.charactercard" Width="1.5" PointX="0.5" PointY="5.625" />
         <AssociationConnector Association="PcgStorageModel.fk_power_charactercard_id" />
         <AssociationConnector Association="PcgStorageModel.fk_skill_charactercard" />
-        <EntityTypeShape EntityType="PcgStorageModel.card" Width="1.5" PointX="12" PointY="1.375" />
-        <EntityTypeShape EntityType="PcgStorageModel.cardtype" Width="1.5" PointX="14.125" PointY="0.5" />
+        <EntityTypeShape EntityType="PcgStorageModel.card" Width="1.5" PointX="19.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PcgStorageModel.cardtype" Width="1.5" PointX="21.75" PointY="0.75" />
         <AssociationConnector Association="PcgStorageModel.fk_card_cardtype_id" />
-        <EntityTypeShape EntityType="PcgStorageModel.adventurepath" Width="1.5" PointX="14.75" PointY="2.25" />
-        <EntityTypeShape EntityType="PcgStorageModel.adventuredeck" Width="1.5" PointX="14.75" PointY="4.375" />
+        <EntityTypeShape EntityType="PcgStorageModel.adventurepath" Width="1.5" PointX="18.25" PointY="4.5" />
+        <EntityTypeShape EntityType="PcgStorageModel.adventuredeck" Width="1.5" PointX="15.875" PointY="4.5" />
         <AssociationConnector Association="PcgStorageModel.fk_card_deck_id" />
         <AssociationConnector Association="PcgStorageModel.fk_expansion_adventure_id1" />
-        <EntityTypeShape EntityType="PcgStorageModel.character" Width="1.5" PointX="5" PointY="1" />
-        <EntityTypeShape EntityType="PcgStorageModel.scenario" Width="1.5" PointX="12" PointY="4.625" />
+        <EntityTypeShape EntityType="PcgStorageModel.character" Width="1.5" PointX="5" PointY="0.625" />
+        <EntityTypeShape EntityType="PcgStorageModel.scenario" Width="1.5" PointX="9.25" PointY="9.625" />
         <AssociationConnector Association="PcgStorageModel.fk_scenario_adventuredeck" />
         <AssociationConnector Association="PcgStorageModel.fk_character_charactercard" />
         <AssociationConnector Association="PcgStorageModel.fk_character_party" />
-        <EntityTypeShape EntityType="PcgStorageModel.characterdeck" Width="1.5" PointX="9.375" PointY="1.375" />
+        <EntityTypeShape EntityType="PcgStorageModel.characterdeck" Width="1.5" PointX="17.625" PointY="0.75" />
         <AssociationConnector Association="PcgStorageModel.fk_characterdeck_card" />
         <AssociationConnector Association="PcgStorageModel.fk_characterdeck_character" />
         <EntityTypeShape EntityType="PcgStorageModel.characterpower" Width="1.5" PointX="2.75" PointY="2.875" />
         <AssociationConnector Association="PcgStorageModel.fk_characterpower_character" />
         <AssociationConnector Association="PcgStorageModel.fk_characterpower_power" />
-        <EntityTypeShape EntityType="PcgStorageModel.characterskill" Width="1.5" PointX="7.25" PointY="5" />
+        <EntityTypeShape EntityType="PcgStorageModel.characterskill" Width="1.5" PointX="2.875" PointY="7.125" />
         <AssociationConnector Association="PcgStorageModel.fk_characterskill_character" />
         <AssociationConnector Association="PcgStorageModel.fk_characterskill_skill" />
-        <EntityTypeShape EntityType="PcgStorageModel.characterscenario" Width="1.5" PointX="9.5" PointY="4.25" />
+        <EntityTypeShape EntityType="PcgStorageModel.characterscenario" Width="1.5" PointX="5" PointY="9.625" />
         <AssociationConnector Association="PcgStorageModel.fk_characterscenario_character" />
         <AssociationConnector Association="PcgStorageModel.fk_characterscenario_scenario" />
-        <EntityTypeShape EntityType="PcgStorageModel.allycard" Width="1.5" PointX="19.375" PointY="6.75" />
-        <EntityTypeShape EntityType="PcgStorageModel.armorcard" Width="1.5" PointX="21.25" PointY="4.375" />
-        <EntityTypeShape EntityType="PcgStorageModel.blessingcard" Width="1.5" PointX="17.25" PointY="7.125" />
-        <EntityTypeShape EntityType="PcgStorageModel.itemcard" Width="1.5" PointX="21.25" PointY="6.375" />
-        <EntityTypeShape EntityType="PcgStorageModel.spellcard" Width="1.5" PointX="19.375" PointY="3.5" />
-        <EntityTypeShape EntityType="PcgStorageModel.weaponcard" Width="1.5" PointX="17.25" PointY="3.125" />
+        <EntityTypeShape EntityType="PcgStorageModel.allycard" Width="1.5" PointX="9.125" PointY="6.375" />
+        <EntityTypeShape EntityType="PcgStorageModel.armorcard" Width="1.5" PointX="9.125" PointY="3.75" />
+        <EntityTypeShape EntityType="PcgStorageModel.blessingcard" Width="1.5" PointX="13.375" PointY="7.625" />
+        <EntityTypeShape EntityType="PcgStorageModel.itemcard" Width="1.5" PointX="13.25" PointY="4.875" />
+        <EntityTypeShape EntityType="PcgStorageModel.spellcard" Width="1.5" PointX="13.25" PointY="2.25" />
+        <EntityTypeShape EntityType="PcgStorageModel.weaponcard" Width="1.5" PointX="9.25" PointY="1.125" />
         <AssociationConnector Association="PcgStorageModel.fk_allycard_adventuredeck" />
         <AssociationConnector Association="PcgStorageModel.fk_armorcard_adventuredeck" />
         <AssociationConnector Association="PcgStorageModel.fk_blessingcard_adventuredeck" />
         <AssociationConnector Association="PcgStorageModel.fk_itemcard_adventuredeck" />
         <AssociationConnector Association="PcgStorageModel.fk_spellcard_adventuredeck" />
         <AssociationConnector Association="PcgStorageModel.fk_weaponcard_adventuredeck" />
+        <EntityTypeShape EntityType="PcgStorageModel.characterallycard" Width="1.5" PointX="7.25" PointY="6.375" />
+        <EntityTypeShape EntityType="PcgStorageModel.characterarmorcard" Width="1.5" PointX="7.25" PointY="3.75" />
+        <EntityTypeShape EntityType="PcgStorageModel.characterblessingcard" Width="1.5" PointX="11.25" PointY="7.625" />
+        <EntityTypeShape EntityType="PcgStorageModel.characteritemcard" Width="1.5" PointX="11.25" PointY="4.875" />
+        <EntityTypeShape EntityType="PcgStorageModel.characterspellcard" Width="1.5" PointX="11.25" PointY="2.25" />
+        <EntityTypeShape EntityType="PcgStorageModel.characterweaponcard" Width="1.5" PointX="7.25" PointY="1.125" />
+        <AssociationConnector Association="PcgStorageModel.fk_characterallycard_allycard" />
+        <AssociationConnector Association="PcgStorageModel.fk_characterarmorcard_armorcard" />
+        <AssociationConnector Association="PcgStorageModel.fk_characterblessingcard_blessingcard" />
+        <AssociationConnector Association="PcgStorageModel.fk_characterallycard_character" />
+        <AssociationConnector Association="PcgStorageModel.fk_characterarmorcard_character" />
+        <AssociationConnector Association="PcgStorageModel.fk_characterblessingcard_character" />
+        <AssociationConnector Association="PcgStorageModel.fk_characteritemcard_character" />
+        <AssociationConnector Association="PcgStorageModel.fk_characterspellcard_character" />
+        <AssociationConnector Association="PcgStorageModel.fk_characterweaponcard_character" />
+        <AssociationConnector Association="PcgStorageModel.fk_characteritemcard_itemcard" />
+        <AssociationConnector Association="PcgStorageModel.fk_characterspellcard_spellcard" />
+        <AssociationConnector Association="PcgStorageModel.fk_characterweaponcard_weaponcard" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -19,6 +19,12 @@ namespace DataAccess
             this.characterdecks = new HashSet<characterdeck>();
             this.characterpowers = new HashSet<characterpower>();
             this.characterskills = new HashSet<characterskill>();
+            this.characterallycards = new HashSet<characterallycard>();
+            this.characterarmorcards = new HashSet<characterarmorcard>();
+            this.characterblessingcards = new HashSet<characterblessingcard>();
+            this.characteritemcards = new HashSet<characteritemcard>();
+            this.characterspellcards = new HashSet<characterspellcard>();
+            this.characterweaponcards = new HashSet<characterweaponcard>();
         }
     
         public int Id { get; set; }
@@ -42,5 +48,11 @@ namespace DataAccess
         public virtual ICollection<characterpower> characterpowers { get; set; }
         public virtual ICollection<characterskill> characterskills { get; set; }
         public virtual characterscenario characterscenario { get; set; }
+        public virtual ICollection<characterallycard> characterallycards { get; set; }
+        public virtual ICollection<characterarmorcard> characterarmorcards { get; set; }
+        public virtual ICollection<characterblessingcard> characterblessingcards { get; set; }
+        public virtual ICollection<characteritemcard> characteritemcards { get; set; }
+        public virtual ICollection<characterspellcard> characterspellcards { get; set; }
+        public virtual ICollection<characterweaponcard> characterweaponcards { get; set; }
     }
 }

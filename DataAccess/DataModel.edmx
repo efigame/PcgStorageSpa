@@ -80,6 +80,33 @@
           <Property Name="HandSize" Type="int" />
           <Property Name="DeletedDate" Type="datetime" Precision="0" />
         </EntityType>
+        <EntityType Name="characterallycard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CharacterId" Type="int" Nullable="false" />
+          <Property Name="AllyCardId" Type="int" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="characterarmorcard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CharacterId" Type="int" Nullable="false" />
+          <Property Name="ArmorCardId" Type="int" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="characterblessingcard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CharacterId" Type="int" Nullable="false" />
+          <Property Name="BlessingCardId" Type="int" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="charactercard">
           <Key>
             <PropertyRef Name="Id" />
@@ -114,6 +141,15 @@
           <Property Name="CardId" Type="int" Nullable="false" />
           <Property Name="Count" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="characteritemcard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CharacterId" Type="int" Nullable="false" />
+          <Property Name="ItemCardId" Type="int" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="characterpower">
           <Key>
             <PropertyRef Name="Id" />
@@ -140,6 +176,24 @@
           <Property Name="CharacterId" Type="int" Nullable="false" />
           <Property Name="SkillId" Type="int" Nullable="false" />
           <Property Name="SelectedAdjustment" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="characterspellcard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CharacterId" Type="int" Nullable="false" />
+          <Property Name="SpellCardId" Type="int" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="characterweaponcard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CharacterId" Type="int" Nullable="false" />
+          <Property Name="WeaponCardId" Type="int" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="itemcard">
           <Key>
@@ -292,6 +346,78 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_characterallycard_allycard">
+          <End Role="allycard" Type="Self.allycard" Multiplicity="1" />
+          <End Role="characterallycard" Type="Self.characterallycard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="allycard">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="characterallycard">
+              <PropertyRef Name="AllyCardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_characterallycard_character">
+          <End Role="character" Type="Self.character" Multiplicity="1" />
+          <End Role="characterallycard" Type="Self.characterallycard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="character">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="characterallycard">
+              <PropertyRef Name="CharacterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_characterarmorcard_armorcard">
+          <End Role="armorcard" Type="Self.armorcard" Multiplicity="1" />
+          <End Role="characterarmorcard" Type="Self.characterarmorcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="armorcard">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="characterarmorcard">
+              <PropertyRef Name="ArmorCardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_characterarmorcard_character">
+          <End Role="character" Type="Self.character" Multiplicity="1" />
+          <End Role="characterarmorcard" Type="Self.characterarmorcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="character">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="characterarmorcard">
+              <PropertyRef Name="CharacterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_characterblessingcard_blessingcard">
+          <End Role="blessingcard" Type="Self.blessingcard" Multiplicity="1" />
+          <End Role="characterblessingcard" Type="Self.characterblessingcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="blessingcard">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="characterblessingcard">
+              <PropertyRef Name="BlessingCardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_characterblessingcard_character">
+          <End Role="character" Type="Self.character" Multiplicity="1" />
+          <End Role="characterblessingcard" Type="Self.characterblessingcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="character">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="characterblessingcard">
+              <PropertyRef Name="CharacterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_characterdeck_card">
           <End Role="card" Type="Self.card" Multiplicity="1" />
           <End Role="characterdeck" Type="Self.characterdeck" Multiplicity="*" />
@@ -313,6 +439,30 @@
             </Principal>
             <Dependent Role="characterdeck">
               <PropertyRef Name="CharacterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_characteritemcard_character">
+          <End Role="character" Type="Self.character" Multiplicity="1" />
+          <End Role="characteritemcard" Type="Self.characteritemcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="character">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="characteritemcard">
+              <PropertyRef Name="CharacterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_characteritemcard_itemcard">
+          <End Role="itemcard" Type="Self.itemcard" Multiplicity="1" />
+          <End Role="characteritemcard" Type="Self.characteritemcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="itemcard">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="characteritemcard">
+              <PropertyRef Name="ItemCardId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -385,6 +535,54 @@
             </Principal>
             <Dependent Role="characterskill">
               <PropertyRef Name="SkillId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_characterspellcard_character">
+          <End Role="character" Type="Self.character" Multiplicity="1" />
+          <End Role="characterspellcard" Type="Self.characterspellcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="character">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="characterspellcard">
+              <PropertyRef Name="CharacterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_characterspellcard_spellcard">
+          <End Role="spellcard" Type="Self.spellcard" Multiplicity="1" />
+          <End Role="characterspellcard" Type="Self.characterspellcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="spellcard">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="characterspellcard">
+              <PropertyRef Name="SpellCardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_characterweaponcard_character">
+          <End Role="character" Type="Self.character" Multiplicity="1" />
+          <End Role="characterweaponcard" Type="Self.characterweaponcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="character">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="characterweaponcard">
+              <PropertyRef Name="CharacterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_characterweaponcard_weaponcard">
+          <End Role="weaponcard" Type="Self.weaponcard" Multiplicity="1" />
+          <End Role="characterweaponcard" Type="Self.characterweaponcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="weaponcard">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="characterweaponcard">
+              <PropertyRef Name="WeaponCardId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -505,11 +703,17 @@
           <EntitySet Name="card" EntityType="Self.card" Schema="pcgstorage" store:Type="Tables" />
           <EntitySet Name="cardtype" EntityType="Self.cardtype" Schema="pcgstorage" store:Type="Tables" />
           <EntitySet Name="character" EntityType="Self.character" Schema="pcgstorage" store:Type="Tables" />
+          <EntitySet Name="characterallycard" EntityType="Self.characterallycard" Schema="pcgstorage" store:Type="Tables" />
+          <EntitySet Name="characterarmorcard" EntityType="Self.characterarmorcard" Schema="pcgstorage" store:Type="Tables" />
+          <EntitySet Name="characterblessingcard" EntityType="Self.characterblessingcard" Schema="pcgstorage" store:Type="Tables" />
           <EntitySet Name="charactercard" EntityType="Self.charactercard" Schema="pcgstorage" store:Type="Tables" />
           <EntitySet Name="characterdeck" EntityType="Self.characterdeck" Schema="pcgstorage" store:Type="Tables" />
+          <EntitySet Name="characteritemcard" EntityType="Self.characteritemcard" Schema="pcgstorage" store:Type="Tables" />
           <EntitySet Name="characterpower" EntityType="Self.characterpower" Schema="pcgstorage" store:Type="Tables" />
           <EntitySet Name="characterscenario" EntityType="Self.characterscenario" Schema="pcgstorage" store:Type="Tables" />
           <EntitySet Name="characterskill" EntityType="Self.characterskill" Schema="pcgstorage" store:Type="Tables" />
+          <EntitySet Name="characterspellcard" EntityType="Self.characterspellcard" Schema="pcgstorage" store:Type="Tables" />
+          <EntitySet Name="characterweaponcard" EntityType="Self.characterweaponcard" Schema="pcgstorage" store:Type="Tables" />
           <EntitySet Name="itemcard" EntityType="Self.itemcard" Schema="pcgstorage" store:Type="Tables" />
           <EntitySet Name="party" EntityType="Self.party" Schema="pcgstorage" store:Type="Tables" />
           <EntitySet Name="pcguser" EntityType="Self.pcguser" Schema="pcgstorage" store:Type="Tables" />
@@ -543,6 +747,30 @@
             <End Role="party" EntitySet="party" />
             <End Role="character" EntitySet="character" />
           </AssociationSet>
+          <AssociationSet Name="fk_characterallycard_allycard" Association="Self.fk_characterallycard_allycard">
+            <End Role="allycard" EntitySet="allycard" />
+            <End Role="characterallycard" EntitySet="characterallycard" />
+          </AssociationSet>
+          <AssociationSet Name="fk_characterallycard_character" Association="Self.fk_characterallycard_character">
+            <End Role="character" EntitySet="character" />
+            <End Role="characterallycard" EntitySet="characterallycard" />
+          </AssociationSet>
+          <AssociationSet Name="fk_characterarmorcard_armorcard" Association="Self.fk_characterarmorcard_armorcard">
+            <End Role="armorcard" EntitySet="armorcard" />
+            <End Role="characterarmorcard" EntitySet="characterarmorcard" />
+          </AssociationSet>
+          <AssociationSet Name="fk_characterarmorcard_character" Association="Self.fk_characterarmorcard_character">
+            <End Role="character" EntitySet="character" />
+            <End Role="characterarmorcard" EntitySet="characterarmorcard" />
+          </AssociationSet>
+          <AssociationSet Name="fk_characterblessingcard_blessingcard" Association="Self.fk_characterblessingcard_blessingcard">
+            <End Role="blessingcard" EntitySet="blessingcard" />
+            <End Role="characterblessingcard" EntitySet="characterblessingcard" />
+          </AssociationSet>
+          <AssociationSet Name="fk_characterblessingcard_character" Association="Self.fk_characterblessingcard_character">
+            <End Role="character" EntitySet="character" />
+            <End Role="characterblessingcard" EntitySet="characterblessingcard" />
+          </AssociationSet>
           <AssociationSet Name="fk_characterdeck_card" Association="Self.fk_characterdeck_card">
             <End Role="card" EntitySet="card" />
             <End Role="characterdeck" EntitySet="characterdeck" />
@@ -550,6 +778,14 @@
           <AssociationSet Name="fk_characterdeck_character" Association="Self.fk_characterdeck_character">
             <End Role="character" EntitySet="character" />
             <End Role="characterdeck" EntitySet="characterdeck" />
+          </AssociationSet>
+          <AssociationSet Name="fk_characteritemcard_character" Association="Self.fk_characteritemcard_character">
+            <End Role="character" EntitySet="character" />
+            <End Role="characteritemcard" EntitySet="characteritemcard" />
+          </AssociationSet>
+          <AssociationSet Name="fk_characteritemcard_itemcard" Association="Self.fk_characteritemcard_itemcard">
+            <End Role="itemcard" EntitySet="itemcard" />
+            <End Role="characteritemcard" EntitySet="characteritemcard" />
           </AssociationSet>
           <AssociationSet Name="fk_characterpower_character" Association="Self.fk_characterpower_character">
             <End Role="character" EntitySet="character" />
@@ -574,6 +810,22 @@
           <AssociationSet Name="fk_characterskill_skill" Association="Self.fk_characterskill_skill">
             <End Role="skill" EntitySet="skill" />
             <End Role="characterskill" EntitySet="characterskill" />
+          </AssociationSet>
+          <AssociationSet Name="fk_characterspellcard_character" Association="Self.fk_characterspellcard_character">
+            <End Role="character" EntitySet="character" />
+            <End Role="characterspellcard" EntitySet="characterspellcard" />
+          </AssociationSet>
+          <AssociationSet Name="fk_characterspellcard_spellcard" Association="Self.fk_characterspellcard_spellcard">
+            <End Role="spellcard" EntitySet="spellcard" />
+            <End Role="characterspellcard" EntitySet="characterspellcard" />
+          </AssociationSet>
+          <AssociationSet Name="fk_characterweaponcard_character" Association="Self.fk_characterweaponcard_character">
+            <End Role="character" EntitySet="character" />
+            <End Role="characterweaponcard" EntitySet="characterweaponcard" />
+          </AssociationSet>
+          <AssociationSet Name="fk_characterweaponcard_weaponcard" Association="Self.fk_characterweaponcard_weaponcard">
+            <End Role="weaponcard" EntitySet="weaponcard" />
+            <End Role="characterweaponcard" EntitySet="characterweaponcard" />
           </AssociationSet>
           <AssociationSet Name="fk_expansion_adventure_id" Association="Self.fk_expansion_adventure_id">
             <End Role="adventurepath" EntitySet="adventurepath" />
@@ -734,6 +986,60 @@
           <AssociationSet Name="fk_weaponcard_adventuredeck" Association="PcgStorageModel.fk_weaponcard_adventuredeck">
             <End Role="adventuredeck" EntitySet="adventuredecks" />
             <End Role="weaponcard" EntitySet="weaponcards" />
+          </AssociationSet>
+          <EntitySet Name="characterallycards" EntityType="PcgStorageModel.characterallycard" />
+          <EntitySet Name="characterarmorcards" EntityType="PcgStorageModel.characterarmorcard" />
+          <EntitySet Name="characterblessingcards" EntityType="PcgStorageModel.characterblessingcard" />
+          <EntitySet Name="characteritemcards" EntityType="PcgStorageModel.characteritemcard" />
+          <EntitySet Name="characterspellcards" EntityType="PcgStorageModel.characterspellcard" />
+          <EntitySet Name="characterweaponcards" EntityType="PcgStorageModel.characterweaponcard" />
+          <AssociationSet Name="fk_characterallycard_allycard" Association="PcgStorageModel.fk_characterallycard_allycard">
+            <End Role="allycard" EntitySet="allycards" />
+            <End Role="characterallycard" EntitySet="characterallycards" />
+          </AssociationSet>
+          <AssociationSet Name="fk_characterarmorcard_armorcard" Association="PcgStorageModel.fk_characterarmorcard_armorcard">
+            <End Role="armorcard" EntitySet="armorcards" />
+            <End Role="characterarmorcard" EntitySet="characterarmorcards" />
+          </AssociationSet>
+          <AssociationSet Name="fk_characterblessingcard_blessingcard" Association="PcgStorageModel.fk_characterblessingcard_blessingcard">
+            <End Role="blessingcard" EntitySet="blessingcards" />
+            <End Role="characterblessingcard" EntitySet="characterblessingcards" />
+          </AssociationSet>
+          <AssociationSet Name="fk_characterallycard_character" Association="PcgStorageModel.fk_characterallycard_character">
+            <End Role="character" EntitySet="characters" />
+            <End Role="characterallycard" EntitySet="characterallycards" />
+          </AssociationSet>
+          <AssociationSet Name="fk_characterarmorcard_character" Association="PcgStorageModel.fk_characterarmorcard_character">
+            <End Role="character" EntitySet="characters" />
+            <End Role="characterarmorcard" EntitySet="characterarmorcards" />
+          </AssociationSet>
+          <AssociationSet Name="fk_characterblessingcard_character" Association="PcgStorageModel.fk_characterblessingcard_character">
+            <End Role="character" EntitySet="characters" />
+            <End Role="characterblessingcard" EntitySet="characterblessingcards" />
+          </AssociationSet>
+          <AssociationSet Name="fk_characteritemcard_character" Association="PcgStorageModel.fk_characteritemcard_character">
+            <End Role="character" EntitySet="characters" />
+            <End Role="characteritemcard" EntitySet="characteritemcards" />
+          </AssociationSet>
+          <AssociationSet Name="fk_characterspellcard_character" Association="PcgStorageModel.fk_characterspellcard_character">
+            <End Role="character" EntitySet="characters" />
+            <End Role="characterspellcard" EntitySet="characterspellcards" />
+          </AssociationSet>
+          <AssociationSet Name="fk_characterweaponcard_character" Association="PcgStorageModel.fk_characterweaponcard_character">
+            <End Role="character" EntitySet="characters" />
+            <End Role="characterweaponcard" EntitySet="characterweaponcards" />
+          </AssociationSet>
+          <AssociationSet Name="fk_characteritemcard_itemcard" Association="PcgStorageModel.fk_characteritemcard_itemcard">
+            <End Role="itemcard" EntitySet="itemcards" />
+            <End Role="characteritemcard" EntitySet="characteritemcards" />
+          </AssociationSet>
+          <AssociationSet Name="fk_characterspellcard_spellcard" Association="PcgStorageModel.fk_characterspellcard_spellcard">
+            <End Role="spellcard" EntitySet="spellcards" />
+            <End Role="characterspellcard" EntitySet="characterspellcards" />
+          </AssociationSet>
+          <AssociationSet Name="fk_characterweaponcard_weaponcard" Association="PcgStorageModel.fk_characterweaponcard_weaponcard">
+            <End Role="weaponcard" EntitySet="weaponcards" />
+            <End Role="characterweaponcard" EntitySet="characterweaponcards" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="party">
@@ -973,6 +1279,12 @@
           <NavigationProperty Name="characterpowers" Relationship="PcgStorageModel.fk_characterpower_character" FromRole="character" ToRole="characterpower" />
           <NavigationProperty Name="characterskills" Relationship="PcgStorageModel.fk_characterskill_character" FromRole="character" ToRole="characterskill" />
           <NavigationProperty Name="characterscenario" Relationship="PcgStorageModel.fk_characterscenario_character" FromRole="character" ToRole="characterscenario" />
+          <NavigationProperty Name="characterallycards" Relationship="PcgStorageModel.fk_characterallycard_character" FromRole="character" ToRole="characterallycard" />
+          <NavigationProperty Name="characterarmorcards" Relationship="PcgStorageModel.fk_characterarmorcard_character" FromRole="character" ToRole="characterarmorcard" />
+          <NavigationProperty Name="characterblessingcards" Relationship="PcgStorageModel.fk_characterblessingcard_character" FromRole="character" ToRole="characterblessingcard" />
+          <NavigationProperty Name="characteritemcards" Relationship="PcgStorageModel.fk_characteritemcard_character" FromRole="character" ToRole="characteritemcard" />
+          <NavigationProperty Name="characterspellcards" Relationship="PcgStorageModel.fk_characterspellcard_character" FromRole="character" ToRole="characterspellcard" />
+          <NavigationProperty Name="characterweaponcards" Relationship="PcgStorageModel.fk_characterweaponcard_character" FromRole="character" ToRole="characterweaponcard" />
         </EntityType>
         <EntityType Name="scenario">
           <Key>
@@ -1169,6 +1481,7 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="AdventureDeckId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="adventuredeck" Relationship="PcgStorageModel.fk_allycard_adventuredeck" FromRole="allycard" ToRole="adventuredeck" />
+          <NavigationProperty Name="characterallycards" Relationship="PcgStorageModel.fk_characterallycard_allycard" FromRole="allycard" ToRole="characterallycard" />
         </EntityType>
         <EntityType Name="armorcard">
           <Key>
@@ -1178,6 +1491,7 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="AdventureDeckId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="adventuredeck" Relationship="PcgStorageModel.fk_armorcard_adventuredeck" FromRole="armorcard" ToRole="adventuredeck" />
+          <NavigationProperty Name="characterarmorcards" Relationship="PcgStorageModel.fk_characterarmorcard_armorcard" FromRole="armorcard" ToRole="characterarmorcard" />
         </EntityType>
         <EntityType Name="blessingcard">
           <Key>
@@ -1187,6 +1501,7 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="AdventureDeckId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="adventuredeck" Relationship="PcgStorageModel.fk_blessingcard_adventuredeck" FromRole="blessingcard" ToRole="adventuredeck" />
+          <NavigationProperty Name="characterblessingcards" Relationship="PcgStorageModel.fk_characterblessingcard_blessingcard" FromRole="blessingcard" ToRole="characterblessingcard" />
         </EntityType>
         <EntityType Name="itemcard">
           <Key>
@@ -1196,6 +1511,7 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="AdventureDeckId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="adventuredeck" Relationship="PcgStorageModel.fk_itemcard_adventuredeck" FromRole="itemcard" ToRole="adventuredeck" />
+          <NavigationProperty Name="characteritemcards" Relationship="PcgStorageModel.fk_characteritemcard_itemcard" FromRole="itemcard" ToRole="characteritemcard" />
         </EntityType>
         <EntityType Name="spellcard">
           <Key>
@@ -1205,6 +1521,7 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="AdventureDeckId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="adventuredeck" Relationship="PcgStorageModel.fk_spellcard_adventuredeck" FromRole="spellcard" ToRole="adventuredeck" />
+          <NavigationProperty Name="characterspellcards" Relationship="PcgStorageModel.fk_characterspellcard_spellcard" FromRole="spellcard" ToRole="characterspellcard" />
         </EntityType>
         <EntityType Name="weaponcard">
           <Key>
@@ -1214,6 +1531,7 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="AdventureDeckId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="adventuredeck" Relationship="PcgStorageModel.fk_weaponcard_adventuredeck" FromRole="weaponcard" ToRole="adventuredeck" />
+          <NavigationProperty Name="characterweaponcards" Relationship="PcgStorageModel.fk_characterweaponcard_weaponcard" FromRole="weaponcard" ToRole="characterweaponcard" />
         </EntityType>
         <Association Name="fk_allycard_adventuredeck">
           <End Type="PcgStorageModel.adventuredeck" Role="adventuredeck" Multiplicity="1" />
@@ -1284,6 +1602,216 @@
             </Principal>
             <Dependent Role="weaponcard">
               <PropertyRef Name="AdventureDeckId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="characterallycard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CharacterId" Type="Int32" Nullable="false" />
+          <Property Name="AllyCardId" Type="Int32" Nullable="false" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="allycard" Relationship="PcgStorageModel.fk_characterallycard_allycard" FromRole="characterallycard" ToRole="allycard" />
+          <NavigationProperty Name="character" Relationship="PcgStorageModel.fk_characterallycard_character" FromRole="characterallycard" ToRole="character" />
+        </EntityType>
+        <EntityType Name="characterarmorcard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CharacterId" Type="Int32" Nullable="false" />
+          <Property Name="ArmorCardId" Type="Int32" Nullable="false" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="armorcard" Relationship="PcgStorageModel.fk_characterarmorcard_armorcard" FromRole="characterarmorcard" ToRole="armorcard" />
+          <NavigationProperty Name="character" Relationship="PcgStorageModel.fk_characterarmorcard_character" FromRole="characterarmorcard" ToRole="character" />
+        </EntityType>
+        <EntityType Name="characterblessingcard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CharacterId" Type="Int32" Nullable="false" />
+          <Property Name="BlessingCardId" Type="Int32" Nullable="false" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="blessingcard" Relationship="PcgStorageModel.fk_characterblessingcard_blessingcard" FromRole="characterblessingcard" ToRole="blessingcard" />
+          <NavigationProperty Name="character" Relationship="PcgStorageModel.fk_characterblessingcard_character" FromRole="characterblessingcard" ToRole="character" />
+        </EntityType>
+        <EntityType Name="characteritemcard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CharacterId" Type="Int32" Nullable="false" />
+          <Property Name="ItemCardId" Type="Int32" Nullable="false" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="character" Relationship="PcgStorageModel.fk_characteritemcard_character" FromRole="characteritemcard" ToRole="character" />
+          <NavigationProperty Name="itemcard" Relationship="PcgStorageModel.fk_characteritemcard_itemcard" FromRole="characteritemcard" ToRole="itemcard" />
+        </EntityType>
+        <EntityType Name="characterspellcard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CharacterId" Type="Int32" Nullable="false" />
+          <Property Name="SpellCardId" Type="Int32" Nullable="false" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="character" Relationship="PcgStorageModel.fk_characterspellcard_character" FromRole="characterspellcard" ToRole="character" />
+          <NavigationProperty Name="spellcard" Relationship="PcgStorageModel.fk_characterspellcard_spellcard" FromRole="characterspellcard" ToRole="spellcard" />
+        </EntityType>
+        <EntityType Name="characterweaponcard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CharacterId" Type="Int32" Nullable="false" />
+          <Property Name="WeaponCardId" Type="Int32" Nullable="false" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="character" Relationship="PcgStorageModel.fk_characterweaponcard_character" FromRole="characterweaponcard" ToRole="character" />
+          <NavigationProperty Name="weaponcard" Relationship="PcgStorageModel.fk_characterweaponcard_weaponcard" FromRole="characterweaponcard" ToRole="weaponcard" />
+        </EntityType>
+        <Association Name="fk_characterallycard_allycard">
+          <End Type="PcgStorageModel.allycard" Role="allycard" Multiplicity="1" />
+          <End Type="PcgStorageModel.characterallycard" Role="characterallycard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="allycard">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="characterallycard">
+              <PropertyRef Name="AllyCardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_characterarmorcard_armorcard">
+          <End Type="PcgStorageModel.armorcard" Role="armorcard" Multiplicity="1" />
+          <End Type="PcgStorageModel.characterarmorcard" Role="characterarmorcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="armorcard">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="characterarmorcard">
+              <PropertyRef Name="ArmorCardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_characterblessingcard_blessingcard">
+          <End Type="PcgStorageModel.blessingcard" Role="blessingcard" Multiplicity="1" />
+          <End Type="PcgStorageModel.characterblessingcard" Role="characterblessingcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="blessingcard">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="characterblessingcard">
+              <PropertyRef Name="BlessingCardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_characterallycard_character">
+          <End Type="PcgStorageModel.character" Role="character" Multiplicity="1" />
+          <End Type="PcgStorageModel.characterallycard" Role="characterallycard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="character">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="characterallycard">
+              <PropertyRef Name="CharacterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_characterarmorcard_character">
+          <End Type="PcgStorageModel.character" Role="character" Multiplicity="1" />
+          <End Type="PcgStorageModel.characterarmorcard" Role="characterarmorcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="character">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="characterarmorcard">
+              <PropertyRef Name="CharacterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_characterblessingcard_character">
+          <End Type="PcgStorageModel.character" Role="character" Multiplicity="1" />
+          <End Type="PcgStorageModel.characterblessingcard" Role="characterblessingcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="character">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="characterblessingcard">
+              <PropertyRef Name="CharacterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_characteritemcard_character">
+          <End Type="PcgStorageModel.character" Role="character" Multiplicity="1" />
+          <End Type="PcgStorageModel.characteritemcard" Role="characteritemcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="character">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="characteritemcard">
+              <PropertyRef Name="CharacterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_characterspellcard_character">
+          <End Type="PcgStorageModel.character" Role="character" Multiplicity="1" />
+          <End Type="PcgStorageModel.characterspellcard" Role="characterspellcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="character">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="characterspellcard">
+              <PropertyRef Name="CharacterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_characterweaponcard_character">
+          <End Type="PcgStorageModel.character" Role="character" Multiplicity="1" />
+          <End Type="PcgStorageModel.characterweaponcard" Role="characterweaponcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="character">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="characterweaponcard">
+              <PropertyRef Name="CharacterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_characteritemcard_itemcard">
+          <End Type="PcgStorageModel.itemcard" Role="itemcard" Multiplicity="1" />
+          <End Type="PcgStorageModel.characteritemcard" Role="characteritemcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="itemcard">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="characteritemcard">
+              <PropertyRef Name="ItemCardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_characterspellcard_spellcard">
+          <End Type="PcgStorageModel.spellcard" Role="spellcard" Multiplicity="1" />
+          <End Type="PcgStorageModel.characterspellcard" Role="characterspellcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="spellcard">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="characterspellcard">
+              <PropertyRef Name="SpellCardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_characterweaponcard_weaponcard">
+          <End Type="PcgStorageModel.weaponcard" Role="weaponcard" Multiplicity="1" />
+          <End Type="PcgStorageModel.characterweaponcard" Role="characterweaponcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="weaponcard">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="characterweaponcard">
+              <PropertyRef Name="WeaponCardId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1526,6 +2054,66 @@
               <MappingFragment StoreEntitySet="weaponcard">
                 <ScalarProperty Name="AdventureDeckId" ColumnName="AdventureDeckId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="characterallycards">
+            <EntityTypeMapping TypeName="PcgStorageModel.characterallycard">
+              <MappingFragment StoreEntitySet="characterallycard">
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="AllyCardId" ColumnName="AllyCardId" />
+                <ScalarProperty Name="CharacterId" ColumnName="CharacterId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="characterarmorcards">
+            <EntityTypeMapping TypeName="PcgStorageModel.characterarmorcard">
+              <MappingFragment StoreEntitySet="characterarmorcard">
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="ArmorCardId" ColumnName="ArmorCardId" />
+                <ScalarProperty Name="CharacterId" ColumnName="CharacterId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="characterblessingcards">
+            <EntityTypeMapping TypeName="PcgStorageModel.characterblessingcard">
+              <MappingFragment StoreEntitySet="characterblessingcard">
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="BlessingCardId" ColumnName="BlessingCardId" />
+                <ScalarProperty Name="CharacterId" ColumnName="CharacterId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="characteritemcards">
+            <EntityTypeMapping TypeName="PcgStorageModel.characteritemcard">
+              <MappingFragment StoreEntitySet="characteritemcard">
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="ItemCardId" ColumnName="ItemCardId" />
+                <ScalarProperty Name="CharacterId" ColumnName="CharacterId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="characterspellcards">
+            <EntityTypeMapping TypeName="PcgStorageModel.characterspellcard">
+              <MappingFragment StoreEntitySet="characterspellcard">
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="SpellCardId" ColumnName="SpellCardId" />
+                <ScalarProperty Name="CharacterId" ColumnName="CharacterId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="characterweaponcards">
+            <EntityTypeMapping TypeName="PcgStorageModel.characterweaponcard">
+              <MappingFragment StoreEntitySet="characterweaponcard">
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="WeaponCardId" ColumnName="WeaponCardId" />
+                <ScalarProperty Name="CharacterId" ColumnName="CharacterId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

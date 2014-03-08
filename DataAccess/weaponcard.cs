@@ -14,10 +14,16 @@ namespace DataAccess
     
     public partial class weaponcard
     {
+        public weaponcard()
+        {
+            this.characterweaponcards = new HashSet<characterweaponcard>();
+        }
+    
         public int Id { get; set; }
         public string Name { get; set; }
         public int AdventureDeckId { get; set; }
     
         public virtual adventuredeck adventuredeck { get; set; }
+        public virtual ICollection<characterweaponcard> characterweaponcards { get; set; }
     }
 }
