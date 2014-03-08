@@ -65,6 +65,15 @@
     <Compile Include="adventurepath.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="allycard.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="armorcard.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="blessingcard.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="card.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
@@ -104,6 +113,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Dto\BlessingCard.cs" />
+    <Compile Include="Dto\AllyCard.cs" />
+    <Compile Include="Dto\ItemCard.cs" />
+    <Compile Include="Dto\ArmorCard.cs" />
+    <Compile Include="Dto\SpellCard.cs" />
+    <Compile Include="Dto\WeaponCard.cs" />
     <Compile Include="Dto\CharacterScenario.cs" />
     <Compile Include="Dto\Scenario.cs" />
     <Compile Include="Dto\CharacterDeck.cs" />
@@ -120,6 +135,9 @@
     <Compile Include="Dto\Character.cs" />
     <Compile Include="Dto\Party.cs" />
     <Compile Include="Dto\PcgUser.cs" />
+    <Compile Include="itemcard.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="party.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
@@ -136,7 +154,13 @@
     <Compile Include="skill.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="spellcard.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="subskill.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="weaponcard.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -144,6 +168,7 @@
     <Content Include="SqlScripts\Dump20140202.sql" />
     <Content Include="SqlScripts\Dump20140209.sql" />
     <Content Include="SqlScripts\Dump20140308-1.sql" />
+    <Content Include="SqlScripts\Dump20140308-2.sql" />
     <Content Include="SqlScripts\Dump20140308.sql" />
   </ItemGroup>
   <ItemGroup>

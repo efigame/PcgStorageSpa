@@ -18,6 +18,12 @@ namespace DataAccess
         {
             this.cards = new HashSet<card>();
             this.scenarios = new HashSet<scenario>();
+            this.allycards = new HashSet<allycard>();
+            this.armorcards = new HashSet<armorcard>();
+            this.blessingcards = new HashSet<blessingcard>();
+            this.itemcards = new HashSet<itemcard>();
+            this.spellcards = new HashSet<spellcard>();
+            this.weaponcards = new HashSet<weaponcard>();
         }
     
         public int Id { get; set; }
@@ -28,5 +34,11 @@ namespace DataAccess
         public virtual ICollection<card> cards { get; set; }
         public virtual adventurepath adventurepath { get; set; }
         public virtual ICollection<scenario> scenarios { get; set; }
+        public virtual ICollection<allycard> allycards { get; set; }
+        public virtual ICollection<armorcard> armorcards { get; set; }
+        public virtual ICollection<blessingcard> blessingcards { get; set; }
+        public virtual ICollection<itemcard> itemcards { get; set; }
+        public virtual ICollection<spellcard> spellcards { get; set; }
+        public virtual ICollection<weaponcard> weaponcards { get; set; }
     }
 }
