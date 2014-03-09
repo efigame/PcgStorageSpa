@@ -17,6 +17,16 @@ namespace DataAccess
         public party()
         {
             this.characters = new HashSet<character>();
+            this.removedallycards = new HashSet<removedallycard>();
+            this.removedarmorcards = new HashSet<removedarmorcard>();
+            this.removedbarriercards = new HashSet<removedbarriercard>();
+            this.removedblessingcards = new HashSet<removedblessingcard>();
+            this.removedhenchmencards = new HashSet<removedhenchmencard>();
+            this.removeditemcards = new HashSet<removeditemcard>();
+            this.removedmonstercards = new HashSet<removedmonstercard>();
+            this.removedspellcards = new HashSet<removedspellcard>();
+            this.removedvillaincards = new HashSet<removedvillaincard>();
+            this.removedweaponcards = new HashSet<removedweaponcard>();
         }
     
         public int Id { get; set; }
@@ -25,5 +35,15 @@ namespace DataAccess
     
         public virtual pcguser pcguser { get; set; }
         public virtual ICollection<character> characters { get; set; }
+        public virtual ICollection<removedallycard> removedallycards { get; set; }
+        public virtual ICollection<removedarmorcard> removedarmorcards { get; set; }
+        public virtual ICollection<removedbarriercard> removedbarriercards { get; set; }
+        public virtual ICollection<removedblessingcard> removedblessingcards { get; set; }
+        public virtual ICollection<removedhenchmencard> removedhenchmencards { get; set; }
+        public virtual ICollection<removeditemcard> removeditemcards { get; set; }
+        public virtual ICollection<removedmonstercard> removedmonstercards { get; set; }
+        public virtual ICollection<removedspellcard> removedspellcards { get; set; }
+        public virtual ICollection<removedvillaincard> removedvillaincards { get; set; }
+        public virtual ICollection<removedweaponcard> removedweaponcards { get; set; }
     }
 }

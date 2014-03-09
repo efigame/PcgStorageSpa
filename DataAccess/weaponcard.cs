@@ -17,6 +17,7 @@ namespace DataAccess
         public weaponcard()
         {
             this.characterweaponcards = new HashSet<characterweaponcard>();
+            this.removedweaponcards = new HashSet<removedweaponcard>();
         }
     
         public int Id { get; set; }
@@ -25,5 +26,6 @@ namespace DataAccess
     
         public virtual adventuredeck adventuredeck { get; set; }
         public virtual ICollection<characterweaponcard> characterweaponcards { get; set; }
+        public virtual ICollection<removedweaponcard> removedweaponcards { get; set; }
     }
 }

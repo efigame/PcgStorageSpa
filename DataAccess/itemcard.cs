@@ -17,6 +17,7 @@ namespace DataAccess
         public itemcard()
         {
             this.characteritemcards = new HashSet<characteritemcard>();
+            this.removeditemcards = new HashSet<removeditemcard>();
         }
     
         public int Id { get; set; }
@@ -25,5 +26,6 @@ namespace DataAccess
     
         public virtual adventuredeck adventuredeck { get; set; }
         public virtual ICollection<characteritemcard> characteritemcards { get; set; }
+        public virtual ICollection<removeditemcard> removeditemcards { get; set; }
     }
 }

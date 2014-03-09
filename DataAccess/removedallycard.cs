@@ -12,20 +12,14 @@ namespace DataAccess
     using System;
     using System.Collections.Generic;
     
-    public partial class allycard
+    public partial class removedallycard
     {
-        public allycard()
-        {
-            this.characterallycards = new HashSet<characterallycard>();
-            this.removedallycards = new HashSet<removedallycard>();
-        }
-    
         public int Id { get; set; }
-        public string Name { get; set; }
-        public int AdventureDeckId { get; set; }
+        public int Count { get; set; }
+        public int PartyId { get; set; }
+        public int AllyCardId { get; set; }
     
-        public virtual adventuredeck adventuredeck { get; set; }
-        public virtual ICollection<characterallycard> characterallycards { get; set; }
-        public virtual ICollection<removedallycard> removedallycards { get; set; }
+        public virtual allycard allycard { get; set; }
+        public virtual party party { get; set; }
     }
 }

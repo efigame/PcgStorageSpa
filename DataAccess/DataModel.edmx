@@ -37,6 +37,14 @@
           <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="AdventureDeckId" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="barriercard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="AdventureDeckId" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="blessingcard">
           <Key>
             <PropertyRef Name="Id" />
@@ -195,7 +203,23 @@
           <Property Name="WeaponCardId" Type="int" Nullable="false" />
           <Property Name="Count" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="henchmencard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="AdventureDeckId" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="itemcard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="AdventureDeckId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="monstercard">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -229,6 +253,96 @@
           <Property Name="Dice" Type="int" />
           <Property Name="Adjustment" Type="int" />
           <Property Name="CharacterCardId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="removedallycard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+          <Property Name="PartyId" Type="int" Nullable="false" />
+          <Property Name="AllyCardId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="removedarmorcard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+          <Property Name="PartyId" Type="int" Nullable="false" />
+          <Property Name="ArmorCardId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="removedbarriercard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+          <Property Name="PartyId" Type="int" Nullable="false" />
+          <Property Name="BarrierCardId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="removedblessingcard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+          <Property Name="PartyId" Type="int" Nullable="false" />
+          <Property Name="BlessingCardId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="removedhenchmencard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+          <Property Name="PartyId" Type="int" Nullable="false" />
+          <Property Name="HenchmenCardId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="removeditemcard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+          <Property Name="PartyId" Type="int" Nullable="false" />
+          <Property Name="ItemCardId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="removedmonstercard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+          <Property Name="PartyId" Type="int" Nullable="false" />
+          <Property Name="MonsterCardId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="removedspellcard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+          <Property Name="PartyId" Type="int" Nullable="false" />
+          <Property Name="SpellCardId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="removedvillaincard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+          <Property Name="PartyId" Type="int" Nullable="false" />
+          <Property Name="VillainCardId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="removedweaponcard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+          <Property Name="PartyId" Type="int" Nullable="false" />
+          <Property Name="WeaponCardId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="scenario">
           <Key>
@@ -266,6 +380,14 @@
           <Property Name="BaseSkillId" Type="int" Nullable="false" />
           <Property Name="Adjustment" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="villaincard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="AdventureDeckId" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="weaponcard">
           <Key>
             <PropertyRef Name="Id" />
@@ -294,6 +416,18 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="armorcard">
+              <PropertyRef Name="AdventureDeckId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_barriercard_adventuredeck">
+          <End Role="adventuredeck" Type="Self.adventuredeck" Multiplicity="1" />
+          <End Role="barriercard" Type="Self.barriercard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="adventuredeck">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="barriercard">
               <PropertyRef Name="AdventureDeckId" />
             </Dependent>
           </ReferentialConstraint>
@@ -598,6 +732,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_henchmencard_adventuredeck">
+          <End Role="adventuredeck" Type="Self.adventuredeck" Multiplicity="1" />
+          <End Role="henchmencard" Type="Self.henchmencard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="adventuredeck">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="henchmencard">
+              <PropertyRef Name="AdventureDeckId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_itemcard_adventuredeck">
           <End Role="adventuredeck" Type="Self.adventuredeck" Multiplicity="1" />
           <End Role="itemcard" Type="Self.itemcard" Multiplicity="*" />
@@ -606,6 +752,18 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="itemcard">
+              <PropertyRef Name="AdventureDeckId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_monstercard_adventuredeck">
+          <End Role="adventuredeck" Type="Self.adventuredeck" Multiplicity="1" />
+          <End Role="monstercard" Type="Self.monstercard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="adventuredeck">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="monstercard">
               <PropertyRef Name="AdventureDeckId" />
             </Dependent>
           </ReferentialConstraint>
@@ -631,6 +789,246 @@
             </Principal>
             <Dependent Role="power">
               <PropertyRef Name="CharacterCardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removedallycard_allycard">
+          <End Role="allycard" Type="Self.allycard" Multiplicity="1" />
+          <End Role="removedallycard" Type="Self.removedallycard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="allycard">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removedallycard">
+              <PropertyRef Name="AllyCardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removedallycard_party">
+          <End Role="party" Type="Self.party" Multiplicity="1" />
+          <End Role="removedallycard" Type="Self.removedallycard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="party">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removedallycard">
+              <PropertyRef Name="PartyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removedarmorcard_armorcard">
+          <End Role="armorcard" Type="Self.armorcard" Multiplicity="1" />
+          <End Role="removedarmorcard" Type="Self.removedarmorcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="armorcard">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removedarmorcard">
+              <PropertyRef Name="ArmorCardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removedarmorcard_party">
+          <End Role="party" Type="Self.party" Multiplicity="1" />
+          <End Role="removedarmorcard" Type="Self.removedarmorcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="party">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removedarmorcard">
+              <PropertyRef Name="PartyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removedbarriercard_barriercard">
+          <End Role="barriercard" Type="Self.barriercard" Multiplicity="1" />
+          <End Role="removedbarriercard" Type="Self.removedbarriercard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="barriercard">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removedbarriercard">
+              <PropertyRef Name="BarrierCardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removedbarriercard_party">
+          <End Role="party" Type="Self.party" Multiplicity="1" />
+          <End Role="removedbarriercard" Type="Self.removedbarriercard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="party">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removedbarriercard">
+              <PropertyRef Name="PartyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removedblessingcard_blessingcard">
+          <End Role="blessingcard" Type="Self.blessingcard" Multiplicity="1" />
+          <End Role="removedblessingcard" Type="Self.removedblessingcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="blessingcard">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removedblessingcard">
+              <PropertyRef Name="BlessingCardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removedblessingcard_party">
+          <End Role="party" Type="Self.party" Multiplicity="1" />
+          <End Role="removedblessingcard" Type="Self.removedblessingcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="party">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removedblessingcard">
+              <PropertyRef Name="PartyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removedhenchmencard_henchmencard">
+          <End Role="henchmencard" Type="Self.henchmencard" Multiplicity="1" />
+          <End Role="removedhenchmencard" Type="Self.removedhenchmencard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="henchmencard">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removedhenchmencard">
+              <PropertyRef Name="HenchmenCardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removedhenchmencard_party">
+          <End Role="party" Type="Self.party" Multiplicity="1" />
+          <End Role="removedhenchmencard" Type="Self.removedhenchmencard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="party">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removedhenchmencard">
+              <PropertyRef Name="PartyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removeditemcard_itemcard">
+          <End Role="itemcard" Type="Self.itemcard" Multiplicity="1" />
+          <End Role="removeditemcard" Type="Self.removeditemcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="itemcard">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removeditemcard">
+              <PropertyRef Name="ItemCardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removeditemcard_party">
+          <End Role="party" Type="Self.party" Multiplicity="1" />
+          <End Role="removeditemcard" Type="Self.removeditemcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="party">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removeditemcard">
+              <PropertyRef Name="PartyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removedmonstercard_monstercard">
+          <End Role="monstercard" Type="Self.monstercard" Multiplicity="1" />
+          <End Role="removedmonstercard" Type="Self.removedmonstercard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="monstercard">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removedmonstercard">
+              <PropertyRef Name="MonsterCardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removedmonstercard_party">
+          <End Role="party" Type="Self.party" Multiplicity="1" />
+          <End Role="removedmonstercard" Type="Self.removedmonstercard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="party">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removedmonstercard">
+              <PropertyRef Name="PartyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removedspellcard_party">
+          <End Role="party" Type="Self.party" Multiplicity="1" />
+          <End Role="removedspellcard" Type="Self.removedspellcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="party">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removedspellcard">
+              <PropertyRef Name="PartyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removedspellcard_spellcard">
+          <End Role="spellcard" Type="Self.spellcard" Multiplicity="1" />
+          <End Role="removedspellcard" Type="Self.removedspellcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="spellcard">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removedspellcard">
+              <PropertyRef Name="SpellCardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removedvillaincard_party">
+          <End Role="party" Type="Self.party" Multiplicity="1" />
+          <End Role="removedvillaincard" Type="Self.removedvillaincard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="party">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removedvillaincard">
+              <PropertyRef Name="PartyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removedvillaincard_villaincard">
+          <End Role="villaincard" Type="Self.villaincard" Multiplicity="1" />
+          <End Role="removedvillaincard" Type="Self.removedvillaincard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="villaincard">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removedvillaincard">
+              <PropertyRef Name="VillainCardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removedweaponcard_party">
+          <End Role="party" Type="Self.party" Multiplicity="1" />
+          <End Role="removedweaponcard" Type="Self.removedweaponcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="party">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removedweaponcard">
+              <PropertyRef Name="PartyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removedweaponcard_weaponcard">
+          <End Role="weaponcard" Type="Self.weaponcard" Multiplicity="1" />
+          <End Role="removedweaponcard" Type="Self.removedweaponcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="weaponcard">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removedweaponcard">
+              <PropertyRef Name="WeaponCardId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -682,6 +1080,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_villaincard_adventuredeck">
+          <End Role="adventuredeck" Type="Self.adventuredeck" Multiplicity="1" />
+          <End Role="villaincard" Type="Self.villaincard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="adventuredeck">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="villaincard">
+              <PropertyRef Name="AdventureDeckId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_weaponcard_adventuredeck">
           <End Role="adventuredeck" Type="Self.adventuredeck" Multiplicity="1" />
           <End Role="weaponcard" Type="Self.weaponcard" Multiplicity="*" />
@@ -699,6 +1109,7 @@
           <EntitySet Name="adventurepath" EntityType="Self.adventurepath" Schema="pcgstorage" store:Type="Tables" />
           <EntitySet Name="allycard" EntityType="Self.allycard" Schema="pcgstorage" store:Type="Tables" />
           <EntitySet Name="armorcard" EntityType="Self.armorcard" Schema="pcgstorage" store:Type="Tables" />
+          <EntitySet Name="barriercard" EntityType="Self.barriercard" Schema="pcgstorage" store:Type="Tables" />
           <EntitySet Name="blessingcard" EntityType="Self.blessingcard" Schema="pcgstorage" store:Type="Tables" />
           <EntitySet Name="card" EntityType="Self.card" Schema="pcgstorage" store:Type="Tables" />
           <EntitySet Name="cardtype" EntityType="Self.cardtype" Schema="pcgstorage" store:Type="Tables" />
@@ -714,14 +1125,27 @@
           <EntitySet Name="characterskill" EntityType="Self.characterskill" Schema="pcgstorage" store:Type="Tables" />
           <EntitySet Name="characterspellcard" EntityType="Self.characterspellcard" Schema="pcgstorage" store:Type="Tables" />
           <EntitySet Name="characterweaponcard" EntityType="Self.characterweaponcard" Schema="pcgstorage" store:Type="Tables" />
+          <EntitySet Name="henchmencard" EntityType="Self.henchmencard" Schema="pcgstorage" store:Type="Tables" />
           <EntitySet Name="itemcard" EntityType="Self.itemcard" Schema="pcgstorage" store:Type="Tables" />
+          <EntitySet Name="monstercard" EntityType="Self.monstercard" Schema="pcgstorage" store:Type="Tables" />
           <EntitySet Name="party" EntityType="Self.party" Schema="pcgstorage" store:Type="Tables" />
           <EntitySet Name="pcguser" EntityType="Self.pcguser" Schema="pcgstorage" store:Type="Tables" />
           <EntitySet Name="power" EntityType="Self.power" Schema="pcgstorage" store:Type="Tables" />
+          <EntitySet Name="removedallycard" EntityType="Self.removedallycard" Schema="pcgstorage" store:Type="Tables" />
+          <EntitySet Name="removedarmorcard" EntityType="Self.removedarmorcard" Schema="pcgstorage" store:Type="Tables" />
+          <EntitySet Name="removedbarriercard" EntityType="Self.removedbarriercard" Schema="pcgstorage" store:Type="Tables" />
+          <EntitySet Name="removedblessingcard" EntityType="Self.removedblessingcard" Schema="pcgstorage" store:Type="Tables" />
+          <EntitySet Name="removedhenchmencard" EntityType="Self.removedhenchmencard" Schema="pcgstorage" store:Type="Tables" />
+          <EntitySet Name="removeditemcard" EntityType="Self.removeditemcard" Schema="pcgstorage" store:Type="Tables" />
+          <EntitySet Name="removedmonstercard" EntityType="Self.removedmonstercard" Schema="pcgstorage" store:Type="Tables" />
+          <EntitySet Name="removedspellcard" EntityType="Self.removedspellcard" Schema="pcgstorage" store:Type="Tables" />
+          <EntitySet Name="removedvillaincard" EntityType="Self.removedvillaincard" Schema="pcgstorage" store:Type="Tables" />
+          <EntitySet Name="removedweaponcard" EntityType="Self.removedweaponcard" Schema="pcgstorage" store:Type="Tables" />
           <EntitySet Name="scenario" EntityType="Self.scenario" Schema="pcgstorage" store:Type="Tables" />
           <EntitySet Name="skill" EntityType="Self.skill" Schema="pcgstorage" store:Type="Tables" />
           <EntitySet Name="spellcard" EntityType="Self.spellcard" Schema="pcgstorage" store:Type="Tables" />
           <EntitySet Name="subskill" EntityType="Self.subskill" Schema="pcgstorage" store:Type="Tables" />
+          <EntitySet Name="villaincard" EntityType="Self.villaincard" Schema="pcgstorage" store:Type="Tables" />
           <EntitySet Name="weaponcard" EntityType="Self.weaponcard" Schema="pcgstorage" store:Type="Tables" />
           <AssociationSet Name="fk_allycard_adventuredeck" Association="Self.fk_allycard_adventuredeck">
             <End Role="adventuredeck" EntitySet="adventuredeck" />
@@ -730,6 +1154,10 @@
           <AssociationSet Name="fk_armorcard_adventuredeck" Association="Self.fk_armorcard_adventuredeck">
             <End Role="adventuredeck" EntitySet="adventuredeck" />
             <End Role="armorcard" EntitySet="armorcard" />
+          </AssociationSet>
+          <AssociationSet Name="fk_barriercard_adventuredeck" Association="Self.fk_barriercard_adventuredeck">
+            <End Role="adventuredeck" EntitySet="adventuredeck" />
+            <End Role="barriercard" EntitySet="barriercard" />
           </AssociationSet>
           <AssociationSet Name="fk_blessingcard_adventuredeck" Association="Self.fk_blessingcard_adventuredeck">
             <End Role="adventuredeck" EntitySet="adventuredeck" />
@@ -831,9 +1259,17 @@
             <End Role="adventurepath" EntitySet="adventurepath" />
             <End Role="adventuredeck" EntitySet="adventuredeck" />
           </AssociationSet>
+          <AssociationSet Name="fk_henchmencard_adventuredeck" Association="Self.fk_henchmencard_adventuredeck">
+            <End Role="adventuredeck" EntitySet="adventuredeck" />
+            <End Role="henchmencard" EntitySet="henchmencard" />
+          </AssociationSet>
           <AssociationSet Name="fk_itemcard_adventuredeck" Association="Self.fk_itemcard_adventuredeck">
             <End Role="adventuredeck" EntitySet="adventuredeck" />
             <End Role="itemcard" EntitySet="itemcard" />
+          </AssociationSet>
+          <AssociationSet Name="fk_monstercard_adventuredeck" Association="Self.fk_monstercard_adventuredeck">
+            <End Role="adventuredeck" EntitySet="adventuredeck" />
+            <End Role="monstercard" EntitySet="monstercard" />
           </AssociationSet>
           <AssociationSet Name="fk_party_pcguser" Association="Self.fk_party_pcguser">
             <End Role="pcguser" EntitySet="pcguser" />
@@ -842,6 +1278,86 @@
           <AssociationSet Name="fk_power_charactercard_id" Association="Self.fk_power_charactercard_id">
             <End Role="charactercard" EntitySet="charactercard" />
             <End Role="power" EntitySet="power" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removedallycard_allycard" Association="Self.fk_removedallycard_allycard">
+            <End Role="allycard" EntitySet="allycard" />
+            <End Role="removedallycard" EntitySet="removedallycard" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removedallycard_party" Association="Self.fk_removedallycard_party">
+            <End Role="party" EntitySet="party" />
+            <End Role="removedallycard" EntitySet="removedallycard" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removedarmorcard_armorcard" Association="Self.fk_removedarmorcard_armorcard">
+            <End Role="armorcard" EntitySet="armorcard" />
+            <End Role="removedarmorcard" EntitySet="removedarmorcard" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removedarmorcard_party" Association="Self.fk_removedarmorcard_party">
+            <End Role="party" EntitySet="party" />
+            <End Role="removedarmorcard" EntitySet="removedarmorcard" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removedbarriercard_barriercard" Association="Self.fk_removedbarriercard_barriercard">
+            <End Role="barriercard" EntitySet="barriercard" />
+            <End Role="removedbarriercard" EntitySet="removedbarriercard" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removedbarriercard_party" Association="Self.fk_removedbarriercard_party">
+            <End Role="party" EntitySet="party" />
+            <End Role="removedbarriercard" EntitySet="removedbarriercard" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removedblessingcard_blessingcard" Association="Self.fk_removedblessingcard_blessingcard">
+            <End Role="blessingcard" EntitySet="blessingcard" />
+            <End Role="removedblessingcard" EntitySet="removedblessingcard" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removedblessingcard_party" Association="Self.fk_removedblessingcard_party">
+            <End Role="party" EntitySet="party" />
+            <End Role="removedblessingcard" EntitySet="removedblessingcard" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removedhenchmencard_henchmencard" Association="Self.fk_removedhenchmencard_henchmencard">
+            <End Role="henchmencard" EntitySet="henchmencard" />
+            <End Role="removedhenchmencard" EntitySet="removedhenchmencard" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removedhenchmencard_party" Association="Self.fk_removedhenchmencard_party">
+            <End Role="party" EntitySet="party" />
+            <End Role="removedhenchmencard" EntitySet="removedhenchmencard" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removeditemcard_itemcard" Association="Self.fk_removeditemcard_itemcard">
+            <End Role="itemcard" EntitySet="itemcard" />
+            <End Role="removeditemcard" EntitySet="removeditemcard" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removeditemcard_party" Association="Self.fk_removeditemcard_party">
+            <End Role="party" EntitySet="party" />
+            <End Role="removeditemcard" EntitySet="removeditemcard" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removedmonstercard_monstercard" Association="Self.fk_removedmonstercard_monstercard">
+            <End Role="monstercard" EntitySet="monstercard" />
+            <End Role="removedmonstercard" EntitySet="removedmonstercard" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removedmonstercard_party" Association="Self.fk_removedmonstercard_party">
+            <End Role="party" EntitySet="party" />
+            <End Role="removedmonstercard" EntitySet="removedmonstercard" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removedspellcard_party" Association="Self.fk_removedspellcard_party">
+            <End Role="party" EntitySet="party" />
+            <End Role="removedspellcard" EntitySet="removedspellcard" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removedspellcard_spellcard" Association="Self.fk_removedspellcard_spellcard">
+            <End Role="spellcard" EntitySet="spellcard" />
+            <End Role="removedspellcard" EntitySet="removedspellcard" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removedvillaincard_party" Association="Self.fk_removedvillaincard_party">
+            <End Role="party" EntitySet="party" />
+            <End Role="removedvillaincard" EntitySet="removedvillaincard" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removedvillaincard_villaincard" Association="Self.fk_removedvillaincard_villaincard">
+            <End Role="villaincard" EntitySet="villaincard" />
+            <End Role="removedvillaincard" EntitySet="removedvillaincard" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removedweaponcard_party" Association="Self.fk_removedweaponcard_party">
+            <End Role="party" EntitySet="party" />
+            <End Role="removedweaponcard" EntitySet="removedweaponcard" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removedweaponcard_weaponcard" Association="Self.fk_removedweaponcard_weaponcard">
+            <End Role="weaponcard" EntitySet="weaponcard" />
+            <End Role="removedweaponcard" EntitySet="removedweaponcard" />
           </AssociationSet>
           <AssociationSet Name="fk_scenario_adventuredeck" Association="Self.fk_scenario_adventuredeck">
             <End Role="adventuredeck" EntitySet="adventuredeck" />
@@ -858,6 +1374,10 @@
           <AssociationSet Name="fk_subskill_skill" Association="Self.fk_subskill_skill">
             <End Role="skill" EntitySet="skill" />
             <End Role="subskill" EntitySet="subskill" />
+          </AssociationSet>
+          <AssociationSet Name="fk_villaincard_adventuredeck" Association="Self.fk_villaincard_adventuredeck">
+            <End Role="adventuredeck" EntitySet="adventuredeck" />
+            <End Role="villaincard" EntitySet="villaincard" />
           </AssociationSet>
           <AssociationSet Name="fk_weaponcard_adventuredeck" Association="Self.fk_weaponcard_adventuredeck">
             <End Role="adventuredeck" EntitySet="adventuredeck" />
@@ -1041,6 +1561,116 @@
             <End Role="weaponcard" EntitySet="weaponcards" />
             <End Role="characterweaponcard" EntitySet="characterweaponcards" />
           </AssociationSet>
+          <EntitySet Name="barriercards" EntityType="PcgStorageModel.barriercard" />
+          <EntitySet Name="henchmencards" EntityType="PcgStorageModel.henchmencard" />
+          <EntitySet Name="monstercards" EntityType="PcgStorageModel.monstercard" />
+          <EntitySet Name="villaincards" EntityType="PcgStorageModel.villaincard" />
+          <AssociationSet Name="fk_barriercard_adventuredeck" Association="PcgStorageModel.fk_barriercard_adventuredeck">
+            <End Role="adventuredeck" EntitySet="adventuredecks" />
+            <End Role="barriercard" EntitySet="barriercards" />
+          </AssociationSet>
+          <AssociationSet Name="fk_henchmencard_adventuredeck" Association="PcgStorageModel.fk_henchmencard_adventuredeck">
+            <End Role="adventuredeck" EntitySet="adventuredecks" />
+            <End Role="henchmencard" EntitySet="henchmencards" />
+          </AssociationSet>
+          <AssociationSet Name="fk_monstercard_adventuredeck" Association="PcgStorageModel.fk_monstercard_adventuredeck">
+            <End Role="adventuredeck" EntitySet="adventuredecks" />
+            <End Role="monstercard" EntitySet="monstercards" />
+          </AssociationSet>
+          <AssociationSet Name="fk_villaincard_adventuredeck" Association="PcgStorageModel.fk_villaincard_adventuredeck">
+            <End Role="adventuredeck" EntitySet="adventuredecks" />
+            <End Role="villaincard" EntitySet="villaincards" />
+          </AssociationSet>
+          <EntitySet Name="removedallycards" EntityType="PcgStorageModel.removedallycard" />
+          <EntitySet Name="removedarmorcards" EntityType="PcgStorageModel.removedarmorcard" />
+          <EntitySet Name="removedbarriercards" EntityType="PcgStorageModel.removedbarriercard" />
+          <EntitySet Name="removedblessingcards" EntityType="PcgStorageModel.removedblessingcard" />
+          <EntitySet Name="removedhenchmencards" EntityType="PcgStorageModel.removedhenchmencard" />
+          <EntitySet Name="removeditemcards" EntityType="PcgStorageModel.removeditemcard" />
+          <EntitySet Name="removedmonstercards" EntityType="PcgStorageModel.removedmonstercard" />
+          <EntitySet Name="removedspellcards" EntityType="PcgStorageModel.removedspellcard" />
+          <EntitySet Name="removedvillaincards" EntityType="PcgStorageModel.removedvillaincard" />
+          <EntitySet Name="removedweaponcards" EntityType="PcgStorageModel.removedweaponcard" />
+          <AssociationSet Name="fk_removedallycard_allycard" Association="PcgStorageModel.fk_removedallycard_allycard">
+            <End Role="allycard" EntitySet="allycards" />
+            <End Role="removedallycard" EntitySet="removedallycards" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removedarmorcard_armorcard" Association="PcgStorageModel.fk_removedarmorcard_armorcard">
+            <End Role="armorcard" EntitySet="armorcards" />
+            <End Role="removedarmorcard" EntitySet="removedarmorcards" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removedbarriercard_barriercard" Association="PcgStorageModel.fk_removedbarriercard_barriercard">
+            <End Role="barriercard" EntitySet="barriercards" />
+            <End Role="removedbarriercard" EntitySet="removedbarriercards" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removedblessingcard_blessingcard" Association="PcgStorageModel.fk_removedblessingcard_blessingcard">
+            <End Role="blessingcard" EntitySet="blessingcards" />
+            <End Role="removedblessingcard" EntitySet="removedblessingcards" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removedhenchmencard_henchmencard" Association="PcgStorageModel.fk_removedhenchmencard_henchmencard">
+            <End Role="henchmencard" EntitySet="henchmencards" />
+            <End Role="removedhenchmencard" EntitySet="removedhenchmencards" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removeditemcard_itemcard" Association="PcgStorageModel.fk_removeditemcard_itemcard">
+            <End Role="itemcard" EntitySet="itemcards" />
+            <End Role="removeditemcard" EntitySet="removeditemcards" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removedmonstercard_monstercard" Association="PcgStorageModel.fk_removedmonstercard_monstercard">
+            <End Role="monstercard" EntitySet="monstercards" />
+            <End Role="removedmonstercard" EntitySet="removedmonstercards" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removedallycard_party" Association="PcgStorageModel.fk_removedallycard_party">
+            <End Role="party" EntitySet="parties" />
+            <End Role="removedallycard" EntitySet="removedallycards" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removedarmorcard_party" Association="PcgStorageModel.fk_removedarmorcard_party">
+            <End Role="party" EntitySet="parties" />
+            <End Role="removedarmorcard" EntitySet="removedarmorcards" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removedbarriercard_party" Association="PcgStorageModel.fk_removedbarriercard_party">
+            <End Role="party" EntitySet="parties" />
+            <End Role="removedbarriercard" EntitySet="removedbarriercards" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removedblessingcard_party" Association="PcgStorageModel.fk_removedblessingcard_party">
+            <End Role="party" EntitySet="parties" />
+            <End Role="removedblessingcard" EntitySet="removedblessingcards" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removedhenchmencard_party" Association="PcgStorageModel.fk_removedhenchmencard_party">
+            <End Role="party" EntitySet="parties" />
+            <End Role="removedhenchmencard" EntitySet="removedhenchmencards" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removeditemcard_party" Association="PcgStorageModel.fk_removeditemcard_party">
+            <End Role="party" EntitySet="parties" />
+            <End Role="removeditemcard" EntitySet="removeditemcards" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removedmonstercard_party" Association="PcgStorageModel.fk_removedmonstercard_party">
+            <End Role="party" EntitySet="parties" />
+            <End Role="removedmonstercard" EntitySet="removedmonstercards" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removedspellcard_party" Association="PcgStorageModel.fk_removedspellcard_party">
+            <End Role="party" EntitySet="parties" />
+            <End Role="removedspellcard" EntitySet="removedspellcards" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removedvillaincard_party" Association="PcgStorageModel.fk_removedvillaincard_party">
+            <End Role="party" EntitySet="parties" />
+            <End Role="removedvillaincard" EntitySet="removedvillaincards" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removedweaponcard_party" Association="PcgStorageModel.fk_removedweaponcard_party">
+            <End Role="party" EntitySet="parties" />
+            <End Role="removedweaponcard" EntitySet="removedweaponcards" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removedspellcard_spellcard" Association="PcgStorageModel.fk_removedspellcard_spellcard">
+            <End Role="spellcard" EntitySet="spellcards" />
+            <End Role="removedspellcard" EntitySet="removedspellcards" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removedvillaincard_villaincard" Association="PcgStorageModel.fk_removedvillaincard_villaincard">
+            <End Role="villaincard" EntitySet="villaincards" />
+            <End Role="removedvillaincard" EntitySet="removedvillaincards" />
+          </AssociationSet>
+          <AssociationSet Name="fk_removedweaponcard_weaponcard" Association="PcgStorageModel.fk_removedweaponcard_weaponcard">
+            <End Role="weaponcard" EntitySet="weaponcards" />
+            <End Role="removedweaponcard" EntitySet="removedweaponcards" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="party">
           <Key>
@@ -1051,6 +1681,16 @@
           <Property Name="PcgUserId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="pcguser" Relationship="PcgStorageModel.fk_party_pcguser" FromRole="party" ToRole="pcguser" />
           <NavigationProperty Name="characters" Relationship="PcgStorageModel.fk_character_party" FromRole="party" ToRole="character" />
+          <NavigationProperty Name="removedallycards" Relationship="PcgStorageModel.fk_removedallycard_party" FromRole="party" ToRole="removedallycard" />
+          <NavigationProperty Name="removedarmorcards" Relationship="PcgStorageModel.fk_removedarmorcard_party" FromRole="party" ToRole="removedarmorcard" />
+          <NavigationProperty Name="removedbarriercards" Relationship="PcgStorageModel.fk_removedbarriercard_party" FromRole="party" ToRole="removedbarriercard" />
+          <NavigationProperty Name="removedblessingcards" Relationship="PcgStorageModel.fk_removedblessingcard_party" FromRole="party" ToRole="removedblessingcard" />
+          <NavigationProperty Name="removedhenchmencards" Relationship="PcgStorageModel.fk_removedhenchmencard_party" FromRole="party" ToRole="removedhenchmencard" />
+          <NavigationProperty Name="removeditemcards" Relationship="PcgStorageModel.fk_removeditemcard_party" FromRole="party" ToRole="removeditemcard" />
+          <NavigationProperty Name="removedmonstercards" Relationship="PcgStorageModel.fk_removedmonstercard_party" FromRole="party" ToRole="removedmonstercard" />
+          <NavigationProperty Name="removedspellcards" Relationship="PcgStorageModel.fk_removedspellcard_party" FromRole="party" ToRole="removedspellcard" />
+          <NavigationProperty Name="removedvillaincards" Relationship="PcgStorageModel.fk_removedvillaincard_party" FromRole="party" ToRole="removedvillaincard" />
+          <NavigationProperty Name="removedweaponcards" Relationship="PcgStorageModel.fk_removedweaponcard_party" FromRole="party" ToRole="removedweaponcard" />
         </EntityType>
         <EntityType Name="pcguser">
           <Key>
@@ -1230,6 +1870,10 @@
           <NavigationProperty Name="itemcards" Relationship="PcgStorageModel.fk_itemcard_adventuredeck" FromRole="adventuredeck" ToRole="itemcard" />
           <NavigationProperty Name="spellcards" Relationship="PcgStorageModel.fk_spellcard_adventuredeck" FromRole="adventuredeck" ToRole="spellcard" />
           <NavigationProperty Name="weaponcards" Relationship="PcgStorageModel.fk_weaponcard_adventuredeck" FromRole="adventuredeck" ToRole="weaponcard" />
+          <NavigationProperty Name="barriercards" Relationship="PcgStorageModel.fk_barriercard_adventuredeck" FromRole="adventuredeck" ToRole="barriercard" />
+          <NavigationProperty Name="henchmencards" Relationship="PcgStorageModel.fk_henchmencard_adventuredeck" FromRole="adventuredeck" ToRole="henchmencard" />
+          <NavigationProperty Name="monstercards" Relationship="PcgStorageModel.fk_monstercard_adventuredeck" FromRole="adventuredeck" ToRole="monstercard" />
+          <NavigationProperty Name="villaincards" Relationship="PcgStorageModel.fk_villaincard_adventuredeck" FromRole="adventuredeck" ToRole="villaincard" />
         </EntityType>
         <Association Name="fk_card_deck_id">
           <End Type="PcgStorageModel.adventuredeck" Role="adventuredeck" Multiplicity="1" />
@@ -1482,6 +2126,7 @@
           <Property Name="AdventureDeckId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="adventuredeck" Relationship="PcgStorageModel.fk_allycard_adventuredeck" FromRole="allycard" ToRole="adventuredeck" />
           <NavigationProperty Name="characterallycards" Relationship="PcgStorageModel.fk_characterallycard_allycard" FromRole="allycard" ToRole="characterallycard" />
+          <NavigationProperty Name="removedallycards" Relationship="PcgStorageModel.fk_removedallycard_allycard" FromRole="allycard" ToRole="removedallycard" />
         </EntityType>
         <EntityType Name="armorcard">
           <Key>
@@ -1492,6 +2137,7 @@
           <Property Name="AdventureDeckId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="adventuredeck" Relationship="PcgStorageModel.fk_armorcard_adventuredeck" FromRole="armorcard" ToRole="adventuredeck" />
           <NavigationProperty Name="characterarmorcards" Relationship="PcgStorageModel.fk_characterarmorcard_armorcard" FromRole="armorcard" ToRole="characterarmorcard" />
+          <NavigationProperty Name="removedarmorcards" Relationship="PcgStorageModel.fk_removedarmorcard_armorcard" FromRole="armorcard" ToRole="removedarmorcard" />
         </EntityType>
         <EntityType Name="blessingcard">
           <Key>
@@ -1502,6 +2148,7 @@
           <Property Name="AdventureDeckId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="adventuredeck" Relationship="PcgStorageModel.fk_blessingcard_adventuredeck" FromRole="blessingcard" ToRole="adventuredeck" />
           <NavigationProperty Name="characterblessingcards" Relationship="PcgStorageModel.fk_characterblessingcard_blessingcard" FromRole="blessingcard" ToRole="characterblessingcard" />
+          <NavigationProperty Name="removedblessingcards" Relationship="PcgStorageModel.fk_removedblessingcard_blessingcard" FromRole="blessingcard" ToRole="removedblessingcard" />
         </EntityType>
         <EntityType Name="itemcard">
           <Key>
@@ -1512,6 +2159,7 @@
           <Property Name="AdventureDeckId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="adventuredeck" Relationship="PcgStorageModel.fk_itemcard_adventuredeck" FromRole="itemcard" ToRole="adventuredeck" />
           <NavigationProperty Name="characteritemcards" Relationship="PcgStorageModel.fk_characteritemcard_itemcard" FromRole="itemcard" ToRole="characteritemcard" />
+          <NavigationProperty Name="removeditemcards" Relationship="PcgStorageModel.fk_removeditemcard_itemcard" FromRole="itemcard" ToRole="removeditemcard" />
         </EntityType>
         <EntityType Name="spellcard">
           <Key>
@@ -1522,6 +2170,7 @@
           <Property Name="AdventureDeckId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="adventuredeck" Relationship="PcgStorageModel.fk_spellcard_adventuredeck" FromRole="spellcard" ToRole="adventuredeck" />
           <NavigationProperty Name="characterspellcards" Relationship="PcgStorageModel.fk_characterspellcard_spellcard" FromRole="spellcard" ToRole="characterspellcard" />
+          <NavigationProperty Name="removedspellcards" Relationship="PcgStorageModel.fk_removedspellcard_spellcard" FromRole="spellcard" ToRole="removedspellcard" />
         </EntityType>
         <EntityType Name="weaponcard">
           <Key>
@@ -1532,6 +2181,7 @@
           <Property Name="AdventureDeckId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="adventuredeck" Relationship="PcgStorageModel.fk_weaponcard_adventuredeck" FromRole="weaponcard" ToRole="adventuredeck" />
           <NavigationProperty Name="characterweaponcards" Relationship="PcgStorageModel.fk_characterweaponcard_weaponcard" FromRole="weaponcard" ToRole="characterweaponcard" />
+          <NavigationProperty Name="removedweaponcards" Relationship="PcgStorageModel.fk_removedweaponcard_weaponcard" FromRole="weaponcard" ToRole="removedweaponcard" />
         </EntityType>
         <Association Name="fk_allycard_adventuredeck">
           <End Type="PcgStorageModel.adventuredeck" Role="adventuredeck" Multiplicity="1" />
@@ -1811,6 +2461,444 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="characterweaponcard">
+              <PropertyRef Name="WeaponCardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="barriercard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AdventureDeckId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="adventuredeck" Relationship="PcgStorageModel.fk_barriercard_adventuredeck" FromRole="barriercard" ToRole="adventuredeck" />
+          <NavigationProperty Name="removedbarriercards" Relationship="PcgStorageModel.fk_removedbarriercard_barriercard" FromRole="barriercard" ToRole="removedbarriercard" />
+        </EntityType>
+        <EntityType Name="henchmencard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AdventureDeckId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="adventuredeck" Relationship="PcgStorageModel.fk_henchmencard_adventuredeck" FromRole="henchmencard" ToRole="adventuredeck" />
+          <NavigationProperty Name="removedhenchmencards" Relationship="PcgStorageModel.fk_removedhenchmencard_henchmencard" FromRole="henchmencard" ToRole="removedhenchmencard" />
+        </EntityType>
+        <EntityType Name="monstercard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AdventureDeckId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="adventuredeck" Relationship="PcgStorageModel.fk_monstercard_adventuredeck" FromRole="monstercard" ToRole="adventuredeck" />
+          <NavigationProperty Name="removedmonstercards" Relationship="PcgStorageModel.fk_removedmonstercard_monstercard" FromRole="monstercard" ToRole="removedmonstercard" />
+        </EntityType>
+        <EntityType Name="villaincard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AdventureDeckId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="adventuredeck" Relationship="PcgStorageModel.fk_villaincard_adventuredeck" FromRole="villaincard" ToRole="adventuredeck" />
+          <NavigationProperty Name="removedvillaincards" Relationship="PcgStorageModel.fk_removedvillaincard_villaincard" FromRole="villaincard" ToRole="removedvillaincard" />
+        </EntityType>
+        <Association Name="fk_barriercard_adventuredeck">
+          <End Type="PcgStorageModel.adventuredeck" Role="adventuredeck" Multiplicity="1" />
+          <End Type="PcgStorageModel.barriercard" Role="barriercard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="adventuredeck">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="barriercard">
+              <PropertyRef Name="AdventureDeckId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_henchmencard_adventuredeck">
+          <End Type="PcgStorageModel.adventuredeck" Role="adventuredeck" Multiplicity="1" />
+          <End Type="PcgStorageModel.henchmencard" Role="henchmencard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="adventuredeck">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="henchmencard">
+              <PropertyRef Name="AdventureDeckId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_monstercard_adventuredeck">
+          <End Type="PcgStorageModel.adventuredeck" Role="adventuredeck" Multiplicity="1" />
+          <End Type="PcgStorageModel.monstercard" Role="monstercard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="adventuredeck">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="monstercard">
+              <PropertyRef Name="AdventureDeckId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_villaincard_adventuredeck">
+          <End Type="PcgStorageModel.adventuredeck" Role="adventuredeck" Multiplicity="1" />
+          <End Type="PcgStorageModel.villaincard" Role="villaincard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="adventuredeck">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="villaincard">
+              <PropertyRef Name="AdventureDeckId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="removedallycard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <Property Name="PartyId" Type="Int32" Nullable="false" />
+          <Property Name="AllyCardId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="allycard" Relationship="PcgStorageModel.fk_removedallycard_allycard" FromRole="removedallycard" ToRole="allycard" />
+          <NavigationProperty Name="party" Relationship="PcgStorageModel.fk_removedallycard_party" FromRole="removedallycard" ToRole="party" />
+        </EntityType>
+        <EntityType Name="removedarmorcard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <Property Name="PartyId" Type="Int32" Nullable="false" />
+          <Property Name="ArmorCardId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="armorcard" Relationship="PcgStorageModel.fk_removedarmorcard_armorcard" FromRole="removedarmorcard" ToRole="armorcard" />
+          <NavigationProperty Name="party" Relationship="PcgStorageModel.fk_removedarmorcard_party" FromRole="removedarmorcard" ToRole="party" />
+        </EntityType>
+        <EntityType Name="removedbarriercard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <Property Name="PartyId" Type="Int32" Nullable="false" />
+          <Property Name="BarrierCardId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="barriercard" Relationship="PcgStorageModel.fk_removedbarriercard_barriercard" FromRole="removedbarriercard" ToRole="barriercard" />
+          <NavigationProperty Name="party" Relationship="PcgStorageModel.fk_removedbarriercard_party" FromRole="removedbarriercard" ToRole="party" />
+        </EntityType>
+        <EntityType Name="removedblessingcard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <Property Name="PartyId" Type="Int32" Nullable="false" />
+          <Property Name="BlessingCardId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="blessingcard" Relationship="PcgStorageModel.fk_removedblessingcard_blessingcard" FromRole="removedblessingcard" ToRole="blessingcard" />
+          <NavigationProperty Name="party" Relationship="PcgStorageModel.fk_removedblessingcard_party" FromRole="removedblessingcard" ToRole="party" />
+        </EntityType>
+        <EntityType Name="removedhenchmencard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <Property Name="PartyId" Type="Int32" Nullable="false" />
+          <Property Name="HenchmenCardId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="henchmencard" Relationship="PcgStorageModel.fk_removedhenchmencard_henchmencard" FromRole="removedhenchmencard" ToRole="henchmencard" />
+          <NavigationProperty Name="party" Relationship="PcgStorageModel.fk_removedhenchmencard_party" FromRole="removedhenchmencard" ToRole="party" />
+        </EntityType>
+        <EntityType Name="removeditemcard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <Property Name="PartyId" Type="Int32" Nullable="false" />
+          <Property Name="ItemCardId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="itemcard" Relationship="PcgStorageModel.fk_removeditemcard_itemcard" FromRole="removeditemcard" ToRole="itemcard" />
+          <NavigationProperty Name="party" Relationship="PcgStorageModel.fk_removeditemcard_party" FromRole="removeditemcard" ToRole="party" />
+        </EntityType>
+        <EntityType Name="removedmonstercard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <Property Name="PartyId" Type="Int32" Nullable="false" />
+          <Property Name="MonsterCardId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="monstercard" Relationship="PcgStorageModel.fk_removedmonstercard_monstercard" FromRole="removedmonstercard" ToRole="monstercard" />
+          <NavigationProperty Name="party" Relationship="PcgStorageModel.fk_removedmonstercard_party" FromRole="removedmonstercard" ToRole="party" />
+        </EntityType>
+        <EntityType Name="removedspellcard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <Property Name="PartyId" Type="Int32" Nullable="false" />
+          <Property Name="SpellCardId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="party" Relationship="PcgStorageModel.fk_removedspellcard_party" FromRole="removedspellcard" ToRole="party" />
+          <NavigationProperty Name="spellcard" Relationship="PcgStorageModel.fk_removedspellcard_spellcard" FromRole="removedspellcard" ToRole="spellcard" />
+        </EntityType>
+        <EntityType Name="removedvillaincard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <Property Name="PartyId" Type="Int32" Nullable="false" />
+          <Property Name="VillainCardId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="party" Relationship="PcgStorageModel.fk_removedvillaincard_party" FromRole="removedvillaincard" ToRole="party" />
+          <NavigationProperty Name="villaincard" Relationship="PcgStorageModel.fk_removedvillaincard_villaincard" FromRole="removedvillaincard" ToRole="villaincard" />
+        </EntityType>
+        <EntityType Name="removedweaponcard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <Property Name="PartyId" Type="Int32" Nullable="false" />
+          <Property Name="WeaponCardId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="party" Relationship="PcgStorageModel.fk_removedweaponcard_party" FromRole="removedweaponcard" ToRole="party" />
+          <NavigationProperty Name="weaponcard" Relationship="PcgStorageModel.fk_removedweaponcard_weaponcard" FromRole="removedweaponcard" ToRole="weaponcard" />
+        </EntityType>
+        <Association Name="fk_removedallycard_allycard">
+          <End Type="PcgStorageModel.allycard" Role="allycard" Multiplicity="1" />
+          <End Type="PcgStorageModel.removedallycard" Role="removedallycard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="allycard">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removedallycard">
+              <PropertyRef Name="AllyCardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removedarmorcard_armorcard">
+          <End Type="PcgStorageModel.armorcard" Role="armorcard" Multiplicity="1" />
+          <End Type="PcgStorageModel.removedarmorcard" Role="removedarmorcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="armorcard">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removedarmorcard">
+              <PropertyRef Name="ArmorCardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removedbarriercard_barriercard">
+          <End Type="PcgStorageModel.barriercard" Role="barriercard" Multiplicity="1" />
+          <End Type="PcgStorageModel.removedbarriercard" Role="removedbarriercard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="barriercard">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removedbarriercard">
+              <PropertyRef Name="BarrierCardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removedblessingcard_blessingcard">
+          <End Type="PcgStorageModel.blessingcard" Role="blessingcard" Multiplicity="1" />
+          <End Type="PcgStorageModel.removedblessingcard" Role="removedblessingcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="blessingcard">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removedblessingcard">
+              <PropertyRef Name="BlessingCardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removedhenchmencard_henchmencard">
+          <End Type="PcgStorageModel.henchmencard" Role="henchmencard" Multiplicity="1" />
+          <End Type="PcgStorageModel.removedhenchmencard" Role="removedhenchmencard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="henchmencard">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removedhenchmencard">
+              <PropertyRef Name="HenchmenCardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removeditemcard_itemcard">
+          <End Type="PcgStorageModel.itemcard" Role="itemcard" Multiplicity="1" />
+          <End Type="PcgStorageModel.removeditemcard" Role="removeditemcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="itemcard">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removeditemcard">
+              <PropertyRef Name="ItemCardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removedmonstercard_monstercard">
+          <End Type="PcgStorageModel.monstercard" Role="monstercard" Multiplicity="1" />
+          <End Type="PcgStorageModel.removedmonstercard" Role="removedmonstercard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="monstercard">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removedmonstercard">
+              <PropertyRef Name="MonsterCardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removedallycard_party">
+          <End Type="PcgStorageModel.party" Role="party" Multiplicity="1" />
+          <End Type="PcgStorageModel.removedallycard" Role="removedallycard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="party">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removedallycard">
+              <PropertyRef Name="PartyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removedarmorcard_party">
+          <End Type="PcgStorageModel.party" Role="party" Multiplicity="1" />
+          <End Type="PcgStorageModel.removedarmorcard" Role="removedarmorcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="party">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removedarmorcard">
+              <PropertyRef Name="PartyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removedbarriercard_party">
+          <End Type="PcgStorageModel.party" Role="party" Multiplicity="1" />
+          <End Type="PcgStorageModel.removedbarriercard" Role="removedbarriercard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="party">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removedbarriercard">
+              <PropertyRef Name="PartyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removedblessingcard_party">
+          <End Type="PcgStorageModel.party" Role="party" Multiplicity="1" />
+          <End Type="PcgStorageModel.removedblessingcard" Role="removedblessingcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="party">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removedblessingcard">
+              <PropertyRef Name="PartyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removedhenchmencard_party">
+          <End Type="PcgStorageModel.party" Role="party" Multiplicity="1" />
+          <End Type="PcgStorageModel.removedhenchmencard" Role="removedhenchmencard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="party">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removedhenchmencard">
+              <PropertyRef Name="PartyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removeditemcard_party">
+          <End Type="PcgStorageModel.party" Role="party" Multiplicity="1" />
+          <End Type="PcgStorageModel.removeditemcard" Role="removeditemcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="party">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removeditemcard">
+              <PropertyRef Name="PartyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removedmonstercard_party">
+          <End Type="PcgStorageModel.party" Role="party" Multiplicity="1" />
+          <End Type="PcgStorageModel.removedmonstercard" Role="removedmonstercard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="party">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removedmonstercard">
+              <PropertyRef Name="PartyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removedspellcard_party">
+          <End Type="PcgStorageModel.party" Role="party" Multiplicity="1" />
+          <End Type="PcgStorageModel.removedspellcard" Role="removedspellcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="party">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removedspellcard">
+              <PropertyRef Name="PartyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removedvillaincard_party">
+          <End Type="PcgStorageModel.party" Role="party" Multiplicity="1" />
+          <End Type="PcgStorageModel.removedvillaincard" Role="removedvillaincard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="party">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removedvillaincard">
+              <PropertyRef Name="PartyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removedweaponcard_party">
+          <End Type="PcgStorageModel.party" Role="party" Multiplicity="1" />
+          <End Type="PcgStorageModel.removedweaponcard" Role="removedweaponcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="party">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removedweaponcard">
+              <PropertyRef Name="PartyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removedspellcard_spellcard">
+          <End Type="PcgStorageModel.spellcard" Role="spellcard" Multiplicity="1" />
+          <End Type="PcgStorageModel.removedspellcard" Role="removedspellcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="spellcard">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removedspellcard">
+              <PropertyRef Name="SpellCardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removedvillaincard_villaincard">
+          <End Type="PcgStorageModel.villaincard" Role="villaincard" Multiplicity="1" />
+          <End Type="PcgStorageModel.removedvillaincard" Role="removedvillaincard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="villaincard">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removedvillaincard">
+              <PropertyRef Name="VillainCardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_removedweaponcard_weaponcard">
+          <End Type="PcgStorageModel.weaponcard" Role="weaponcard" Multiplicity="1" />
+          <End Type="PcgStorageModel.removedweaponcard" Role="removedweaponcard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="weaponcard">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="removedweaponcard">
               <PropertyRef Name="WeaponCardId" />
             </Dependent>
           </ReferentialConstraint>
@@ -2114,6 +3202,142 @@
                 <ScalarProperty Name="Count" ColumnName="Count" />
                 <ScalarProperty Name="WeaponCardId" ColumnName="WeaponCardId" />
                 <ScalarProperty Name="CharacterId" ColumnName="CharacterId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="barriercards">
+            <EntityTypeMapping TypeName="PcgStorageModel.barriercard">
+              <MappingFragment StoreEntitySet="barriercard">
+                <ScalarProperty Name="AdventureDeckId" ColumnName="AdventureDeckId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="henchmencards">
+            <EntityTypeMapping TypeName="PcgStorageModel.henchmencard">
+              <MappingFragment StoreEntitySet="henchmencard">
+                <ScalarProperty Name="AdventureDeckId" ColumnName="AdventureDeckId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="monstercards">
+            <EntityTypeMapping TypeName="PcgStorageModel.monstercard">
+              <MappingFragment StoreEntitySet="monstercard">
+                <ScalarProperty Name="AdventureDeckId" ColumnName="AdventureDeckId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="villaincards">
+            <EntityTypeMapping TypeName="PcgStorageModel.villaincard">
+              <MappingFragment StoreEntitySet="villaincard">
+                <ScalarProperty Name="AdventureDeckId" ColumnName="AdventureDeckId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="removedallycards">
+            <EntityTypeMapping TypeName="PcgStorageModel.removedallycard">
+              <MappingFragment StoreEntitySet="removedallycard">
+                <ScalarProperty Name="AllyCardId" ColumnName="AllyCardId" />
+                <ScalarProperty Name="PartyId" ColumnName="PartyId" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="removedarmorcards">
+            <EntityTypeMapping TypeName="PcgStorageModel.removedarmorcard">
+              <MappingFragment StoreEntitySet="removedarmorcard">
+                <ScalarProperty Name="ArmorCardId" ColumnName="ArmorCardId" />
+                <ScalarProperty Name="PartyId" ColumnName="PartyId" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="removedbarriercards">
+            <EntityTypeMapping TypeName="PcgStorageModel.removedbarriercard">
+              <MappingFragment StoreEntitySet="removedbarriercard">
+                <ScalarProperty Name="BarrierCardId" ColumnName="BarrierCardId" />
+                <ScalarProperty Name="PartyId" ColumnName="PartyId" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="removedblessingcards">
+            <EntityTypeMapping TypeName="PcgStorageModel.removedblessingcard">
+              <MappingFragment StoreEntitySet="removedblessingcard">
+                <ScalarProperty Name="BlessingCardId" ColumnName="BlessingCardId" />
+                <ScalarProperty Name="PartyId" ColumnName="PartyId" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="removedhenchmencards">
+            <EntityTypeMapping TypeName="PcgStorageModel.removedhenchmencard">
+              <MappingFragment StoreEntitySet="removedhenchmencard">
+                <ScalarProperty Name="HenchmenCardId" ColumnName="HenchmenCardId" />
+                <ScalarProperty Name="PartyId" ColumnName="PartyId" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="removeditemcards">
+            <EntityTypeMapping TypeName="PcgStorageModel.removeditemcard">
+              <MappingFragment StoreEntitySet="removeditemcard">
+                <ScalarProperty Name="ItemCardId" ColumnName="ItemCardId" />
+                <ScalarProperty Name="PartyId" ColumnName="PartyId" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="removedmonstercards">
+            <EntityTypeMapping TypeName="PcgStorageModel.removedmonstercard">
+              <MappingFragment StoreEntitySet="removedmonstercard">
+                <ScalarProperty Name="MonsterCardId" ColumnName="MonsterCardId" />
+                <ScalarProperty Name="PartyId" ColumnName="PartyId" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="removedspellcards">
+            <EntityTypeMapping TypeName="PcgStorageModel.removedspellcard">
+              <MappingFragment StoreEntitySet="removedspellcard">
+                <ScalarProperty Name="SpellCardId" ColumnName="SpellCardId" />
+                <ScalarProperty Name="PartyId" ColumnName="PartyId" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="removedvillaincards">
+            <EntityTypeMapping TypeName="PcgStorageModel.removedvillaincard">
+              <MappingFragment StoreEntitySet="removedvillaincard">
+                <ScalarProperty Name="VillainCardId" ColumnName="VillainCardId" />
+                <ScalarProperty Name="PartyId" ColumnName="PartyId" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="removedweaponcards">
+            <EntityTypeMapping TypeName="PcgStorageModel.removedweaponcard">
+              <MappingFragment StoreEntitySet="removedweaponcard">
+                <ScalarProperty Name="WeaponCardId" ColumnName="WeaponCardId" />
+                <ScalarProperty Name="PartyId" ColumnName="PartyId" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

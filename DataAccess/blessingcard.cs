@@ -17,6 +17,7 @@ namespace DataAccess
         public blessingcard()
         {
             this.characterblessingcards = new HashSet<characterblessingcard>();
+            this.removedblessingcards = new HashSet<removedblessingcard>();
         }
     
         public int Id { get; set; }
@@ -25,5 +26,6 @@ namespace DataAccess
     
         public virtual adventuredeck adventuredeck { get; set; }
         public virtual ICollection<characterblessingcard> characterblessingcards { get; set; }
+        public virtual ICollection<removedblessingcard> removedblessingcards { get; set; }
     }
 }

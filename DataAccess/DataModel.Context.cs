@@ -53,5 +53,19 @@ namespace DataAccess
         public virtual DbSet<characteritemcard> characteritemcards { get; set; }
         public virtual DbSet<characterspellcard> characterspellcards { get; set; }
         public virtual DbSet<characterweaponcard> characterweaponcards { get; set; }
+        public virtual DbSet<barriercard> barriercards { get; set; }
+        public virtual DbSet<henchmencard> henchmencards { get; set; }
+        public virtual DbSet<monstercard> monstercards { get; set; }
+        public virtual DbSet<villaincard> villaincards { get; set; }
+        public virtual DbSet<removedallycard> removedallycards { get; set; }
+        public virtual DbSet<removedarmorcard> removedarmorcards { get; set; }
+        public virtual DbSet<removedbarriercard> removedbarriercards { get; set; }
+        public virtual DbSet<removedblessingcard> removedblessingcards { get; set; }
+        public virtual DbSet<removedhenchmencard> removedhenchmencards { get; set; }
+        public virtual DbSet<removeditemcard> removeditemcards { get; set; }
+        public virtual DbSet<removedmonstercard> removedmonstercards { get; set; }
+        public virtual DbSet<removedspellcard> removedspellcards { get; set; }
+        public virtual DbSet<removedvillaincard> removedvillaincards { get; set; }
+        public virtual DbSet<removedweaponcard> removedweaponcards { get; set; }
     }
 }
